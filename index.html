@@ -706,61 +706,61 @@
 
     <script>
         const books = [
-            {title: "1984", author: "George Orwell", isbn: "9780451524935", tags: ["fiction", "classic", "dystopian"]},
-            {title: "Adventures of Huckleberry Finn", author: "Mark Twain", isbn: "9780486280615", tags: ["fiction", "classic"]},
-            {title: "The Alchemist", author: "Paulo Coelho", isbn: "9780062315007", tags: ["fiction", "philosophy"]},
-            {title: "All the Pretty Horses", author: "Cormac McCarthy", isbn: "9780679744399", tags: ["fiction"]},
-            {title: "And Then There Were None", author: "Agatha Christie", isbn: "9780062073488", tags: ["fiction", "mystery"]},
-            {title: "Angela's Ashes", author: "Frank McCourt", isbn: "9780684842677", tags: ["nonfiction", "biography", "memoir"]},
-            {title: "Animal Farm", author: "George Orwell", isbn: "9780451526342", tags: ["fiction", "classic"]},
-            {title: "Anna Karenina", author: "Leo Tolstoy", isbn: "9780143035008", tags: ["fiction", "classic"]},
-            {title: "Atlas Shrugged", author: "Ayn Rand", isbn: "9780451191144", tags: ["fiction", "philosophy"]},
-            {title: "The Bitcoin Standard", author: "Saifedean Ammous", isbn: "9781119473862", tags: ["nonfiction", "economics", "technology"]},
-            {title: "The Book Thief", author: "Markus Zusak", isbn: "9780375842207", tags: ["fiction", "historical"]},
-            {title: "Brave New World", author: "Aldous Huxley", isbn: "9780060850524", tags: ["fiction", "classic", "dystopian"]},
-            {title: "Change By Design", author: "Tim Brown", isbn: "9780061766084", tags: ["nonfiction", "business", "design"]},
-            {title: "The Charisma Myth", author: "Olivia Fox Cabane", isbn: "9781591845942", tags: ["nonfiction", "psychology", "self-help"]},
-            {title: "The Count of Monte Cristo", author: "Alexandre Dumas", isbn: "9780140449266", tags: ["fiction", "classic"]},
-            {title: "Death of a Salesman", author: "Arthur Miller", isbn: "9780140481341", tags: ["fiction", "drama", "classic"]},
-            {title: "The Defining Decade", author: "Meg Jay", isbn: "9780446561754", tags: ["nonfiction", "psychology", "self-help"]},
-            {title: "The Demon in the Freezer", author: "Richard Preston", isbn: "9780345466631", tags: ["nonfiction", "science"]},
-            {title: "Design is Storytelling", author: "Ellen Lupton", isbn: "9781942303190", tags: ["nonfiction", "design"]},
-            {title: "Ender's Game", author: "Orson Scott Card", isbn: "9780812550702", tags: ["fiction", "science-fiction"]},
-            {title: "Factfulness", author: "Hans Rosling", isbn: "9781250107817", tags: ["nonfiction", "economics", "statistics"]},
-            {title: "Fathers and Sons", author: "Ivan Turgenev", isbn: "9780140449273", tags: ["fiction", "classic"]},
-            {title: "Fermat's Last Theorem", author: "Simon Singh", isbn: "9780385493628", tags: ["nonfiction", "mathematics"]},
-            {title: "Flow", author: "Mihaly Csikszentmihalyi", isbn: "9780061339202", tags: ["nonfiction", "psychology"]},
-            {title: "Freakonomics", author: "Steven D. Levitt", isbn: "9780060731335", tags: ["nonfiction", "economics"]},
-            {title: "A Game of Thrones", author: "George R.R. Martin", isbn: "9780553103540", tags: ["fiction", "fantasy"]},
-            {title: "Getting Things Done", author: "David Allen", isbn: "9780142000281", tags: ["nonfiction", "productivity", "business"]},
-            {title: "The Great Gatsby", author: "F. Scott Fitzgerald", isbn: "9780743273565", tags: ["fiction", "classic"]},
-            {title: "How to Read Literature Like a Professor", author: "Thomas C. Foster", isbn: "9780062301673", tags: ["nonfiction", "literature"]},
-            {title: "How Will You Measure Your Life?", author: "Clayton M. Christensen", isbn: "9780062102416", tags: ["nonfiction", "business", "self-help"]},
-            {title: "The Importance of Being Earnest", author: "Oscar Wilde", isbn: "9780486264783", tags: ["fiction", "drama", "classic"]},
-            {title: "Invisible Man", author: "Ralph Ellison", isbn: "9780679732761", tags: ["fiction", "classic"]},
-            {title: "Into the Wild", author: "Jon Krakauer", isbn: "9780385486804", tags: ["nonfiction", "biography", "adventure"]},
-            {title: "Into Thin Air", author: "Jon Krakauer", isbn: "9780385494786", tags: ["nonfiction", "biography", "adventure"]},
-            {title: "King Lear", author: "William Shakespeare", isbn: "9780743482769", tags: ["fiction", "drama", "classic"]},
-            {title: "Leonardo Da Vinci", author: "Walter Isaacson", isbn: "9781501139161", tags: ["nonfiction", "biography"]},
-            {title: "Lord of the Flies", author: "William Golding", isbn: "9780399501487", tags: ["fiction", "classic"]},
-            {title: "The Lords of Strategy", author: "Walter Kiechel", isbn: "9781591397823", tags: ["nonfiction", "business"]},
-            {title: "Murder on the Orient Express", author: "Agatha Christie", isbn: "9780062693662", tags: ["fiction", "mystery"]},
-            {title: "No Country for Old Men", author: "Cormac McCarthy", isbn: "9780375706677", tags: ["fiction"]},
-            {title: "The Omnivore's Dilemma", author: "Michael Pollan", isbn: "9780143038580", tags: ["nonfiction", "food", "environment"]},
-            {title: "On the Road", author: "Jack Kerouac", isbn: "9780140283297", tags: ["fiction", "classic"]},
-            {title: "Outcasts United", author: "Warren St. John", isbn: "9780385522045", tags: ["nonfiction", "biography", "sports"]},
-            {title: "Outliers", author: "Malcolm Gladwell", isbn: "9780316017923", tags: ["nonfiction", "psychology", "business"]},
-            {title: "Poor Charlie's Almanac", author: "Charles Munger", isbn: "9781578645015", tags: ["nonfiction", "business", "investing"]},
-            {title: "Pride and Prejudice", author: "Jane Austen", isbn: "9780141439518", tags: ["fiction", "classic", "romance"]},
-            {title: "Revolutionary Characters", author: "Gordon S. Wood", isbn: "9780143112082", tags: ["nonfiction", "history", "biography"]},
-            {title: "Tis", author: "Frank McCourt", isbn: "9780684865744", tags: ["nonfiction", "biography", "memoir"]},
-            {title: "The Road", author: "Cormac McCarthy", isbn: "9780307387899", tags: ["fiction"]},
-            {title: "Romeo and Juliet", author: "William Shakespeare", isbn: "9780743477116", tags: ["fiction", "drama", "classic"]},
-            {title: "The Things They Carried", author: "Tim O'Brien", isbn: "9780618706419", tags: ["fiction", "war"]},
-            {title: "Think and Grow Rich", author: "Napoleon Hill", isbn: "9781585424337", tags: ["nonfiction", "business", "self-help"]},
-            {title: "A Time to Kill", author: "John Grisham", isbn: "9780440245919", tags: ["fiction", "thriller"]},
-            {title: "'Tis", author: "Frank McCourt", isbn: "9780684865744", tags: ["nonfiction", "biography", "memoir"]},
-            {title: "Why We Sleep", author: "Matthew Walker", isbn: "9781501144318", tags: ["nonfiction", "science", "health"]},
+            {title: "1984", author: "George Orwell", fileName: "1984.jpg", tags: ["fiction", "classic", "dystopian"]},
+            {title: "Adventures of Huckleberry Finn", author: "Mark Twain", fileName: "Adventures of Huckleberry Finn.jpg", tags: ["fiction", "classic"]},
+            {title: "The Alchemist", author: "Paulo Coelho", fileName: "The Alchemist.jpg", tags: ["fiction", "philosophy"]},
+            {title: "All the Pretty Horses", author: "Cormac McCarthy", fileName: "All the Pretty Horses.jpg", tags: ["fiction"]},
+            {title: "And Then There Were None", author: "Agatha Christie", fileName: "And Then There Were None.jpg", tags: ["fiction", "mystery"]},
+            {title: "Angela's Ashes", author: "Frank McCourt", fileName: "Angela's Ashes.jpg", tags: ["nonfiction", "biography", "memoir"]},
+            {title: "Animal Farm", author: "George Orwell", fileName: "Animal Farm.jpg", tags: ["fiction", "classic"]},
+            {title: "Anna Karenina", author: "Leo Tolstoy", fileName: "Anna Karenina.jpg", tags: ["fiction", "classic"]},
+            {title: "Atlas Shrugged", author: "Ayn Rand", fileName: "Atlas Shrugged.jpg", tags: ["fiction", "philosophy"]},
+            {title: "The Bitcoin Standard", author: "Saifedean Ammous", fileName: "The Bitcoin Standard.jpg", tags: ["nonfiction", "economics", "technology"]},
+            {title: "The Book Thief", author: "Markus Zusak", fileName: "The Book Thief.jpg", tags: ["fiction", "historical"]},
+            {title: "Brave New World", author: "Aldous Huxley", fileName: "Brave New World.jpg", tags: ["fiction", "classic", "dystopian"]},
+            {title: "Change By Design", author: "Tim Brown", fileName: "Change By Design.jpg", tags: ["nonfiction", "business", "design"]},
+            {title: "The Charisma Myth", author: "Olivia Fox Cabane", fileName: "The Charisma Myth.jpg", tags: ["nonfiction", "psychology", "self-help"]},
+            {title: "The Count of Monte Cristo", author: "Alexandre Dumas", fileName: "The Count of Monte Cristo.jpg", tags: ["fiction", "classic"]},
+            {title: "Death of a Salesman", author: "Arthur Miller", fileName: "Death of a Salesman.jpg", tags: ["fiction", "drama", "classic"]},
+            {title: "The Defining Decade", author: "Meg Jay", fileName: "The Defining Decade.jpg", tags: ["nonfiction", "psychology", "self-help"]},
+            {title: "The Demon in the Freezer", author: "Richard Preston", fileName: "The Demon in the Freezer.jpg", tags: ["nonfiction", "science"]},
+            {title: "Design is Storytelling", author: "Ellen Lupton", fileName: "Design is Storytelling.jpg", tags: ["nonfiction", "design"]},
+            {title: "Ender's Game", author: "Orson Scott Card", fileName: "Ender's Game.jpg", tags: ["fiction", "science-fiction"]},
+            {title: "Factfulness", author: "Hans Rosling", fileName: "Factfulness.jpg", tags: ["nonfiction", "economics", "statistics"]},
+            {title: "Fathers and Sons", author: "Ivan Turgenev", fileName: "Fathers and Sons.jpg", tags: ["fiction", "classic"]},
+            {title: "Fermat's Last Theorem", author: "Simon Singh", fileName: "Fermat's Last Theorem.jpg", tags: ["nonfiction", "mathematics"]},
+            {title: "Flow", author: "Mihaly Csikszentmihalyi", fileName: "Flow.jpg", tags: ["nonfiction", "psychology"]},
+            {title: "Freakonomics", author: "Steven D. Levitt", fileName: "Freakonomics.jpg", tags: ["nonfiction", "economics"]},
+            {title: "A Game of Thrones", author: "George R.R. Martin", fileName: "A Game of Thrones.jpg", tags: ["fiction", "fantasy"]},
+            {title: "Getting Things Done", author: "David Allen", fileName: "Getting Things Done.jpg", tags: ["nonfiction", "productivity", "business"]},
+            {title: "The Great Gatsby", author: "F. Scott Fitzgerald", fileName: "The Great Gatsby.jpg", tags: ["fiction", "classic"]},
+            {title: "How to Read Literature Like a Professor", author: "Thomas C. Foster", fileName: "How to Read Literature Like a Professor.jpg", tags: ["nonfiction", "literature"]},
+            {title: "How Will You Measure Your Life?", author: "Clayton M. Christensen", fileName: "How Will You Measure Your Life.jpg", tags: ["nonfiction", "business", "self-help"]},
+            {title: "The Importance of Being Earnest", author: "Oscar Wilde", fileName: "The Importance of Being Earnest.jpg", tags: ["fiction", "drama", "classic"]},
+            {title: "Invisible Man", author: "Ralph Ellison", fileName: "Invisible Man.jpg", tags: ["fiction", "classic"]},
+            {title: "Into the Wild", author: "Jon Krakauer", fileName: "Into the Wild.jpg", tags: ["nonfiction", "biography", "adventure"]},
+            {title: "Into Thin Air", author: "Jon Krakauer", fileName: "Into Thin Air.jpg", tags: ["nonfiction", "biography", "adventure"]},
+            {title: "King Lear", author: "William Shakespeare", fileName: "King Lear.jpg", tags: ["fiction", "drama", "classic"]},
+            {title: "Leonardo Da Vinci", author: "Walter Isaacson", fileName: "Leonardo Da Vinci.jpg", tags: ["nonfiction", "biography"]},
+            {title: "Lord of the Flies", author: "William Golding", fileName: "Lord of the Flies.jpg", tags: ["fiction", "classic"]},
+            {title: "The Lords of Strategy", author: "Walter Kiechel", fileName: "The Lords of Strategy.jpg", tags: ["nonfiction", "business"]},
+            {title: "Murder on the Orient Express", author: "Agatha Christie", fileName: "Murder on the Orient Express.jpg", tags: ["fiction", "mystery"]},
+            {title: "No Country for Old Men", author: "Cormac McCarthy", fileName: "No Country for Old Men.jpg", tags: ["fiction"]},
+            {title: "The Omnivore's Dilemma", author: "Michael Pollan", fileName: "The Omnivore's Dilemma.jpg", tags: ["nonfiction", "food", "environment"]},
+            {title: "On the Road", author: "Jack Kerouac", fileName: "On the Road.jpg", tags: ["fiction", "classic"]},
+            {title: "Outcasts United", author: "Warren St. John", fileName: "Outcasts United.jpg", tags: ["nonfiction", "biography", "sports"]},
+            {title: "Outliers", author: "Malcolm Gladwell", fileName: "Outliers.jpg", tags: ["nonfiction", "psychology", "business"]},
+            {title: "Poor Charlie's Almanac", author: "Charles Munger", fileName: "Poor Charlie's Almanac.jpg", tags: ["nonfiction", "business", "investing"]},
+            {title: "Pride and Prejudice", author: "Jane Austen", fileName: "Pride and Prejudice.jpg", tags: ["fiction", "classic", "romance"]},
+            {title: "Revolutionary Characters", author: "Gordon S. Wood", fileName: "Revolutionary Characters.jpg", tags: ["nonfiction", "history", "biography"]},
+            {title: "Tis", author: "Frank McCourt", fileName: "Tis.jpg", tags: ["nonfiction", "biography", "memoir"]},
+            {title: "The Road", author: "Cormac McCarthy", fileName: "The Road.jpg", tags: ["fiction"]},
+            {title: "Romeo and Juliet", author: "William Shakespeare", fileName: "Romeo and Juliet.jpg", tags: ["fiction", "drama", "classic"]},
+            {title: "The Things They Carried", author: "Tim O'Brien", fileName: "The Things They Carried.jpg", tags: ["fiction", "war"]},
+            {title: "Think and Grow Rich", author: "Napoleon Hill", fileName: "Think and Grow Rich.jpg", tags: ["nonfiction", "business", "self-help"]},
+            {title: "A Time to Kill", author: "John Grisham", fileName: "A Time to Kill.jpg", tags: ["fiction", "thriller"]},
+            {title: "'Tis", author: "Frank McCourt", fileName: "'Tis.jpg", tags: ["nonfiction", "biography", "memoir"]},
+            {title: "Why We Sleep", author: "Matthew Walker", fileName: "Why We Sleep.jpg", tags: ["nonfiction", "science", "health"]},
         ];
 
         const bookGrid = document.getElementById('bookGrid');
@@ -777,21 +777,12 @@
             'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
         ];
         
-        function getCoverUrls(isbn) {
-            return [
-                `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`,
-                `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`,
-                `http://books.google.com/books/content?id=&printsec=frontcover&img=1&zoom=1&isbn=${isbn}`,
-            ];
-        }
-        
         books.forEach((book, index) => {
             const item = document.createElement('div');
             item.className = 'grid-item';
             item.setAttribute('data-tags', book.tags.join(' '));
             
             const gradient = gradients[index % gradients.length];
-            const coverUrls = getCoverUrls(book.isbn);
             
             const wrapper = document.createElement('div');
             wrapper.className = 'book-cover-wrapper';
@@ -807,31 +798,23 @@
             img.alt = book.title;
             img.style.display = 'none';
             
-            let currentUrlIndex = 0;
-            
-            function tryNextUrl() {
-                if (currentUrlIndex < coverUrls.length) {
-                    img.src = coverUrls[currentUrlIndex];
-                    currentUrlIndex++;
-                }
-            }
+            // Set the image source to the GitHub path
+            img.src = `images/book covers/${book.fileName}`;
             
             img.onload = function() {
                 // Check if image actually loaded (not a placeholder)
                 if (this.naturalWidth > 1 && this.naturalHeight > 1) {
                     fallback.style.display = 'none';
                     this.style.display = 'block';
-                } else {
-                    tryNextUrl();
                 }
             };
             
             img.onerror = function() {
-                tryNextUrl();
+                // If image fails to load, fallback is already visible
+                console.log(`Failed to load: ${book.fileName}`);
             };
             
             wrapper.appendChild(img);
-            tryNextUrl();
             
             const titleDiv = document.createElement('div');
             titleDiv.className = 'book-title';
