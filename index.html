@@ -691,6 +691,10 @@
                 </div>
             </div>
         </div>
+
+        <div id="adventures" class="tab-content">
+            <div class="photo-collage" id="adventuresCollage"></div>
+        </div>
     </section>
 
     <footer>
@@ -705,7 +709,7 @@
     </footer>
 
     <script>
-        const books = [
+                const books = [
             {title: "1984", author: "George Orwell", fileName: "1984.jpg", tags: ["fiction", "classic", "dystopian"]},
             {title: "Adventures of Huckleberry Finn", author: "Mark Twain", fileName: "Adventures of Huckleberry Finn.jpg", tags: ["fiction", "classic"]},
             {title: "The Alchemist", author: "Paulo Coelho", fileName: "The Alchemist.jpg", tags: ["fiction", "philosophy"]},
@@ -777,6 +781,8 @@
             'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
         ];
         
+
+        
         books.forEach((book, index) => {
             const item = document.createElement('div');
             item.className = 'grid-item';
@@ -797,12 +803,9 @@
             img.className = 'book-cover';
             img.alt = book.title;
             img.style.display = 'none';
-            
-            // Set the image source to the GitHub path
             img.src = `images/book covers/${book.fileName}`;
             
             img.onload = function() {
-                // Check if image actually loaded (not a placeholder)
                 if (this.naturalWidth > 1 && this.naturalHeight > 1) {
                     fallback.style.display = 'none';
                     this.style.display = 'block';
@@ -810,8 +813,7 @@
             };
             
             img.onerror = function() {
-                // If image fails to load, fallback is already visible
-                console.log(`Failed to load: ${book.fileName}`);
+                // Fallback is already visible
             };
             
             wrapper.appendChild(img);
@@ -873,6 +875,39 @@
                 });
             });
         });
+
+        // Adventure photos - dynamically load from images/adventures folder
+        const adventurePhotos = [
+            { fileName: "photo1.jpg", caption: "Adventure moment", size: "large" },
+            { fileName: "photo2.jpg", caption: "Exploring new places", size: "medium" },
+            { fileName: "photo3.jpg", caption: "On the road", size: "small" },
+            { fileName: "photo4.jpg", caption: "Mountain views", size: "tall" },
+            { fileName: "photo5.jpg", caption: "City life", size: "medium" },
+            { fileName: "photo6.jpg", caption: "Sunset vibes", size: "wide" },
+            { fileName: "photo7.jpg", caption: "Travel days", size: "small" },
+            { fileName: "photo8.jpg", caption: "New experiences", size: "small" },
+        ];
+
+        // Populate adventures collage
+        const adventuresCollage = document.getElementById('adventuresCollage');
+        if (adventuresCollage) {
+            adventurePhotos.forEach(photo => {
+                const photoItem = document.createElement('div');
+                photoItem.className = `photo-item ${photo.size}`;
+                
+                const img = document.createElement('img');
+                img.src = `images/adventures/${photo.fileName}`;
+                img.alt = photo.caption;
+                
+                const caption = document.createElement('div');
+                caption.className = 'photo-caption';
+                caption.textContent = photo.caption;
+                
+                photoItem.appendChild(img);
+                photoItem.appendChild(caption);
+                adventuresCollage.appendChild(photoItem);
+            });
+        }
     </script>
 </body>
 </html>
