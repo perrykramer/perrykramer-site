@@ -3,155 +3,893 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Perry Kramer - BCG Consultant, Mathematics & Entrepreneurship graduate from W&L, based in NYC">
     <title>Perry Kramer</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        nav {
+            padding: 2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+
+        .hero {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 8rem 2rem 6rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            color: #1a1a1a;
+        }
+
+        .hero-intro {
+            font-size: 1.15rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .hero-intro p {
+            margin-bottom: 1.2rem;
+        }
+
+        .cta-link {
+            display: inline-block;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 0.95rem;
+            padding-bottom: 2px;
+            border-bottom: 2px solid #1a1a1a;
+            transition: opacity 0.2s;
+        }
+
+        .cta-link:hover {
+            opacity: 0.6;
+        }
+
+        .new-additions {
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .additions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 2rem;
+        }
+
+        .addition-item {
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .addition-item:hover {
+            opacity: 0.7;
+        }
+
+        .addition-cover {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background: #f5f5f5;
+            border-radius: 2px;
+            margin-bottom: 0.5rem;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: block;
+        }
+
+        .addition-cover.mental-model {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            font-size: 2rem;
+        }
+
+        .addition-title {
+            font-size: 0.85rem;
+            color: #1a1a1a;
+            line-height: 1.4;
+        }
+
+        .addition-meta {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 0.25rem;
+        }
+
+        .tabbed-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .tab {
+            padding: 1rem 0;
+            background: none;
+            border: none;
+            font-size: 1rem;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -1px;
+        }
+
+        .tab:hover {
+            color: #666;
+        }
+
+        .tab.active {
+            color: #1a1a1a;
+            border-bottom-color: #1a1a1a;
+        }
+
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            background: #f5f5f5;
+            border: 1px solid #e5e5e5;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn:hover {
+            background: #e5e5e5;
+        }
+
+        .filter-btn.active {
+            background: #1a1a1a;
+            color: white;
+            border-color: #1a1a1a;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-item {
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .grid-item:hover {
+            transform: translateY(-4px);
+            opacity: 0.8;
+        }
+
+        .book-cover-wrapper {
+            width: 100%;
+            aspect-ratio: 2/3;
+            margin-bottom: 0.75rem;
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .book-cover-fallback {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            padding: 0.5rem;
+            line-height: 1.3;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .book-title {
+            font-size: 0.85rem;
+            color: #1a1a1a;
+            margin-bottom: 0.25rem;
+            line-height: 1.3;
+        }
+
+        .book-author {
+            font-size: 0.75rem;
+            color: #999;
+        }
+
+        .mental-model-card {
+            width: 100%;
+            aspect-ratio: 1;
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .sketch-icon {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .sketch-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .model-title {
+            font-size: 0.9rem;
+            color: #1a1a1a;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .model-description {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 0.25rem;
+        }
+
+        /* Adventures Collage Grid */
+        .photo-collage {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1rem;
+            grid-auto-rows: 180px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Different sizes for visual interest */
+        .photo-item.wide {
+            grid-column: span 8;
+        }
+
+        .photo-item.tall {
+            grid-row: span 2;
+            grid-column: span 4;
+        }
+
+        .photo-item.large {
+            grid-column: span 6;
+            grid-row: span 2;
+        }
+
+        .photo-item.medium {
+            grid-column: span 6;
+        }
+
+        .photo-item.small {
+            grid-column: span 4;
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            font-size: 0.85rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .photo-item:hover .photo-caption {
+            opacity: 1;
+        }
+
+        footer {
+            border-top: 1px solid #e5e5e5;
+            padding: 3rem 3rem;
+            margin-top: 6rem;
+        }
+
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .social-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1.5rem;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .new-additions,
+            .tabbed-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .photo-collage {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0.75rem;
+                grid-auto-rows: 150px;
+            }
+
+            .photo-item.wide,
+            .photo-item.large,
+            .photo-item.medium {
+                grid-column: span 4;
+                grid-row: span 1;
+            }
+
+            .photo-item.tall,
+            .photo-item.small {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .tabs {
+                gap: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="index.html" class="logo">Perry Kramer</a>
-            <ul class="nav-links">
-                <li><a href="adventures.html">Adventures</a></li>
-                <li class="dropdown">
-                    <a href="collections.html">Collections ▾</a>
-                    <div class="dropdown-content">
-                        <a href="collections/books.html">Books</a>
-                        <a href="collections/restaurants.html">Restaurants</a>
-                    </div>
-                </li>
-                <li class="dropdown">
-                    <a href="reflections.html">Reflections ▾</a>
-                    <div class="dropdown-content">
-                        <a href="reflections.html#mental-models">Mental Models</a>
-                        <a href="reflections.html#general-reflections">General Reflections</a>
-                        <a href="reflections.html#book-briefings">Book Briefings</a>
-                        <a href="reflections.html#tactical-tips">Tactical Tips</a>
-                    </div>
-                </li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button class="mobile-menu-toggle">☰</button>
-        </nav>
-    </header>
+    <nav>
+        <a href="#" class="logo">Perry Kramer</a>
+        <ul class="nav-links">
+            <li><a href="#adventures">Adventures</a></li>
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#reflections">Reflections</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Hey! I'm Perry.</h1>
-                <div class="hero-intro">
-                    <p>Currently based in <strong>New York City</strong>, I work at <strong><a href="https://www.bcg.com/" target="_blank" rel="noopener">Boston Consulting Group (BCG)</a></strong> where I explore solutions to complex business problems.</p>
-                    <p><strong>Driven by curiosity</strong>, I'm always looking to learn and seek out new experiences that expand my perspective on the world.</p>
-                    <p>I'm passionate about helping others by <strong>saving time and money</strong>, reducing stress, and increasing the enjoyment and quality of life.</p>
-                    <p>Previously, I graduated from <strong><a href="http://wlu.edu" target="_blank" rel="noopener">Washington and Lee University</a></strong>, where I studied <strong>Mathematics</strong> and <strong>Entrepreneurship</strong>.</p>
+        <h1>Hey! I'm Perry.</h1>
+        <div class="hero-intro">
+            <div style="margin-bottom: 2.5rem;">
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 1rem; font-weight: 600;">Currently</p>
+                <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
+                    <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Living in New York City with close friends, exploring new neighborhoods and restaurants</p>
+                    <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Working at BCG on pricing, go-to-market strategy, and large-scale technology transformations</p>
+                    <p style="margin-bottom: 0; color: #1a1a1a;">Reading economics and writing about mental models</p>
                 </div>
-                <a href="#contact" class="cta-button">Let's Connect</a>
             </div>
-            <div class="hero-image">
-                <div class="image-blob">
-                    <img src="https://perrykramer.com/wp-content/uploads/2024/09/mont-st-victoire.jpg" alt="Mont St Victoire, Provence">
+            <div>
+                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 1rem; font-weight: 600;">Previously</p>
+                <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
+                    <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Studied mathematics and entrepreneurship and played lacrosse at W&L</p>
+                    <p style="margin-bottom: 0; color: #1a1a1a;">Traveled to 12 countries in 12 weeks with everything in a backpack</p>
                 </div>
+            </div>
+        </div>
+        <a href="#contact" class="cta-link">Get in touch</a>
+    </section>
+
+    <section class="new-additions">
+        <div class="section-label">New Additions</div>
+        <div class="additions-grid">
+            <div class="addition-item">
+                <div class="addition-cover" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.75rem; padding: 0.5rem; text-align: center;">Thinking, Fast and Slow</div>
+                <div class="addition-title">Thinking, Fast and Slow</div>
+                <div class="addition-meta">Book · Dec 2024</div>
+            </div>
+            <div class="addition-item">
+                <div class="addition-cover mental-model">
+                    <svg viewBox="0 0 100 100" style="width: 60%; height: 60%;">
+                        <!-- Friction: rough surfaces rubbing against each other -->
+                        <g>
+                            <!-- Top rough surface -->
+                            <path d="M 20,35 L 23,33 L 27,35 L 31,33 L 35,35 L 39,33 L 43,35 L 47,33 L 51,35 L 55,33 L 59,35 L 63,33 L 67,35 L 71,33 L 75,35 L 79,33 L 82,35" 
+                                  stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <!-- Bottom rough surface -->
+                            <path d="M 20,65 L 23,67 L 27,65 L 31,67 L 35,65 L 39,67 L 43,65 L 47,67 L 51,65 L 55,67 L 59,65 L 63,67 L 67,65 L 71,67 L 75,65 L 79,67 L 82,65" 
+                                  stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <!-- Motion arrows with resistance -->
+                            <path d="M 15,50 L 30,50" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M 26,46 L 30,50 L 26,54" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <!-- Resistance marks -->
+                            <path d="M 45,48 L 48,52 M 52,48 L 55,52 M 59,48 L 62,52" stroke="#d32f2f" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.6"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="addition-title">Friction</div>
+                <div class="addition-meta">Mental Model</div>
+            </div>
+            <div class="addition-item">
+                <div class="addition-cover" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.75rem; padding: 0.5rem; text-align: center;">Atomic Habits</div>
+                <div class="addition-title">Atomic Habits</div>
+                <div class="addition-meta">Book · Dec 2024</div>
+            </div>
+            <div class="addition-item">
+                <div class="addition-cover mental-model">
+                    <svg viewBox="0 0 100 100" style="width: 60%; height: 60%;">
+                        <!-- Inversion: arrow reversing direction -->
+                        <g>
+                            <!-- Forward arrow -->
+                            <path d="M 25,35 L 60,35" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M 56,31 L 60,35 L 56,39" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <!-- Curved connecting line -->
+                            <path d="M 60,42 Q 70,50 60,58" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="2,3"/>
+                            <!-- Backward arrow (inverted) -->
+                            <path d="M 60,65 L 25,65" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            <path d="M 29,61 L 25,65 L 29,69" stroke="#333" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="addition-title">Inversion</div>
+                <div class="addition-meta">Mental Model</div>
             </div>
         </div>
     </section>
 
-    <div class="main-content">
-        <div class="slideshow-section">
-            <div class="slideshow-header">
-                <h2>Recent Adventures</h2>
-            </div>
-            <div class="slideshow-container">
-                <div class="slide active">
-                    <img src="https://perrykramer.com/wp-content/uploads/2024/09/mont-st-victoire.jpg" alt="Mont St Victoire">
-                    <div class="slide-caption">Mont St Victoire, Provence</div>
-                </div>
-                <div class="slide">
-                    <img src="https://perrykramer.wordpress.com/wp-content/uploads/2024/05/img_5030.jpg" alt="Exploring new horizons">
-                    <div class="slide-caption">Exploring new horizons</div>
-                </div>
-                <div class="slide">
-                    <img src="https://perrykramer.wordpress.com/wp-content/uploads/2024/04/img_4269.jpg" alt="Mountain views">
-                    <div class="slide-caption">Mountain views</div>
-                </div>
-                <div class="slide">
-                    <img src="https://perrykramer.wordpress.com/wp-content/uploads/2024/05/trek.jpg" alt="On the trail">
-                    <div class="slide-caption">On the trail</div>
-                </div>
-                <div class="slide">
-                    <img src="https://perrykramer.wordpress.com/wp-content/uploads/2024/08/img_9396-2.jpg" alt="Summer adventures">
-                    <div class="slide-caption">Summer adventures</div>
-                </div>
-                <div class="slide">
-                    <img src="https://perrykramer.wordpress.com/wp-content/uploads/2024/08/img_0282.jpg" alt="City explorations">
-                    <div class="slide-caption">City explorations</div>
-                </div>
-
-                <div class="slideshow-controls">
-                    <button class="control-btn" id="prevBtn" aria-label="Previous slide">‹</button>
-                    <button class="control-btn" id="nextBtn" aria-label="Next slide">›</button>
-                </div>
-
-                <div class="slideshow-dots" id="dotsContainer"></div>
-            </div>
+    <section class="tabbed-section">
+        <div class="tabs">
+            <button class="tab active" data-tab="bookshelf">Bookshelf</button>
+            <button class="tab" data-tab="mental-models">Mental Models</button>
+            <button class="tab" data-tab="adventures">Adventures</button>
         </div>
 
-        <div class="blog-section">
-            <h2>Recent Reflections</h2>
-            <div class="blog-posts">
-                <article class="blog-post" onclick="window.location.href='posts/how-old-are-you.html'">
-                    <span class="blog-post-category reflections">General Reflections</span>
-                    <div class="blog-post-date">December 24, 2024</div>
-                    <h3>How Old Are You?</h3>
-                    <p class="blog-post-excerpt">Reflecting on age, time, and the experiences that shape who we become...</p>
-                    <span class="read-more">Read more →</span>
-                </article>
-
-                <article class="blog-post" onclick="window.location.href='posts/second-order-thinking.html'">
-                    <span class="blog-post-category mental-models">Mental Models</span>
-                    <div class="blog-post-date">November 15, 2024</div>
-                    <h3>Second-Order Thinking</h3>
-                    <p class="blog-post-excerpt">Why considering downstream consequences leads to better decision-making...</p>
-                    <span class="read-more">Read more →</span>
-                </article>
-
-                <article class="blog-post" onclick="window.location.href='posts/finding-balance-nyc.html'">
-                    <span class="blog-post-category tactical-tips">Tactical Tips</span>
-                    <div class="blog-post-date">October 8, 2024</div>
-                    <h3>Finding Balance in NYC</h3>
-                    <p class="blog-post-excerpt">Practical strategies for navigating the fast pace of city life while staying grounded...</p>
-                    <span class="read-more">Read more →</span>
-                </article>
+        <div id="bookshelf" class="tab-content active">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="fiction">Fiction</button>
+                <button class="filter-btn" data-filter="nonfiction">Nonfiction</button>
+                <button class="filter-btn" data-filter="business">Business</button>
+                <button class="filter-btn" data-filter="psychology">Psychology</button>
+                <button class="filter-btn" data-filter="biography">Biography</button>
+                <button class="filter-btn" data-filter="classic">Classic</button>
             </div>
-            <a href="reflections.html" class="view-all-link">View all reflections →</a>
-        </div>
-    </div>
 
-    <section id="contact" class="contact-section">
-        <div class="contact-content">
-            <h2>Let's Connect</h2>
-            <p>I'm always interested in meeting new people and exploring opportunities to collaborate. Whether you want to discuss ideas, grab coffee in NYC, or just say hello, feel free to reach out!</p>
-            <div class="contact-methods">
-                <a href="https://www.linkedin.com/in/perry-kramer/" target="_blank" rel="noopener" class="contact-button">
-                    LinkedIn
-                </a>
-                <a href="https://www.instagram.com/perrykramer/" target="_blank" rel="noopener" class="contact-button">
-                    Instagram
-                </a>
-                <a href="mailto:your.email@example.com" class="contact-button">
-                    Email
-                </a>
+            <div class="grid" id="bookGrid"></div>
+        </div>
+
+        <div id="mental-models" class="tab-content">
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="systems">Systems Thinking</button>
+                <button class="filter-btn" data-filter="decision">Decision Making</button>
+                <button class="filter-btn" data-filter="productivity">Productivity</button>
+            </div>
+
+            <div class="grid">
+                <div class="grid-item" data-category="systems">
+                    <div class="mental-model-card">
+                        <div class="sketch-icon">
+                            <svg viewBox="0 0 100 100">
+                                <!-- Friction: rough surfaces with resistance -->
+                                <g>
+                                    <path d="M 15,35 L 18,33 L 22,35 L 26,33 L 30,35 L 34,33 L 38,35 L 42,33 L 46,35 L 50,33 L 54,35 L 58,33 L 62,35 L 66,33 L 70,35 L 74,33 L 78,35 L 82,33 L 85,35" 
+                                          stroke="#2a2a2a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                                    <path d="M 15,65 L 18,67 L 22,65 L 26,67 L 30,65 L 34,67 L 38,65 L 42,67 L 46,65 L 50,67 L 54,65 L 58,67 L 62,65 L 66,67 L 70,65 L 74,67 L 78,65 L 82,67 L 85,65" 
+                                          stroke="#2a2a2a" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                                    <path d="M 10,50 L 28,50" stroke="#2a2a2a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+                                    <path d="M 24,46 L 28,50 L 24,54" stroke="#2a2a2a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+                                    <path d="M 42,47 L 45,53 M 50,47 L 53,53 M 58,47 L 61,53" stroke="#c62828" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.5"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="model-title">Friction</div>
+                    </div>
+                    <div class="model-description">Resistance slowing progress</div>
+                </div>
+
+                <div class="grid-item" data-category="systems">
+                    <div class="mental-model-card">
+                        <div class="sketch-icon">
+                            <svg viewBox="0 0 100 100">
+                                <!-- Bottleneck: bottle shape with narrow neck, liquid flowing through -->
+                                <g>
+                                    <!-- Wide bottle body -->
+                                    <path d="M 25,70 L 25,55 Q 25,50 30,48 L 40,35" stroke="#2a2a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    <path d="M 75,70 L 75,55 Q 75,50 70,48 L 60,35" stroke="#2a2a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    <!-- Narrow neck (bottleneck) -->
+                                    <path d="M 40,35 L 43,20" stroke="#2a2a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    <path d="M 60,35 L 57,20" stroke="#2a2a2a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                    <!-- Liquid drops showing restricted flow -->
+                                    <circle cx="50" cy="30" r="2.5" fill="#2a2a2a" opacity="0.6"/>
+                                    <circle cx="48" cy="40" r="2" fill="#2a2a2a" opacity="0.6"/>
+                                    <circle cx="52" cy="45" r="2" fill="#2a2a2a" opacity="0.6"/>
+                                    <circle cx="50" cy="52" r="2.5" fill="#2a2a2a" opacity="0.6"/>
+                                    <!-- Flow arrows -->
+                                    <path d="M 45,60 L 45,68" stroke="#2a2a2a" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"/>
+                                    <path d="M 55,60 L 55,68" stroke="#2a2a2a" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="model-title">Bottlenecks</div>
+                    </div>
+                    <div class="model-description">Constraints limiting flow</div>
+                </div>
+
+                <div class="grid-item" data-category="decision">
+                    <div class="mental-model-card">
+                        <div class="sketch-icon">
+                            <svg viewBox="0 0 100 100">
+                                <!-- Inversion: arrow reversing direction -->
+                                <g>
+                                    <path d="M 20,35 L 65,35" stroke="#2a2a2a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+                                    <path d="M 61,31 L 65,35 L 61,39" stroke="#2a2a2a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+                                    <path d="M 68,42 Q 80,50 68,58" stroke="#2a2a2a" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="2,4" opacity="0.6"/>
+                                    <path d="M 65,65 L 20,65" stroke="#2a2a2a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+                                    <path d="M 24,61 L 20,65 L 24,69" stroke="#2a2a2a" stroke-width="2.8" fill="none" stroke-linecap="round"/>
+                                    <!-- Small sketch marks for hand-drawn feel -->
+                                    <path d="M 68,35 L 72,35 M 70,33 L 70,37" stroke="#2a2a2a" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.3"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="model-title">Inversion</div>
+                    </div>
+                    <div class="model-description">Solving problems backwards</div>
+                </div>
+
+                <div class="grid-item" data-category="productivity">
+                    <div class="mental-model-card">
+                        <div class="sketch-icon">
+                            <svg viewBox="0 0 100 100">
+                                <!-- Pareto Principle: 80/20 bar chart -->
+                                <g>
+                                    <!-- Large 80% bar -->
+                                    <rect x="15" y="30" width="45" height="40" stroke="#2a2a2a" stroke-width="2.5" fill="none" stroke-linecap="round" rx="1"/>
+                                    <!-- Small 20% bar -->
+                                    <rect x="68" y="50" width="17" height="20" stroke="#2a2a2a" stroke-width="2.5" fill="none" stroke-linecap="round" rx="1"/>
+                                    <!-- Labels with sketch style -->
+                                    <text x="37" y="55" text-anchor="middle" font-size="16" fill="#2a2a2a" font-weight="600">80</text>
+                                    <text x="76" y="64" text-anchor="middle" font-size="11" fill="#2a2a2a" font-weight="600">20</text>
+                                    <!-- Baseline -->
+                                    <path d="M 10,72 L 90,72" stroke="#2a2a2a" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                                    <!-- Small accent marks -->
+                                    <path d="M 35,22 L 40,22 M 37,20 L 37,24" stroke="#2a2a2a" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.4"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="model-title">Pareto Principle</div>
+                    </div>
+                    <div class="model-description">80/20 rule</div>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Perry Kramer. All rights reserved.</p>
-        <div class="social-links">
-            <a href="https://www.instagram.com/perrykramer/" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://www.linkedin.com/in/perry-kramer/" target="_blank" rel="noopener">LinkedIn</a>
+        <div class="footer-content">
+            <p class="footer-text">© 2024 Perry Kramer</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/perry-kramer/" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/perrykramer/" target="_blank">Instagram</a>
+                <a href="mailto:your.email@example.com">Email</a>
+            </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        const books = [
+            {title: "1984", author: "George Orwell", isbn: "9780451524935", tags: ["fiction", "classic", "dystopian"]},
+            {title: "Adventures of Huckleberry Finn", author: "Mark Twain", isbn: "9780486280615", tags: ["fiction", "classic"]},
+            {title: "The Alchemist", author: "Paulo Coelho", isbn: "9780062315007", tags: ["fiction", "philosophy"]},
+            {title: "All the Pretty Horses", author: "Cormac McCarthy", isbn: "9780679744399", tags: ["fiction"]},
+            {title: "And Then There Were None", author: "Agatha Christie", isbn: "9780062073488", tags: ["fiction", "mystery"]},
+            {title: "Angela's Ashes", author: "Frank McCourt", isbn: "9780684842677", tags: ["nonfiction", "biography", "memoir"]},
+            {title: "Animal Farm", author: "George Orwell", isbn: "9780451526342", tags: ["fiction", "classic"]},
+            {title: "Anna Karenina", author: "Leo Tolstoy", isbn: "9780143035008", tags: ["fiction", "classic"]},
+            {title: "Atlas Shrugged", author: "Ayn Rand", isbn: "9780451191144", tags: ["fiction", "philosophy"]},
+            {title: "The Bitcoin Standard", author: "Saifedean Ammous", isbn: "9781119473862", tags: ["nonfiction", "economics", "technology"]},
+            {title: "The Book Thief", author: "Markus Zusak", isbn: "9780375842207", tags: ["fiction", "historical"]},
+            {title: "Brave New World", author: "Aldous Huxley", isbn: "9780060850524", tags: ["fiction", "classic", "dystopian"]},
+            {title: "Change By Design", author: "Tim Brown", isbn: "9780061766084", tags: ["nonfiction", "business", "design"]},
+            {title: "The Charisma Myth", author: "Olivia Fox Cabane", isbn: "9781591845942", tags: ["nonfiction", "psychology", "self-help"]},
+            {title: "The Count of Monte Cristo", author: "Alexandre Dumas", isbn: "9780140449266", tags: ["fiction", "classic"]},
+            {title: "Death of a Salesman", author: "Arthur Miller", isbn: "9780140481341", tags: ["fiction", "drama", "classic"]},
+            {title: "The Defining Decade", author: "Meg Jay", isbn: "9780446561754", tags: ["nonfiction", "psychology", "self-help"]},
+            {title: "The Demon in the Freezer", author: "Richard Preston", isbn: "9780345466631", tags: ["nonfiction", "science"]},
+            {title: "Design is Storytelling", author: "Ellen Lupton", isbn: "9781942303190", tags: ["nonfiction", "design"]},
+            {title: "Ender's Game", author: "Orson Scott Card", isbn: "9780812550702", tags: ["fiction", "science-fiction"]},
+            {title: "Factfulness", author: "Hans Rosling", isbn: "9781250107817", tags: ["nonfiction", "economics", "statistics"]},
+            {title: "Fathers and Sons", author: "Ivan Turgenev", isbn: "9780140449273", tags: ["fiction", "classic"]},
+            {title: "Fermat's Last Theorem", author: "Simon Singh", isbn: "9780385493628", tags: ["nonfiction", "mathematics"]},
+            {title: "Flow", author: "Mihaly Csikszentmihalyi", isbn: "9780061339202", tags: ["nonfiction", "psychology"]},
+            {title: "Freakonomics", author: "Steven D. Levitt", isbn: "9780060731335", tags: ["nonfiction", "economics"]},
+            {title: "A Game of Thrones", author: "George R.R. Martin", isbn: "9780553103540", tags: ["fiction", "fantasy"]},
+            {title: "Getting Things Done", author: "David Allen", isbn: "9780142000281", tags: ["nonfiction", "productivity", "business"]},
+            {title: "The Great Gatsby", author: "F. Scott Fitzgerald", isbn: "9780743273565", tags: ["fiction", "classic"]},
+            {title: "How to Read Literature Like a Professor", author: "Thomas C. Foster", isbn: "9780062301673", tags: ["nonfiction", "literature"]},
+            {title: "How Will You Measure Your Life?", author: "Clayton M. Christensen", isbn: "9780062102416", tags: ["nonfiction", "business", "self-help"]},
+            {title: "The Importance of Being Earnest", author: "Oscar Wilde", isbn: "9780486264783", tags: ["fiction", "drama", "classic"]},
+            {title: "Invisible Man", author: "Ralph Ellison", isbn: "9780679732761", tags: ["fiction", "classic"]},
+            {title: "Into the Wild", author: "Jon Krakauer", isbn: "9780385486804", tags: ["nonfiction", "biography", "adventure"]},
+            {title: "Into Thin Air", author: "Jon Krakauer", isbn: "9780385494786", tags: ["nonfiction", "biography", "adventure"]},
+            {title: "King Lear", author: "William Shakespeare", isbn: "9780743482769", tags: ["fiction", "drama", "classic"]},
+            {title: "Leonardo Da Vinci", author: "Walter Isaacson", isbn: "9781501139161", tags: ["nonfiction", "biography"]},
+            {title: "Lord of the Flies", author: "William Golding", isbn: "9780399501487", tags: ["fiction", "classic"]},
+            {title: "The Lords of Strategy", author: "Walter Kiechel", isbn: "9781591397823", tags: ["nonfiction", "business"]},
+            {title: "Murder on the Orient Express", author: "Agatha Christie", isbn: "9780062693662", tags: ["fiction", "mystery"]},
+            {title: "No Country for Old Men", author: "Cormac McCarthy", isbn: "9780375706677", tags: ["fiction"]},
+            {title: "The Omnivore's Dilemma", author: "Michael Pollan", isbn: "9780143038580", tags: ["nonfiction", "food", "environment"]},
+            {title: "On the Road", author: "Jack Kerouac", isbn: "9780140283297", tags: ["fiction", "classic"]},
+            {title: "Outcasts United", author: "Warren St. John", isbn: "9780385522045", tags: ["nonfiction", "biography", "sports"]},
+            {title: "Outliers", author: "Malcolm Gladwell", isbn: "9780316017923", tags: ["nonfiction", "psychology", "business"]},
+            {title: "Poor Charlie's Almanac", author: "Charles Munger", isbn: "9781578645015", tags: ["nonfiction", "business", "investing"]},
+            {title: "Pride and Prejudice", author: "Jane Austen", isbn: "9780141439518", tags: ["fiction", "classic", "romance"]},
+            {title: "Revolutionary Characters", author: "Gordon S. Wood", isbn: "9780143112082", tags: ["nonfiction", "history", "biography"]},
+            {title: "Tis", author: "Frank McCourt", isbn: "9780684865744", tags: ["nonfiction", "biography", "memoir"]},
+            {title: "The Road", author: "Cormac McCarthy", isbn: "9780307387899", tags: ["fiction"]},
+            {title: "Romeo and Juliet", author: "William Shakespeare", isbn: "9780743477116", tags: ["fiction", "drama", "classic"]},
+            {title: "The Things They Carried", author: "Tim O'Brien", isbn: "9780618706419", tags: ["fiction", "war"]},
+            {title: "Think and Grow Rich", author: "Napoleon Hill", isbn: "9781585424337", tags: ["nonfiction", "business", "self-help"]},
+            {title: "A Time to Kill", author: "John Grisham", isbn: "9780440245919", tags: ["fiction", "thriller"]},
+            {title: "'Tis", author: "Frank McCourt", isbn: "9780684865744", tags: ["nonfiction", "biography", "memoir"]},
+            {title: "Why We Sleep", author: "Matthew Walker", isbn: "9781501144318", tags: ["nonfiction", "science", "health"]},
+        ];
+
+        const bookGrid = document.getElementById('bookGrid');
+        
+        // Color gradients for fallback covers
+        const gradients = [
+            'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+            'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+            'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+            'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+            'linear-gradient(135deg, #30cfd0 0%, #330867 100%)',
+            'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+            'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
+        ];
+        
+        function getCoverUrls(isbn) {
+            return [
+                `https://covers.openlibrary.org/b/isbn/${isbn}-L.jpg`,
+                `https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg`,
+                `http://books.google.com/books/content?id=&printsec=frontcover&img=1&zoom=1&isbn=${isbn}`,
+            ];
+        }
+        
+        books.forEach((book, index) => {
+            const item = document.createElement('div');
+            item.className = 'grid-item';
+            item.setAttribute('data-tags', book.tags.join(' '));
+            
+            const gradient = gradients[index % gradients.length];
+            const coverUrls = getCoverUrls(book.isbn);
+            
+            const wrapper = document.createElement('div');
+            wrapper.className = 'book-cover-wrapper';
+            
+            const fallback = document.createElement('div');
+            fallback.className = 'book-cover-fallback';
+            fallback.style.background = gradient;
+            fallback.textContent = book.title;
+            wrapper.appendChild(fallback);
+            
+            const img = document.createElement('img');
+            img.className = 'book-cover';
+            img.alt = book.title;
+            img.style.display = 'none';
+            
+            let currentUrlIndex = 0;
+            
+            function tryNextUrl() {
+                if (currentUrlIndex < coverUrls.length) {
+                    img.src = coverUrls[currentUrlIndex];
+                    currentUrlIndex++;
+                }
+            }
+            
+            img.onload = function() {
+                // Check if image actually loaded (not a placeholder)
+                if (this.naturalWidth > 1 && this.naturalHeight > 1) {
+                    fallback.style.display = 'none';
+                    this.style.display = 'block';
+                } else {
+                    tryNextUrl();
+                }
+            };
+            
+            img.onerror = function() {
+                tryNextUrl();
+            };
+            
+            wrapper.appendChild(img);
+            tryNextUrl();
+            
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'book-title';
+            titleDiv.textContent = book.title;
+            
+            const authorDiv = document.createElement('div');
+            authorDiv.className = 'book-author';
+            authorDiv.textContent = book.author;
+            
+            item.appendChild(wrapper);
+            item.appendChild(titleDiv);
+            item.appendChild(authorDiv);
+            
+            bookGrid.appendChild(item);
+        });
+
+        // Tab switching
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(tc => tc.classList.remove('active'));
+                
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab');
+                const targetTab = document.getElementById(tabId);
+                if (targetTab) {
+                    targetTab.classList.add('active');
+                }
+            });
+        });
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const parent = btn.closest('.tab-content');
+                const filters = parent.querySelectorAll('.filter-btn');
+                
+                filters.forEach(f => f.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filterValue = btn.getAttribute('data-filter');
+                const items = parent.querySelectorAll('.grid-item');
+                
+                items.forEach(item => {
+                    if (filterValue === 'all') {
+                        item.style.display = 'block';
+                    } else {
+                        const itemTags = item.getAttribute('data-tags') || item.getAttribute('data-category');
+                        item.style.display = itemTags && itemTags.includes(filterValue) ? 'block' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
