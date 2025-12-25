@@ -325,11 +325,9 @@
 
         /* Adventures Collage Grid */
         .photo-collage {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 1rem;
-            grid-auto-rows: 180px;
-            grid-auto-flow: dense;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
         }
 
         .photo-item {
@@ -338,6 +336,10 @@
             border-radius: 4px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
+            height: 200px;
+            flex: 1 1 250px;
+            min-width: 150px;
+            max-width: 100%;
         }
 
         .photo-item:hover {
@@ -353,25 +355,28 @@
 
         /* Different sizes for visual interest */
         .photo-item.wide {
-            grid-column: span 8;
+            flex: 2 1 400px;
+            height: 240px;
         }
 
         .photo-item.tall {
-            grid-row: span 2;
-            grid-column: span 4;
+            flex: 1 1 200px;
+            height: 420px;
         }
 
         .photo-item.large {
-            grid-column: span 6;
-            grid-row: span 2;
+            flex: 2 1 350px;
+            height: 300px;
         }
 
         .photo-item.medium {
-            grid-column: span 4;
+            flex: 1 1 250px;
+            height: 200px;
         }
 
         .photo-item.small {
-            grid-column: span 3;
+            flex: 1 1 180px;
+            height: 180px;
         }
 
         .photo-caption {
@@ -447,22 +452,17 @@
             }
 
             .photo-collage {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 0.75rem;
-                grid-auto-rows: 150px;
+                gap: 0.5rem;
             }
 
+            .photo-item,
             .photo-item.wide,
             .photo-item.large,
-            .photo-item.medium {
-                grid-column: span 4;
-                grid-row: span 1;
-            }
-
+            .photo-item.medium,
             .photo-item.tall,
             .photo-item.small {
-                grid-column: span 2;
-                grid-row: span 1;
+                flex: 1 1 140px;
+                height: 150px;
             }
 
             .tabs {
