@@ -329,6 +329,7 @@
             grid-template-columns: repeat(12, 1fr);
             gap: 1rem;
             grid-auto-rows: 180px;
+            grid-auto-flow: dense;
         }
 
         .photo-item {
@@ -366,11 +367,11 @@
         }
 
         .photo-item.medium {
-            grid-column: span 6;
+            grid-column: span 4;
         }
 
         .photo-item.small {
-            grid-column: span 4;
+            grid-column: span 3;
         }
 
         .photo-caption {
