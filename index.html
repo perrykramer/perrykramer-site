@@ -52,9 +52,26 @@
         }
 
         .hero {
-            max-width: 680px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 8rem 2rem 6rem;
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 0 0 400px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
         }
 
         .hero h1 {
@@ -421,6 +438,14 @@
 
             .hero {
                 padding: 4rem 1.5rem 3rem;
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .hero-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 300px;
             }
 
             .hero h1 {
@@ -464,25 +489,30 @@
     </nav>
 
     <section class="hero">
-        <h1>Hey! I'm Perry.</h1>
-        <div class="hero-intro">
-            <div style="margin-bottom: 2.5rem;">
-                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 1rem; font-weight: 600;">Currently</p>
-                <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
-                    <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Living in NYC with three friends, exploring new neighborhoods and restaurants</p>
-                    <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Working at BCG on pricing, go-to-market strategy, and large-scale technology transformations</p>
-                    <p style="margin-bottom: 0; color: #1a1a1a;">Reading economics and writing about mental models</p>
+        <div class="hero-text">
+            <h1>Hey! I'm Perry.</h1>
+            <div class="hero-intro">
+                <div style="margin-bottom: 2.5rem;">
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 1rem; font-weight: 600;">Currently</p>
+                    <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
+                        <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Living in NYC with three friends, exploring new neighborhoods and restaurants</p>
+                        <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Working at BCG on pricing, go-to-market strategy, and large-scale technology transformations</p>
+                        <p style="margin-bottom: 0; color: #1a1a1a;">Reading economics and writing about mental models</p>
+                    </div>
+                </div>
+                <div>
+                    <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 1rem; font-weight: 600;">Previously</p>
+                    <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
+                        <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Studied mathematics and entrepreneurship and played lacrosse at W&L</p>
+                        <p style="margin-bottom: 0; color: #1a1a1a;">Traveled to 12 countries in 12 weeks with everything in a backpack</p>
+                    </div>
                 </div>
             </div>
-            <div>
-                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 1rem; font-weight: 600;">Previously</p>
-                <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
-                    <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Studied mathematics and entrepreneurship and played lacrosse at W&L</p>
-                    <p style="margin-bottom: 0; color: #1a1a1a;">Traveled to 12 countries in 12 weeks with everything in a backpack</p>
-                </div>
-            </div>
+            <a href="#contact" class="cta-link">Get in touch</a>
         </div>
-        <a href="#contact" class="cta-link">Get in touch</a>
+        <div class="hero-image">
+            <img src="images/Mont St Victoire.jpg" alt="Mont St Victoire">
+        </div>
     </section>
 
     <section class="new-additions">
