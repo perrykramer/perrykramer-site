@@ -65,13 +65,15 @@
         }
 
         .hero-image {
-            flex: 0 0 400px;
+            flex: 0 0 450px;
         }
 
         .hero-image img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
+            height: 500px;
+            object-fit: cover;
+            mask-image: radial-gradient(ellipse 80% 70% at center, black 40%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 70% at center, black 40%, transparent 100%);
         }
 
         .hero h1 {
@@ -446,6 +448,10 @@
                 flex: 0 0 auto;
                 width: 100%;
                 max-width: 300px;
+            }
+
+            .hero-image img {
+                height: 350px;
             }
 
             .hero h1 {
