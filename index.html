@@ -72,19 +72,8 @@
             width: 100%;
             height: 500px;
             object-fit: cover;
-            object-position: 40% center;
-            mask-image:
-                radial-gradient(ellipse 90% 80% at 45% 50%, black 20%, transparent 70%),
-                radial-gradient(ellipse 70% 60% at 60% 30%, black 10%, transparent 50%),
-                radial-gradient(ellipse 60% 70% at 35% 70%, black 10%, transparent 50%),
-                radial-gradient(ellipse 50% 40% at 70% 60%, black 5%, transparent 40%);
-            -webkit-mask-image:
-                radial-gradient(ellipse 90% 80% at 45% 50%, black 20%, transparent 70%),
-                radial-gradient(ellipse 70% 60% at 60% 30%, black 10%, transparent 50%),
-                radial-gradient(ellipse 60% 70% at 35% 70%, black 10%, transparent 50%),
-                radial-gradient(ellipse 50% 40% at 70% 60%, black 5%, transparent 40%);
-            mask-composite: add;
-            -webkit-mask-composite: source-over;
+            object-position: 65% center;
+            filter: url(#watercolor-edge);
         }
 
         .hero h1 {
@@ -463,7 +452,7 @@
 
             .hero-image img {
                 height: 350px;
-                object-position: 40% center;
+                object-position: 65% center;
             }
 
             .hero h1 {
@@ -496,6 +485,31 @@
     </style>
 </head>
 <body>
+    <!-- SVG filter for watercolor lost-and-found edges -->
+    <svg style="position: absolute; width: 0; height: 0;">
+        <defs>
+            <filter id="watercolor-edge" x="-20%" y="-20%" width="140%" height="140%">
+                <!-- Create organic noise pattern -->
+                <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" seed="5"/>
+
+                <!-- Create base soft edge mask -->
+                <feGaussianBlur in="SourceAlpha" stdDeviation="15" result="blur"/>
+
+                <!-- Distort the blur with noise for irregular edges -->
+                <feDisplacementMap in="blur" in2="noise" scale="40" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+
+                <!-- Erode to create lost edges in some areas -->
+                <feMorphology in="displaced" operator="erode" radius="8" result="eroded"/>
+
+                <!-- Blend eroded and displaced for found/lost variation -->
+                <feBlend in="displaced" in2="eroded" mode="multiply" result="mask"/>
+
+                <!-- Apply mask to original image -->
+                <feComposite in="SourceGraphic" in2="mask" operator="in"/>
+            </filter>
+        </defs>
+    </svg>
+
     <nav>
         <a href="#" class="logo">Perry Kramer</a>
         <ul class="nav-links">
