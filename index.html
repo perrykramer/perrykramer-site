@@ -853,7 +853,8 @@
                         item.style.display = 'block';
                     } else {
                         const itemTags = item.getAttribute('data-tags') || item.getAttribute('data-category');
-                        item.style.display = itemTags && itemTags.includes(filterValue) ? 'block' : 'none';
+                        const tagsArray = itemTags ? itemTags.split(' ') : [];
+                        item.style.display = tagsArray.includes(filterValue) ? 'block' : 'none';
                     }
                 });
             });
