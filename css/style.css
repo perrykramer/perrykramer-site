@@ -110,6 +110,11 @@ nav {
     margin: 0 auto;
     padding: 4rem 2rem;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
 }
 
 .hero-content {
@@ -170,10 +175,27 @@ nav {
 
 /* Hero Image with Watercolor Effect */
 .hero-image {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    pointer-events: none;
+}
+
+.hero-image img {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    object-position: right center;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 1;
 }
 
 .image-blob {
@@ -556,6 +578,11 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 968px) {
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -563,6 +590,11 @@ footer {
 
     .hero-text h1 {
         font-size: 2.2rem;
+    }
+
+    .hero-image {
+        position: relative;
+        justify-content: center;
     }
 
     .image-blob {
