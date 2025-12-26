@@ -490,22 +490,25 @@
         <defs>
             <filter id="watercolor-edge" x="-20%" y="-20%" width="140%" height="140%">
                 <!-- Create organic noise pattern -->
-                <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="3" result="noise" seed="5"/>
+                <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="4" result="noise" seed="5"/>
 
-                <!-- Create base soft edge mask -->
-                <feGaussianBlur in="SourceAlpha" stdDeviation="15" result="blur"/>
+                <!-- Create base soft edge mask with heavy blur -->
+                <feGaussianBlur in="SourceAlpha" stdDeviation="35" result="blur"/>
 
-                <!-- Distort the blur with noise for irregular edges -->
-                <feDisplacementMap in="blur" in2="noise" scale="40" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+                <!-- Shrink the mask significantly to fade edges -->
+                <feMorphology in="blur" operator="erode" radius="25" result="shrunk"/>
 
-                <!-- Erode to create lost edges in some areas -->
-                <feMorphology in="displaced" operator="erode" radius="8" result="eroded"/>
+                <!-- Distort with noise for irregular edges -->
+                <feDisplacementMap in="shrunk" in2="noise" scale="60" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
 
-                <!-- Blend eroded and displaced for found/lost variation -->
-                <feBlend in="displaced" in2="eroded" mode="multiply" result="mask"/>
+                <!-- Further erode for lost edges -->
+                <feMorphology in="displaced" operator="erode" radius="12" result="eroded"/>
+
+                <!-- Blur the eroded result for soft transitions -->
+                <feGaussianBlur in="eroded" stdDeviation="8" result="softMask"/>
 
                 <!-- Apply mask to original image -->
-                <feComposite in="SourceGraphic" in2="mask" operator="in"/>
+                <feComposite in="SourceGraphic" in2="softMask" operator="in"/>
             </filter>
         </defs>
     </svg>
