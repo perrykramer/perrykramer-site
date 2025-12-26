@@ -176,22 +176,16 @@ nav {
 /* Hero Image with Watercolor Effect */
 .hero-image {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
     pointer-events: none;
-    overflow: visible;
 }
 
 .hero-image img {
-    width: 100vw;
+    width: 100%;
     height: auto;
-    max-height: none;
-    object-fit: cover;
 }
 
 .hero-text {
