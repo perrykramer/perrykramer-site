@@ -190,6 +190,8 @@ nav {
     height: 100%;
     width: auto;
     object-fit: contain;
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at center, black 40%, transparent 70%);
+    mask-image: radial-gradient(ellipse 80% 80% at center, black 40%, transparent 70%);
 }
 
 .hero-text {
