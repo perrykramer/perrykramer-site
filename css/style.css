@@ -177,21 +177,21 @@ nav {
 .hero-image {
     position: absolute;
     top: 0;
-    left: calc(-50vw + 50%);
-    right: calc(-50vw + 50%);
+    left: 0;
+    right: 0;
     bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     pointer-events: none;
+    overflow: visible;
 }
 
 .hero-image img {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
-    -webkit-mask-image: radial-gradient(ellipse 80% 80% at center, black 40%, transparent 70%);
-    mask-image: radial-gradient(ellipse 80% 80% at center, black 40%, transparent 70%);
+    width: 100vw;
+    height: auto;
+    max-height: none;
+    object-fit: cover;
 }
 
 .hero-text {
