@@ -73,8 +73,20 @@
             height: 500px;
             object-fit: cover;
             object-position: 65% center;
-            mask-image: url(#watercolor-mask);
-            -webkit-mask-image: url(#watercolor-mask);
+            mask-image:
+                radial-gradient(ellipse 95% 90% at 50% 50%, black 75%, transparent 95%),
+                radial-gradient(ellipse 40% 35% at 5% 20%, transparent 50%, black 90%),
+                radial-gradient(ellipse 35% 40% at 95% 80%, transparent 50%, black 90%),
+                radial-gradient(ellipse 30% 25% at 10% 85%, transparent 40%, black 85%),
+                radial-gradient(ellipse 25% 30% at 90% 15%, transparent 40%, black 85%);
+            -webkit-mask-image:
+                radial-gradient(ellipse 95% 90% at 50% 50%, black 75%, transparent 95%),
+                radial-gradient(ellipse 40% 35% at 5% 20%, transparent 50%, black 90%),
+                radial-gradient(ellipse 35% 40% at 95% 80%, transparent 50%, black 90%),
+                radial-gradient(ellipse 30% 25% at 10% 85%, transparent 40%, black 85%),
+                radial-gradient(ellipse 25% 30% at 90% 15%, transparent 40%, black 85%);
+            mask-composite: intersect;
+            -webkit-mask-composite: source-in;
         }
 
         .hero h1 {
@@ -486,22 +498,6 @@
     </style>
 </head>
 <body>
-    <!-- SVG mask for watercolor lost-and-found edges -->
-    <svg style="position: absolute; width: 0; height: 0;">
-        <defs>
-            <!-- Filter to create irregular edges on the mask -->
-            <filter id="roughen" x="-20%" y="-20%" width="140%" height="140%">
-                <feTurbulence type="fractalNoise" baseFrequency="0.015" numOctaves="3" result="noise" seed="3"/>
-                <feDisplacementMap in="SourceGraphic" in2="noise" scale="25" xChannelSelector="R" yChannelSelector="G"/>
-            </filter>
-
-            <!-- Mask with soft edges and organic irregularity -->
-            <mask id="watercolor-mask" maskContentUnits="objectBoundingBox">
-                <rect x="0.03" y="0.03" width="0.94" height="0.94" fill="white" filter="url(#roughen)" style="filter: url(#roughen) blur(8px);"/>
-            </mask>
-        </defs>
-    </svg>
-
     <nav>
         <a href="#" class="logo">Perry Kramer</a>
         <ul class="nav-links">
