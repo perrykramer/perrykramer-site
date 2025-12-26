@@ -72,8 +72,19 @@
             width: 100%;
             height: 500px;
             object-fit: cover;
-            mask-image: radial-gradient(ellipse 80% 70% at center, black 40%, transparent 100%);
-            -webkit-mask-image: radial-gradient(ellipse 80% 70% at center, black 40%, transparent 100%);
+            object-position: 40% center;
+            mask-image:
+                radial-gradient(ellipse 90% 80% at 45% 50%, black 20%, transparent 70%),
+                radial-gradient(ellipse 70% 60% at 60% 30%, black 10%, transparent 50%),
+                radial-gradient(ellipse 60% 70% at 35% 70%, black 10%, transparent 50%),
+                radial-gradient(ellipse 50% 40% at 70% 60%, black 5%, transparent 40%);
+            -webkit-mask-image:
+                radial-gradient(ellipse 90% 80% at 45% 50%, black 20%, transparent 70%),
+                radial-gradient(ellipse 70% 60% at 60% 30%, black 10%, transparent 50%),
+                radial-gradient(ellipse 60% 70% at 35% 70%, black 10%, transparent 50%),
+                radial-gradient(ellipse 50% 40% at 70% 60%, black 5%, transparent 40%);
+            mask-composite: add;
+            -webkit-mask-composite: source-over;
         }
 
         .hero h1 {
@@ -452,6 +463,7 @@
 
             .hero-image img {
                 height: 350px;
+                object-position: 40% center;
             }
 
             .hero h1 {
