@@ -420,6 +420,169 @@
             opacity: 0.9;
         }
 
+        /* NYC Modal */
+        .nyc-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2000;
+        }
+
+        .nyc-modal.active {
+            display: block;
+        }
+
+        .nyc-modal-backdrop {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+        }
+
+        .nyc-modal-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #faf9f7;
+            overflow-y: auto;
+        }
+
+        .nyc-modal-close {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: #666;
+            cursor: pointer;
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        }
+
+        .nyc-modal-close:hover {
+            color: #1a1a1a;
+        }
+
+        .nyc-modal-inner {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 4rem 2rem 3rem;
+        }
+
+        .nyc-modal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .nyc-modal-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .nyc-modal-subtitle {
+            font-size: 1rem;
+            color: #888;
+        }
+
+        .nyc-modal-restaurants {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .restaurant-item {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .restaurant-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .restaurant-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .restaurant-neighborhood {
+            font-size: 0.9rem;
+            color: #888;
+            margin: 0;
+        }
+
+        .restaurant-description {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .restaurant-recommendation {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .nyc-modal-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nyc-modal-next {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .nyc-modal-next:hover {
+            opacity: 0.7;
+        }
+
+        .next-text {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .next-category-name {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .pointing-hand {
+            width: 60px;
+            height: auto;
+        }
+
         footer {
             border-top: 1px solid #e5e5e5;
             padding: 3rem 3rem;
@@ -777,6 +940,27 @@
         </div>
     </footer>
 
+    <!-- NYC Top 3's Modal -->
+    <div id="nyc-modal" class="nyc-modal">
+        <div class="nyc-modal-backdrop"></div>
+        <div class="nyc-modal-content">
+            <button class="nyc-modal-close">&times;</button>
+            <div class="nyc-modal-inner">
+                <header class="nyc-modal-header">
+                    <h2 class="nyc-modal-title"></h2>
+                    <p class="nyc-modal-subtitle">My personal top 3 spots in NYC</p>
+                </header>
+                <div class="nyc-modal-restaurants"></div>
+                <footer class="nyc-modal-footer">
+                    <button class="nyc-modal-next">
+                        <span class="next-text">Next up: <span class="next-category-name"></span></span>
+                        <img src="images/nyc top 3s/Pointing Finger.jpg" alt="Next" class="pointing-hand">
+                    </button>
+                </footer>
+            </div>
+        </div>
+    </div>
+
     <script>
                 const books = [
             {title: "1984", author: "George Orwell", fileName: "1984.jpg", tags: ["fiction", "classic", "dystopian"]},
@@ -1026,6 +1210,204 @@
                 adventuresCollage.appendChild(photoItem);
             });
         }
+
+        // NYC Top 3's Modal
+        const nycCategories = [
+            {
+                id: 'pizza',
+                name: 'Pizza',
+                image: 'images/nyc top 3s/Pizza.jpg',
+                restaurants: [
+                    {
+                        name: 'Lucali',
+                        neighborhood: 'Carroll Gardens',
+                        description: 'A tiny, candlelit spot where the owner hand-stretches every pie. No slices, no reservations — just perfect pizza worth the wait.',
+                        recommendation: 'Get this: plain pie with fresh basil'
+                    },
+                    {
+                        name: "L'industrie Pizzeria",
+                        neighborhood: 'Williamsburg',
+                        description: 'Crispy, slightly charred slices with creative toppings. The vibe is casual and the line moves fast.',
+                        recommendation: 'Get this: burrata slice with hot honey'
+                    },
+                    {
+                        name: "Joe's Pizza",
+                        neighborhood: 'West Village',
+                        description: 'The quintessential New York slice. Thin, foldable, and consistently excellent since 1975.',
+                        recommendation: 'Get this: classic cheese slice'
+                    }
+                ]
+            },
+            {
+                id: 'sushi',
+                name: 'Sushi',
+                image: 'images/nyc top 3s/Sushi.jpg',
+                restaurants: [
+                    {
+                        name: 'Sugarfish',
+                        neighborhood: 'Multiple Locations',
+                        description: 'Trust the chef with their signature tasting menus. Simple, high-quality fish served at the perfect temperature.',
+                        recommendation: 'Get this: Trust Me menu'
+                    },
+                    {
+                        name: 'Tanoshi',
+                        neighborhood: 'Upper East Side',
+                        description: 'An intimate omakase experience with just a few seats at the bar. Personal, unpretentious, memorable.',
+                        recommendation: 'Get this: omakase (chef\'s choice)'
+                    },
+                    {
+                        name: 'Sushi Nakazawa',
+                        neighborhood: 'West Village',
+                        description: 'From the Jiro Dreams of Sushi apprentice. A special occasion spot with impeccable technique.',
+                        recommendation: 'Get this: 20-course omakase'
+                    }
+                ]
+            },
+            {
+                id: 'bagels',
+                name: 'Bagels',
+                image: 'images/nyc top 3s/Bagles.jpg',
+                restaurants: [
+                    {
+                        name: 'Russ & Daughters',
+                        neighborhood: 'Lower East Side',
+                        description: 'A 100+ year old institution. The lox is silky, the cream cheese is fresh, and the experience is quintessentially New York.',
+                        recommendation: 'Get this: classic with lox, cream cheese, capers'
+                    },
+                    {
+                        name: "Ess-a-Bagel",
+                        neighborhood: 'Midtown',
+                        description: 'Massive, chewy bagels with an endless list of spreads and toppings. Always busy, always worth it.',
+                        recommendation: 'Get this: everything bagel with scallion cream cheese'
+                    },
+                    {
+                        name: 'Absolute Bagels',
+                        neighborhood: 'Upper West Side',
+                        description: 'Hand-rolled and kettle-boiled. The line out the door on weekends tells you everything you need to know.',
+                        recommendation: 'Get this: sesame bagel, still warm'
+                    }
+                ]
+            },
+            {
+                id: 'thai',
+                name: 'Thai',
+                image: 'images/nyc top 3s/Thai.jpg',
+                restaurants: [
+                    {
+                        name: 'Thai Diner',
+                        neighborhood: 'Nolita',
+                        description: 'Thai-American comfort food in a retro diner setting. Playful, delicious, and unlike anywhere else.',
+                        recommendation: 'Get this: khao man gai (chicken & rice)'
+                    },
+                    {
+                        name: 'Fish Cheeks',
+                        neighborhood: 'NoHo',
+                        description: 'Bold, southern Thai flavors in a stylish space. The seafood dishes are the stars here.',
+                        recommendation: 'Get this: crab fried rice'
+                    },
+                    {
+                        name: 'SriPraPhai',
+                        neighborhood: 'Woodside, Queens',
+                        description: 'The gold standard for authentic Thai in NYC. Worth the trip to Queens for the papaya salad alone.',
+                        recommendation: 'Get this: drunken noodles, extra spicy'
+                    }
+                ]
+            },
+            {
+                id: 'burgers',
+                name: 'Burgers',
+                image: 'images/nyc top 3s/Burgers.jpg',
+                restaurants: [
+                    {
+                        name: 'J.G. Melon',
+                        neighborhood: 'Upper East Side',
+                        description: 'A neighborhood tavern serving one of the best burgers in the city since 1972. No frills, just a perfect patty.',
+                        recommendation: 'Get this: cheeseburger, medium rare'
+                    },
+                    {
+                        name: "Minetta Tavern",
+                        neighborhood: 'Greenwich Village',
+                        description: 'The Black Label burger is legendary — dry-aged beef that melts in your mouth. A splurge-worthy classic.',
+                        recommendation: 'Get this: Black Label burger'
+                    },
+                    {
+                        name: 'Corner Bistro',
+                        neighborhood: 'West Village',
+                        description: 'A dive bar with a cult-following burger. Cash only, no pretense, pure satisfaction.',
+                        recommendation: 'Get this: Bistro Burger with bacon'
+                    }
+                ]
+            }
+        ];
+
+        let currentCategoryIndex = 0;
+        const nycModal = document.getElementById('nyc-modal');
+        const modalTitle = nycModal.querySelector('.nyc-modal-title');
+        const modalRestaurants = nycModal.querySelector('.nyc-modal-restaurants');
+        const nextCategoryName = nycModal.querySelector('.next-category-name');
+
+        function renderCategory(index) {
+            const category = nycCategories[index];
+            modalTitle.textContent = category.name;
+
+            // Render restaurants
+            modalRestaurants.innerHTML = category.restaurants.map(r => `
+                <article class="restaurant-item">
+                    <h3 class="restaurant-name">${r.name}</h3>
+                    <p class="restaurant-neighborhood">${r.neighborhood}</p>
+                    <p class="restaurant-description">${r.description}</p>
+                    <p class="restaurant-recommendation">${r.recommendation}</p>
+                </article>
+            `).join('');
+
+            // Update next category name
+            const nextIndex = (index + 1) % nycCategories.length;
+            nextCategoryName.textContent = nycCategories[nextIndex].name;
+
+            // Scroll to top of modal
+            nycModal.querySelector('.nyc-modal-content').scrollTop = 0;
+        }
+
+        function openNycModal(categoryId) {
+            const index = nycCategories.findIndex(c => c.id === categoryId);
+            if (index !== -1) {
+                currentCategoryIndex = index;
+                renderCategory(currentCategoryIndex);
+                nycModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeNycModal() {
+            nycModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function nextCategory() {
+            currentCategoryIndex = (currentCategoryIndex + 1) % nycCategories.length;
+            renderCategory(currentCategoryIndex);
+        }
+
+        // Click handlers for gallery images
+        document.querySelectorAll('.nyc-gallery img').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => {
+                const categoryId = img.alt.toLowerCase();
+                openNycModal(categoryId);
+            });
+        });
+
+        // Close modal handlers
+        nycModal.querySelector('.nyc-modal-close').addEventListener('click', closeNycModal);
+        nycModal.querySelector('.nyc-modal-backdrop').addEventListener('click', closeNycModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && nycModal.classList.contains('active')) {
+                closeNycModal();
+            }
+        });
+
+        // Next category handler
+        nycModal.querySelector('.nyc-modal-next').addEventListener('click', nextCategory);
     </script>
 </body>
 </html>
