@@ -400,31 +400,40 @@
         }
 
         /* NYC Top 3's */
-        .nyc-top-3s-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 3rem;
+        .nyc-menu-board {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 1rem;
         }
 
-        .top-3-category h3 {
-            font-size: 1.1rem;
+        .menu-item {
+            position: relative;
+            width: 180px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05) rotate(0deg) !important;
+            z-index: 10;
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .menu-label {
+            display: block;
+            text-align: center;
+            margin-top: 0.5rem;
+            font-size: 1rem;
             font-weight: 600;
-            color: #1a1a1a;
-            margin-bottom: 1rem;
-        }
-
-        .top-3-category ol {
-            list-style: decimal;
-            padding-left: 1.25rem;
-            color: #1a1a1a;
-        }
-
-        .top-3-category li {
-            margin-bottom: 0.75rem;
-            line-height: 1.6;
-        }
-
-        .top-3-category li strong {
             color: #1a1a1a;
         }
 
@@ -764,38 +773,26 @@
         </div>
 
         <div id="nyc-top-3s" class="tab-content">
-            <div class="nyc-top-3s-grid">
-                <div class="top-3-category">
-                    <h3>Coffee Shops</h3>
-                    <ol>
-                        <li><strong>Devoción</strong> — Flatiron. Colombian beans, stunning atrium.</li>
-                        <li><strong>Sey Coffee</strong> — Bushwick. Light roasts, industrial space.</li>
-                        <li><strong>Abraço</strong> — East Village. Tiny, perfect espresso.</li>
-                    </ol>
+            <div class="nyc-menu-board">
+                <div class="menu-item" style="transform: rotate(-2deg);">
+                    <img src="images/NYC top 3s/Pizza.jpg" alt="Pizza">
+                    <span class="menu-label">Pizza</span>
                 </div>
-                <div class="top-3-category">
-                    <h3>Pizza</h3>
-                    <ol>
-                        <li><strong>Lucali</strong> — Carroll Gardens. Worth the wait.</li>
-                        <li><strong>L'industrie</strong> — Williamsburg. Burrata slice.</li>
-                        <li><strong>Joe's</strong> — West Village. Classic NY slice.</li>
-                    </ol>
+                <div class="menu-item" style="transform: rotate(1.5deg); margin-top: 2rem;">
+                    <img src="images/NYC top 3s/Sushi.jpg" alt="Sushi">
+                    <span class="menu-label">Sushi</span>
                 </div>
-                <div class="top-3-category">
-                    <h3>Date Night</h3>
-                    <ol>
-                        <li><strong>Via Carota</strong> — West Village. Italian, always right.</li>
-                        <li><strong>Le Crocodile</strong> — Williamsburg. French brasserie.</li>
-                        <li><strong>Lilia</strong> — Williamsburg. Pasta perfection.</li>
-                    </ol>
+                <div class="menu-item" style="transform: rotate(-1deg); margin-top: -1rem;">
+                    <img src="images/NYC top 3s/Bagles.jpg" alt="Bagels">
+                    <span class="menu-label">Bagels</span>
                 </div>
-                <div class="top-3-category">
-                    <h3>Casual Dinner</h3>
-                    <ol>
-                        <li><strong>Thai Diner</strong> — Nolita. Thai-American comfort.</li>
-                        <li><strong>Xi'an Famous Foods</strong> — Multiple. Hand-pulled noodles.</li>
-                        <li><strong>Los Tacos No. 1</strong> — Chelsea Market. Adobo tacos.</li>
-                    </ol>
+                <div class="menu-item" style="transform: rotate(2deg); margin-top: 1.5rem;">
+                    <img src="images/NYC top 3s/Thai.jpg" alt="Thai">
+                    <span class="menu-label">Thai</span>
+                </div>
+                <div class="menu-item" style="transform: rotate(-1.5deg); margin-top: -0.5rem;">
+                    <img src="images/NYC top 3s/Burgers.jpg" alt="Burgers">
+                    <span class="menu-label">Burgers</span>
                 </div>
             </div>
         </div>
