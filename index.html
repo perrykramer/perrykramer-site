@@ -412,11 +412,12 @@
             width: 220px;
             height: auto;
             display: block;
-            transition: opacity 0.3s ease;
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .nyc-gallery img:hover {
-            opacity: 0.85;
+            transform: rotate(0deg) scale(1.03) !important;
+            opacity: 0.9;
         }
 
         footer {
@@ -756,11 +757,11 @@
 
         <div id="nyc-top-3s" class="tab-content">
             <div class="nyc-gallery">
-                <img src="images/nyc top 3s/Pizza.jpg" alt="Pizza">
-                <img src="images/nyc top 3s/Sushi.jpg" alt="Sushi">
-                <img src="images/nyc top 3s/Bagles.jpg" alt="Bagels">
-                <img src="images/nyc top 3s/Thai.jpg" alt="Thai">
-                <img src="images/nyc top 3s/Burgers.jpg" alt="Burgers">
+                <img src="images/nyc top 3s/Pizza.jpg" alt="Pizza" style="transform: rotate(-2deg); margin-top: 0;">
+                <img src="images/nyc top 3s/Sushi.jpg" alt="Sushi" style="transform: rotate(1.5deg); margin-top: 2.5rem;">
+                <img src="images/nyc top 3s/Bagles.jpg" alt="Bagels" style="transform: rotate(-1deg); margin-top: -1rem;">
+                <img src="images/nyc top 3s/Thai.jpg" alt="Thai" style="transform: rotate(2.5deg); margin-top: 1.5rem;">
+                <img src="images/nyc top 3s/Burgers.jpg" alt="Burgers" style="transform: rotate(-1.5deg); margin-top: -0.5rem;">
             </div>
         </div>
     </section>
