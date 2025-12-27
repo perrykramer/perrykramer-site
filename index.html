@@ -399,6 +399,35 @@
             opacity: 1;
         }
 
+        /* NYC Top 3's */
+        .nyc-top-3s-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .top-3-category h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .top-3-category ol {
+            list-style: decimal;
+            padding-left: 1.25rem;
+            color: #1a1a1a;
+        }
+
+        .top-3-category li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+        }
+
+        .top-3-category li strong {
+            color: #1a1a1a;
+        }
+
         footer {
             border-top: 1px solid #e5e5e5;
             padding: 3rem 3rem;
@@ -509,7 +538,7 @@
                     <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
                         <div style="margin-bottom: 0.75rem;">
                             <p style="margin-bottom: 0; color: #1a1a1a;">Living in NYC, exploring neighborhoods and restaurants</p>
-                            <a href="#" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">NYC top 3's</span></a>
+                            <a href="#nyc-top-3s" class="tab-link" data-tab="nyc-top-3s" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">NYC top 3's</span></a>
                         </div>
                         <div style="margin-bottom: 0.75rem;">
                             <p style="margin-bottom: 0; color: #1a1a1a;">Helping companies price, launch, and scale at BCG</p>
@@ -607,6 +636,7 @@
             <button class="tab active" data-tab="bookshelf">Bookshelf</button>
             <button class="tab" data-tab="mental-models">Mental Models</button>
             <button class="tab" data-tab="adventures">Adventures</button>
+            <button class="tab" data-tab="nyc-top-3s">NYC Top 3's</button>
         </div>
 
         <div id="bookshelf" class="tab-content active">
@@ -731,6 +761,43 @@
 
         <div id="adventures" class="tab-content">
             <div class="photo-collage" id="adventuresCollage"></div>
+        </div>
+
+        <div id="nyc-top-3s" class="tab-content">
+            <div class="nyc-top-3s-grid">
+                <div class="top-3-category">
+                    <h3>Coffee Shops</h3>
+                    <ol>
+                        <li><strong>Devoción</strong> — Flatiron. Colombian beans, stunning atrium.</li>
+                        <li><strong>Sey Coffee</strong> — Bushwick. Light roasts, industrial space.</li>
+                        <li><strong>Abraço</strong> — East Village. Tiny, perfect espresso.</li>
+                    </ol>
+                </div>
+                <div class="top-3-category">
+                    <h3>Pizza</h3>
+                    <ol>
+                        <li><strong>Lucali</strong> — Carroll Gardens. Worth the wait.</li>
+                        <li><strong>L'industrie</strong> — Williamsburg. Burrata slice.</li>
+                        <li><strong>Joe's</strong> — West Village. Classic NY slice.</li>
+                    </ol>
+                </div>
+                <div class="top-3-category">
+                    <h3>Date Night</h3>
+                    <ol>
+                        <li><strong>Via Carota</strong> — West Village. Italian, always right.</li>
+                        <li><strong>Le Crocodile</strong> — Williamsburg. French brasserie.</li>
+                        <li><strong>Lilia</strong> — Williamsburg. Pasta perfection.</li>
+                    </ol>
+                </div>
+                <div class="top-3-category">
+                    <h3>Casual Dinner</h3>
+                    <ol>
+                        <li><strong>Thai Diner</strong> — Nolita. Thai-American comfort.</li>
+                        <li><strong>Xi'an Famous Foods</strong> — Multiple. Hand-pulled noodles.</li>
+                        <li><strong>Los Tacos No. 1</strong> — Chelsea Market. Adobo tacos.</li>
+                    </ol>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -884,12 +951,36 @@
             tab.addEventListener('click', () => {
                 tabs.forEach(t => t.classList.remove('active'));
                 tabContents.forEach(tc => tc.classList.remove('active'));
-                
+
                 tab.classList.add('active');
                 const tabId = tab.getAttribute('data-tab');
                 const targetTab = document.getElementById(tabId);
                 if (targetTab) {
                     targetTab.classList.add('active');
+                }
+            });
+        });
+
+        // Handle CTA links that switch tabs
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tabId = link.getAttribute('data-tab');
+
+                // Switch to the correct tab
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(tc => tc.classList.remove('active'));
+
+                const tabButton = document.querySelector(`.tab[data-tab="${tabId}"]`);
+                const tabContent = document.getElementById(tabId);
+
+                if (tabButton) tabButton.classList.add('active');
+                if (tabContent) tabContent.classList.add('active');
+
+                // Scroll to the tabbed section
+                const tabbedSection = document.querySelector('.tabbed-section');
+                if (tabbedSection) {
+                    tabbedSection.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
