@@ -429,44 +429,48 @@
             right: 0;
             bottom: 0;
             z-index: 2000;
+            justify-content: center;
+            align-items: center;
         }
 
         .nyc-modal.active {
-            display: block;
+            display: flex;
         }
 
         .nyc-modal-backdrop {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(4px);
+            background: rgba(255, 255, 255, 0.6);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
         }
 
         .nyc-modal-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            position: relative;
+            width: 90%;
+            max-width: 760px;
+            max-height: 80vh;
             background: #faf9f7;
+            border-radius: 12px;
             overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
         .nyc-modal-close {
-            position: fixed;
-            top: 2rem;
-            right: 2rem;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
             background: none;
             border: none;
-            font-size: 2rem;
-            color: #666;
+            font-size: 1.75rem;
+            color: #999;
             cursor: pointer;
             z-index: 10;
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -478,9 +482,7 @@
         }
 
         .nyc-modal-inner {
-            max-width: 640px;
-            margin: 0 auto;
-            padding: 4rem 2rem 3rem;
+            padding: 3rem 3rem 2rem;
         }
 
         .nyc-modal-header {
@@ -509,37 +511,39 @@
         .restaurant-item {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.75rem;
         }
 
         .restaurant-image {
             width: 100%;
             height: auto;
             display: block;
+            margin-bottom: 0.5rem;
         }
 
         .restaurant-name {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #1a1a1a;
             margin: 0;
         }
 
         .restaurant-neighborhood {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #888;
             margin: 0;
+            margin-top: -0.25rem;
         }
 
         .restaurant-description {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #444;
             line-height: 1.6;
             margin: 0;
         }
 
         .restaurant-recommendation {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #666;
             font-style: italic;
             margin: 0;
@@ -1221,18 +1225,21 @@
                     {
                         name: 'Lucali',
                         neighborhood: 'Carroll Gardens',
+                        image: 'images/nyc top 3s/restaurants/lucali.jpg',
                         description: 'A tiny, candlelit spot where the owner hand-stretches every pie. No slices, no reservations — just perfect pizza worth the wait.',
                         recommendation: 'Get this: plain pie with fresh basil'
                     },
                     {
                         name: "L'industrie Pizzeria",
                         neighborhood: 'Williamsburg',
+                        image: 'images/nyc top 3s/restaurants/lindustrie.jpg',
                         description: 'Crispy, slightly charred slices with creative toppings. The vibe is casual and the line moves fast.',
                         recommendation: 'Get this: burrata slice with hot honey'
                     },
                     {
                         name: "Joe's Pizza",
                         neighborhood: 'West Village',
+                        image: 'images/nyc top 3s/restaurants/joes.jpg',
                         description: 'The quintessential New York slice. Thin, foldable, and consistently excellent since 1975.',
                         recommendation: 'Get this: classic cheese slice'
                     }
@@ -1246,18 +1253,21 @@
                     {
                         name: 'Sugarfish',
                         neighborhood: 'Multiple Locations',
+                        image: 'images/nyc top 3s/restaurants/sugarfish.jpg',
                         description: 'Trust the chef with their signature tasting menus. Simple, high-quality fish served at the perfect temperature.',
                         recommendation: 'Get this: Trust Me menu'
                     },
                     {
                         name: 'Tanoshi',
                         neighborhood: 'Upper East Side',
+                        image: 'images/nyc top 3s/restaurants/tanoshi.jpg',
                         description: 'An intimate omakase experience with just a few seats at the bar. Personal, unpretentious, memorable.',
                         recommendation: 'Get this: omakase (chef\'s choice)'
                     },
                     {
                         name: 'Sushi Nakazawa',
                         neighborhood: 'West Village',
+                        image: 'images/nyc top 3s/restaurants/nakazawa.jpg',
                         description: 'From the Jiro Dreams of Sushi apprentice. A special occasion spot with impeccable technique.',
                         recommendation: 'Get this: 20-course omakase'
                     }
@@ -1271,18 +1281,21 @@
                     {
                         name: 'Russ & Daughters',
                         neighborhood: 'Lower East Side',
+                        image: 'images/nyc top 3s/restaurants/russ-daughters.jpg',
                         description: 'A 100+ year old institution. The lox is silky, the cream cheese is fresh, and the experience is quintessentially New York.',
                         recommendation: 'Get this: classic with lox, cream cheese, capers'
                     },
                     {
                         name: "Ess-a-Bagel",
                         neighborhood: 'Midtown',
+                        image: 'images/nyc top 3s/restaurants/ess-a-bagel.jpg',
                         description: 'Massive, chewy bagels with an endless list of spreads and toppings. Always busy, always worth it.',
                         recommendation: 'Get this: everything bagel with scallion cream cheese'
                     },
                     {
                         name: 'Absolute Bagels',
                         neighborhood: 'Upper West Side',
+                        image: 'images/nyc top 3s/restaurants/absolute-bagels.jpg',
                         description: 'Hand-rolled and kettle-boiled. The line out the door on weekends tells you everything you need to know.',
                         recommendation: 'Get this: sesame bagel, still warm'
                     }
@@ -1296,18 +1309,21 @@
                     {
                         name: 'Thai Diner',
                         neighborhood: 'Nolita',
+                        image: 'images/nyc top 3s/restaurants/thai-diner.jpg',
                         description: 'Thai-American comfort food in a retro diner setting. Playful, delicious, and unlike anywhere else.',
                         recommendation: 'Get this: khao man gai (chicken & rice)'
                     },
                     {
                         name: 'Fish Cheeks',
                         neighborhood: 'NoHo',
+                        image: 'images/nyc top 3s/restaurants/fish-cheeks.jpg',
                         description: 'Bold, southern Thai flavors in a stylish space. The seafood dishes are the stars here.',
                         recommendation: 'Get this: crab fried rice'
                     },
                     {
                         name: 'SriPraPhai',
                         neighborhood: 'Woodside, Queens',
+                        image: 'images/nyc top 3s/restaurants/sripraphai.jpg',
                         description: 'The gold standard for authentic Thai in NYC. Worth the trip to Queens for the papaya salad alone.',
                         recommendation: 'Get this: drunken noodles, extra spicy'
                     }
@@ -1321,18 +1337,21 @@
                     {
                         name: 'J.G. Melon',
                         neighborhood: 'Upper East Side',
+                        image: 'images/nyc top 3s/restaurants/jg-melon.jpg',
                         description: 'A neighborhood tavern serving one of the best burgers in the city since 1972. No frills, just a perfect patty.',
                         recommendation: 'Get this: cheeseburger, medium rare'
                     },
                     {
                         name: "Minetta Tavern",
                         neighborhood: 'Greenwich Village',
+                        image: 'images/nyc top 3s/restaurants/minetta-tavern.jpg',
                         description: 'The Black Label burger is legendary — dry-aged beef that melts in your mouth. A splurge-worthy classic.',
                         recommendation: 'Get this: Black Label burger'
                     },
                     {
                         name: 'Corner Bistro',
                         neighborhood: 'West Village',
+                        image: 'images/nyc top 3s/restaurants/corner-bistro.jpg',
                         description: 'A dive bar with a cult-following burger. Cash only, no pretense, pure satisfaction.',
                         recommendation: 'Get this: Bistro Burger with bacon'
                     }
@@ -1353,6 +1372,7 @@
             // Render restaurants
             modalRestaurants.innerHTML = category.restaurants.map(r => `
                 <article class="restaurant-item">
+                    ${r.image ? `<img src="${r.image}" alt="${r.name}" class="restaurant-image">` : ''}
                     <h3 class="restaurant-name">${r.name}</h3>
                     <p class="restaurant-neighborhood">${r.neighborhood}</p>
                     <p class="restaurant-description">${r.description}</p>
