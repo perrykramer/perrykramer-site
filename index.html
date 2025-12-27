@@ -52,21 +52,43 @@
         }
 
         .hero {
-            max-width: 680px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 8rem 2rem 6rem;
+            padding: 4rem 2rem 6rem;
+            position: relative;
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 1;
+            max-width: 550px;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 50%;
+            right: -5%;
+            transform: translateY(-50%);
+            width: 800px;
+            pointer-events: none;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.2rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: -0.03em;
+            margin-bottom: 0.15rem;
+            letter-spacing: -0.02em;
             color: #1a1a1a;
+            white-space: nowrap;
         }
 
         .hero-intro {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             color: #666;
             line-height: 1.8;
             margin-bottom: 3rem;
@@ -377,6 +399,194 @@
             opacity: 1;
         }
 
+        /* NYC Top 3's */
+        .nyc-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2.5rem;
+        }
+
+        .nyc-gallery img {
+            width: 220px;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .nyc-gallery img:hover {
+            transform: rotate(0deg) scale(1.03) !important;
+            opacity: 0.9;
+        }
+
+        /* NYC Modal */
+        .nyc-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nyc-modal.active {
+            display: flex;
+        }
+
+        .nyc-modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.6);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+        }
+
+        .nyc-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 760px;
+            max-height: 80vh;
+            background: #faf9f7;
+            border-radius: 12px;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .nyc-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            color: #999;
+            cursor: pointer;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        }
+
+        .nyc-modal-close:hover {
+            color: #1a1a1a;
+        }
+
+        .nyc-modal-inner {
+            padding: 3rem 3rem 2rem;
+        }
+
+        .nyc-modal-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .nyc-modal-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .nyc-modal-subtitle {
+            font-size: 1rem;
+            color: #888;
+        }
+
+        .nyc-modal-restaurants {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .restaurant-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .restaurant-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .restaurant-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .restaurant-neighborhood {
+            font-size: 0.85rem;
+            color: #888;
+            margin: 0;
+            margin-top: -0.25rem;
+        }
+
+        .restaurant-description {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .restaurant-recommendation {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin: 0;
+        }
+
+        .nyc-modal-footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e5e5;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nyc-modal-next {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: opacity 0.2s;
+        }
+
+        .nyc-modal-next:hover {
+            opacity: 0.7;
+        }
+
+        .next-text {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .next-category-name {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .pointing-hand {
+            width: 60px;
+            height: auto;
+        }
+
         footer {
             border-top: 1px solid #e5e5e5;
             padding: 3rem 3rem;
@@ -423,6 +633,20 @@
                 padding: 4rem 1.5rem 3rem;
             }
 
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-image {
+                position: relative;
+                top: auto;
+                right: auto;
+                transform: none;
+                width: 100%;
+                max-width: 400px;
+                margin: 2rem auto 0;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -464,25 +688,49 @@
     </nav>
 
     <section class="hero">
-        <h1>Hey! I'm Perry.</h1>
-        <div class="hero-intro">
-            <div style="margin-bottom: 2.5rem;">
-                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 1rem; font-weight: 600;">Currently</p>
-                <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
-                    <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Living in NYC with three friends, exploring new neighborhoods and restaurants</p>
-                    <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Working at BCG on pricing, go-to-market strategy, and large-scale technology transformations</p>
-                    <p style="margin-bottom: 0; color: #1a1a1a;">Reading economics and writing about mental models</p>
+        <div class="hero-text">
+            <h1>Seeking simplicity in a complex world</h1>
+            <p style="font-size: 1.1rem; color: #666; margin-bottom: 1.5rem; font-weight: 400;">Notes on thinking, work, and life</p>
+            <div class="hero-intro">
+                <div style="margin-bottom: 1.5rem;">
+                    <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 0.75rem; font-weight: 600;">Currently</p>
+                    <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
+                        <div style="margin-bottom: 0.75rem;">
+                            <p style="margin-bottom: 0; color: #1a1a1a;">Living in NYC, exploring neighborhoods and restaurants</p>
+                            <a href="#nyc-top-3s" class="tab-link" data-tab="nyc-top-3s" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">NYC top 3's</span></a>
+                        </div>
+                        <div style="margin-bottom: 0.75rem;">
+                            <p style="margin-bottom: 0; color: #1a1a1a;">Helping companies price, launch, and scale at BCG</p>
+                            <a href="#contact" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">Interested in consulting? Happy to chat</span></a>
+                        </div>
+                        <div>
+                            <p style="margin-bottom: 0; color: #1a1a1a;">Reading about economics and writing about mental models</p>
+                            <a href="#" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">Mental models I use to think clearly</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 0.75rem; font-weight: 600;">Previously</p>
+                    <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
+                        <div style="margin-bottom: 0.75rem;">
+                            <p style="margin-bottom: 0; color: #1a1a1a;">Studied math and entrepreneurship, played lacrosse at W&L</p>
+                        </div>
+                        <div style="margin-bottom: 0.75rem;">
+                            <p style="margin-bottom: 0; color: #1a1a1a;">Visited 12 countries in 12 weeks with everything in a backpack</p>
+                            <a href="#adventures" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">Photos, itineraries, and packing lists</span></a>
+                        </div>
+                        <div>
+                            <p style="margin-bottom: 0; color: #1a1a1a;">Helped students with coursework and consulting recruiting</p>
+                            <a href="#contact" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">Happy to help with recruiting or mock cases</span></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 1rem; font-weight: 600;">Previously</p>
-                <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
-                    <p style="margin-bottom: 0.75rem; color: #1a1a1a;">Studied mathematics and entrepreneurship and played lacrosse at W&L</p>
-                    <p style="margin-bottom: 0; color: #1a1a1a;">Traveled to 12 countries in 12 weeks with everything in a backpack</p>
-                </div>
-            </div>
+            <a href="#contact" class="cta-link">Get in touch</a>
         </div>
-        <a href="#contact" class="cta-link">Get in touch</a>
+        <div class="hero-image">
+            <img src="images/Mont St Victoire Watercolor 6.jpg" alt="Mont St Victoire">
+        </div>
     </section>
 
     <section class="new-additions">
@@ -547,6 +795,7 @@
             <button class="tab active" data-tab="bookshelf">Bookshelf</button>
             <button class="tab" data-tab="mental-models">Mental Models</button>
             <button class="tab" data-tab="adventures">Adventures</button>
+            <button class="tab" data-tab="nyc-top-3s">NYC Top 3's</button>
         </div>
 
         <div id="bookshelf" class="tab-content active">
@@ -672,6 +921,16 @@
         <div id="adventures" class="tab-content">
             <div class="photo-collage" id="adventuresCollage"></div>
         </div>
+
+        <div id="nyc-top-3s" class="tab-content">
+            <div class="nyc-gallery">
+                <img src="images/nyc top 3s/Pizza.jpg" alt="Pizza" style="transform: rotate(-2deg); margin-top: 0;">
+                <img src="images/nyc top 3s/Sushi.jpg" alt="Sushi" style="transform: rotate(1.5deg); margin-top: 2.5rem;">
+                <img src="images/nyc top 3s/Bagles.jpg" alt="Bagels" style="transform: rotate(-1deg); margin-top: -1rem;">
+                <img src="images/nyc top 3s/Thai.jpg" alt="Thai" style="transform: rotate(2.5deg); margin-top: 1.5rem;">
+                <img src="images/nyc top 3s/Burgers.jpg" alt="Burgers" style="transform: rotate(-1.5deg); margin-top: -0.5rem;">
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -684,6 +943,27 @@
             </div>
         </div>
     </footer>
+
+    <!-- NYC Top 3's Modal -->
+    <div id="nyc-modal" class="nyc-modal">
+        <div class="nyc-modal-backdrop"></div>
+        <div class="nyc-modal-content">
+            <button class="nyc-modal-close">&times;</button>
+            <div class="nyc-modal-inner">
+                <header class="nyc-modal-header">
+                    <h2 class="nyc-modal-title"></h2>
+                    <p class="nyc-modal-subtitle">My personal top 3 spots in NYC</p>
+                </header>
+                <div class="nyc-modal-restaurants"></div>
+                <footer class="nyc-modal-footer">
+                    <button class="nyc-modal-next">
+                        <span class="next-text">Next up: <span class="next-category-name"></span></span>
+                        <img src="images/nyc top 3s/Pointing Finger.jpg" alt="Next" class="pointing-hand">
+                    </button>
+                </footer>
+            </div>
+        </div>
+    </div>
 
     <script>
                 const books = [
@@ -739,7 +1019,6 @@
             {title: "Revolutionary Characters", author: "Gordon S. Wood", fileName: "Revolutionary Characters.jpg", tags: ["nonfiction", "history", "biography"]},
             {title: "The Shape of Space", author: "Jeffrey R. Weeks", fileName: "The Shape of Space.jpg", tags: ["nonfiction", "mathematics"]},
             {title: "Shape Up", author: "Ryan Singer", fileName: "Shape Up.jpg", tags: ["nonfiction", "business", "productivity"]},
-            {title: "Tis", author: "Frank McCourt", fileName: "Tis.jpg", tags: ["nonfiction", "biography", "memoir"]},
             {title: "The Road", author: "Cormac McCarthy", fileName: "The Road.jpg", tags: ["fiction"]},
             {title: "Romeo and Juliet", author: "William Shakespeare", fileName: "Romeo and Juliet.jpg", tags: ["fiction", "drama", "classic"]},
             {title: "The Things They Carried", author: "Tim O'Brien", fileName: "The Things They Carried.jpg", tags: ["fiction", "war"]},
@@ -825,12 +1104,36 @@
             tab.addEventListener('click', () => {
                 tabs.forEach(t => t.classList.remove('active'));
                 tabContents.forEach(tc => tc.classList.remove('active'));
-                
+
                 tab.classList.add('active');
                 const tabId = tab.getAttribute('data-tab');
                 const targetTab = document.getElementById(tabId);
                 if (targetTab) {
                     targetTab.classList.add('active');
+                }
+            });
+        });
+
+        // Handle CTA links that switch tabs
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const tabId = link.getAttribute('data-tab');
+
+                // Switch to the correct tab
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(tc => tc.classList.remove('active'));
+
+                const tabButton = document.querySelector(`.tab[data-tab="${tabId}"]`);
+                const tabContent = document.getElementById(tabId);
+
+                if (tabButton) tabButton.classList.add('active');
+                if (tabContent) tabContent.classList.add('active');
+
+                // Scroll to the tabbed section
+                const tabbedSection = document.querySelector('.tabbed-section');
+                if (tabbedSection) {
+                    tabbedSection.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
@@ -854,7 +1157,8 @@
                         item.style.display = 'block';
                     } else {
                         const itemTags = item.getAttribute('data-tags') || item.getAttribute('data-category');
-                        item.style.display = itemTags && itemTags.includes(filterValue) ? 'block' : 'none';
+                        const tagsArray = itemTags ? itemTags.split(' ') : [];
+                        item.style.display = tagsArray.includes(filterValue) ? 'block' : 'none';
                     }
                 });
             });
@@ -910,6 +1214,220 @@
                 adventuresCollage.appendChild(photoItem);
             });
         }
+
+        // NYC Top 3's Modal
+        const nycCategories = [
+            {
+                id: 'pizza',
+                name: 'Pizza',
+                image: 'images/nyc top 3s/Pizza.jpg',
+                restaurants: [
+                    {
+                        name: 'Lucali',
+                        neighborhood: 'Carroll Gardens',
+                        image: 'images/nyc top 3s/restaurants/lucali.jpg',
+                        description: 'A tiny, candlelit spot where the owner hand-stretches every pie. No slices, no reservations — just perfect pizza worth the wait.',
+                        recommendation: 'Get this: plain pie with fresh basil'
+                    },
+                    {
+                        name: "L'industrie Pizzeria",
+                        neighborhood: 'Williamsburg',
+                        image: 'images/nyc top 3s/restaurants/lindustrie.jpg',
+                        description: 'Crispy, slightly charred slices with creative toppings. The vibe is casual and the line moves fast.',
+                        recommendation: 'Get this: burrata slice with hot honey'
+                    },
+                    {
+                        name: "Joe's Pizza",
+                        neighborhood: 'West Village',
+                        image: 'images/nyc top 3s/restaurants/joes.jpg',
+                        description: 'The quintessential New York slice. Thin, foldable, and consistently excellent since 1975.',
+                        recommendation: 'Get this: classic cheese slice'
+                    }
+                ]
+            },
+            {
+                id: 'sushi',
+                name: 'Sushi',
+                image: 'images/nyc top 3s/Sushi.jpg',
+                restaurants: [
+                    {
+                        name: 'Sugarfish',
+                        neighborhood: 'Multiple Locations',
+                        image: 'images/nyc top 3s/restaurants/sugarfish.jpg',
+                        description: 'Trust the chef with their signature tasting menus. Simple, high-quality fish served at the perfect temperature.',
+                        recommendation: 'Get this: Trust Me menu'
+                    },
+                    {
+                        name: 'Tanoshi',
+                        neighborhood: 'Upper East Side',
+                        image: 'images/nyc top 3s/restaurants/tanoshi.jpg',
+                        description: 'An intimate omakase experience with just a few seats at the bar. Personal, unpretentious, memorable.',
+                        recommendation: 'Get this: omakase (chef\'s choice)'
+                    },
+                    {
+                        name: 'Sushi Nakazawa',
+                        neighborhood: 'West Village',
+                        image: 'images/nyc top 3s/restaurants/nakazawa.jpg',
+                        description: 'From the Jiro Dreams of Sushi apprentice. A special occasion spot with impeccable technique.',
+                        recommendation: 'Get this: 20-course omakase'
+                    }
+                ]
+            },
+            {
+                id: 'bagels',
+                name: 'Bagels',
+                image: 'images/nyc top 3s/Bagles.jpg',
+                restaurants: [
+                    {
+                        name: 'Russ & Daughters',
+                        neighborhood: 'Lower East Side',
+                        image: 'images/nyc top 3s/restaurants/russ-daughters.jpg',
+                        description: 'A 100+ year old institution. The lox is silky, the cream cheese is fresh, and the experience is quintessentially New York.',
+                        recommendation: 'Get this: classic with lox, cream cheese, capers'
+                    },
+                    {
+                        name: "Ess-a-Bagel",
+                        neighborhood: 'Midtown',
+                        image: 'images/nyc top 3s/restaurants/ess-a-bagel.jpg',
+                        description: 'Massive, chewy bagels with an endless list of spreads and toppings. Always busy, always worth it.',
+                        recommendation: 'Get this: everything bagel with scallion cream cheese'
+                    },
+                    {
+                        name: 'Absolute Bagels',
+                        neighborhood: 'Upper West Side',
+                        image: 'images/nyc top 3s/restaurants/absolute-bagels.jpg',
+                        description: 'Hand-rolled and kettle-boiled. The line out the door on weekends tells you everything you need to know.',
+                        recommendation: 'Get this: sesame bagel, still warm'
+                    }
+                ]
+            },
+            {
+                id: 'thai',
+                name: 'Thai',
+                image: 'images/nyc top 3s/Thai.jpg',
+                restaurants: [
+                    {
+                        name: 'Thai Diner',
+                        neighborhood: 'Nolita',
+                        image: 'images/nyc top 3s/restaurants/thai-diner.jpg',
+                        description: 'Thai-American comfort food in a retro diner setting. Playful, delicious, and unlike anywhere else.',
+                        recommendation: 'Get this: khao man gai (chicken & rice)'
+                    },
+                    {
+                        name: 'Fish Cheeks',
+                        neighborhood: 'NoHo',
+                        image: 'images/nyc top 3s/restaurants/fish-cheeks.jpg',
+                        description: 'Bold, southern Thai flavors in a stylish space. The seafood dishes are the stars here.',
+                        recommendation: 'Get this: crab fried rice'
+                    },
+                    {
+                        name: 'SriPraPhai',
+                        neighborhood: 'Woodside, Queens',
+                        image: 'images/nyc top 3s/restaurants/sripraphai.jpg',
+                        description: 'The gold standard for authentic Thai in NYC. Worth the trip to Queens for the papaya salad alone.',
+                        recommendation: 'Get this: drunken noodles, extra spicy'
+                    }
+                ]
+            },
+            {
+                id: 'burgers',
+                name: 'Burgers',
+                image: 'images/nyc top 3s/Burgers.jpg',
+                restaurants: [
+                    {
+                        name: 'J.G. Melon',
+                        neighborhood: 'Upper East Side',
+                        image: 'images/nyc top 3s/restaurants/jg-melon.jpg',
+                        description: 'A neighborhood tavern serving one of the best burgers in the city since 1972. No frills, just a perfect patty.',
+                        recommendation: 'Get this: cheeseburger, medium rare'
+                    },
+                    {
+                        name: "Minetta Tavern",
+                        neighborhood: 'Greenwich Village',
+                        image: 'images/nyc top 3s/restaurants/minetta-tavern.jpg',
+                        description: 'The Black Label burger is legendary — dry-aged beef that melts in your mouth. A splurge-worthy classic.',
+                        recommendation: 'Get this: Black Label burger'
+                    },
+                    {
+                        name: 'Corner Bistro',
+                        neighborhood: 'West Village',
+                        image: 'images/nyc top 3s/restaurants/corner-bistro.jpg',
+                        description: 'A dive bar with a cult-following burger. Cash only, no pretense, pure satisfaction.',
+                        recommendation: 'Get this: Bistro Burger with bacon'
+                    }
+                ]
+            }
+        ];
+
+        let currentCategoryIndex = 0;
+        const nycModal = document.getElementById('nyc-modal');
+        const modalTitle = nycModal.querySelector('.nyc-modal-title');
+        const modalRestaurants = nycModal.querySelector('.nyc-modal-restaurants');
+        const nextCategoryName = nycModal.querySelector('.next-category-name');
+
+        function renderCategory(index) {
+            const category = nycCategories[index];
+            modalTitle.textContent = category.name;
+
+            // Render restaurants
+            modalRestaurants.innerHTML = category.restaurants.map(r => `
+                <article class="restaurant-item">
+                    ${r.image ? `<img src="${r.image}" alt="${r.name}" class="restaurant-image">` : ''}
+                    <h3 class="restaurant-name">${r.name}</h3>
+                    <p class="restaurant-neighborhood">${r.neighborhood}</p>
+                    <p class="restaurant-description">${r.description}</p>
+                    <p class="restaurant-recommendation">${r.recommendation}</p>
+                </article>
+            `).join('');
+
+            // Update next category name
+            const nextIndex = (index + 1) % nycCategories.length;
+            nextCategoryName.textContent = nycCategories[nextIndex].name;
+
+            // Scroll to top of modal
+            nycModal.querySelector('.nyc-modal-content').scrollTop = 0;
+        }
+
+        function openNycModal(categoryId) {
+            const index = nycCategories.findIndex(c => c.id === categoryId);
+            if (index !== -1) {
+                currentCategoryIndex = index;
+                renderCategory(currentCategoryIndex);
+                nycModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeNycModal() {
+            nycModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function nextCategory() {
+            currentCategoryIndex = (currentCategoryIndex + 1) % nycCategories.length;
+            renderCategory(currentCategoryIndex);
+        }
+
+        // Click handlers for gallery images
+        document.querySelectorAll('.nyc-gallery img').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => {
+                const categoryId = img.alt.toLowerCase();
+                openNycModal(categoryId);
+            });
+        });
+
+        // Close modal handlers
+        nycModal.querySelector('.nyc-modal-close').addEventListener('click', closeNycModal);
+        nycModal.querySelector('.nyc-modal-backdrop').addEventListener('click', closeNycModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && nycModal.classList.contains('active')) {
+                closeNycModal();
+            }
+        });
+
+        // Next category handler
+        nycModal.querySelector('.nyc-modal-next').addEventListener('click', nextCategory);
     </script>
 </body>
 </html>
