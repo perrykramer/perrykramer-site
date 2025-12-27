@@ -400,41 +400,23 @@
         }
 
         /* NYC Top 3's */
-        .nyc-menu-board {
+        .nyc-gallery {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 1.5rem;
-            padding: 1rem;
+            align-items: flex-start;
+            gap: 2.5rem;
         }
 
-        .menu-item {
-            position: relative;
-            width: 180px;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .menu-item:hover {
-            transform: scale(1.05) rotate(0deg) !important;
-            z-index: 10;
-        }
-
-        .menu-item img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .menu-label {
+        .nyc-gallery img {
+            width: 220px;
+            height: auto;
             display: block;
-            text-align: center;
-            margin-top: 0.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #1a1a1a;
+            transition: opacity 0.3s ease;
+        }
+
+        .nyc-gallery img:hover {
+            opacity: 0.85;
         }
 
         footer {
@@ -773,27 +755,12 @@
         </div>
 
         <div id="nyc-top-3s" class="tab-content">
-            <div class="nyc-menu-board">
-                <div class="menu-item" style="transform: rotate(-2deg);">
-                    <img src="images/nyc top 3s/Pizza.jpg" alt="Pizza">
-                    <span class="menu-label">Pizza</span>
-                </div>
-                <div class="menu-item" style="transform: rotate(1.5deg); margin-top: 2rem;">
-                    <img src="images/nyc top 3s/Sushi.jpg" alt="Sushi">
-                    <span class="menu-label">Sushi</span>
-                </div>
-                <div class="menu-item" style="transform: rotate(-1deg); margin-top: -1rem;">
-                    <img src="images/nyc top 3s/Bagles.jpg" alt="Bagels">
-                    <span class="menu-label">Bagels</span>
-                </div>
-                <div class="menu-item" style="transform: rotate(2deg); margin-top: 1.5rem;">
-                    <img src="images/nyc top 3s/Thai.jpg" alt="Thai">
-                    <span class="menu-label">Thai</span>
-                </div>
-                <div class="menu-item" style="transform: rotate(-1.5deg); margin-top: -0.5rem;">
-                    <img src="images/nyc top 3s/Burgers.jpg" alt="Burgers">
-                    <span class="menu-label">Burgers</span>
-                </div>
+            <div class="nyc-gallery">
+                <img src="images/nyc top 3s/Pizza.jpg" alt="Pizza">
+                <img src="images/nyc top 3s/Sushi.jpg" alt="Sushi">
+                <img src="images/nyc top 3s/Bagles.jpg" alt="Bagels">
+                <img src="images/nyc top 3s/Thai.jpg" alt="Thai">
+                <img src="images/nyc top 3s/Burgers.jpg" alt="Burgers">
             </div>
         </div>
     </section>
