@@ -163,20 +163,28 @@
             height: auto;
         }
 
+        .hero-img-light,
+        .hero-img-dark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s ease;
+        }
+
         .hero-img-light {
-            display: block;
+            opacity: 1;
         }
 
         .hero-img-dark {
-            display: none;
+            opacity: 0;
         }
 
         [data-theme="dark"] .hero-img-light {
-            display: none;
+            opacity: 0;
         }
 
         [data-theme="dark"] .hero-img-dark {
-            display: block;
+            opacity: 1;
         }
 
         .hero h1 {
