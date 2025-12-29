@@ -163,6 +163,22 @@
             height: auto;
         }
 
+        .hero-img-light {
+            display: block;
+        }
+
+        .hero-img-dark {
+            display: none;
+        }
+
+        [data-theme="dark"] .hero-img-light {
+            display: none;
+        }
+
+        [data-theme="dark"] .hero-img-dark {
+            display: block;
+        }
+
         .hero h1 {
             font-size: 2.2rem;
             font-weight: 600;
@@ -890,7 +906,8 @@
             <a href="#contact" class="cta-link">Get in touch</a>
         </div>
         <div class="hero-image">
-            <img src="images/Mont St Victoire Watercolor 6.jpg" alt="Mont St Victoire">
+            <img src="images/Mont St Victoire Watercolor 6.jpg" alt="Mont St Victoire" class="hero-img-light">
+            <img src="images/Fire Watercolor.jpg" alt="Fire Watercolor" class="hero-img-dark">
         </div>
     </section>
 
