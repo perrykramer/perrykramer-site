@@ -11,11 +11,34 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-tertiary: #fafafa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --text-tertiary: #999;
+            --border-color: #e5e5e5;
+            --shadow-color: rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-tertiary: #141414;
+            --text-primary: #f0f0f0;
+            --text-secondary: #a0a0a0;
+            --text-tertiary: #707070;
+            --border-color: #2a2a2a;
+            --shadow-color: rgba(0,0,0,0.3);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.7;
-            color: #1a1a1a;
-            background: #ffffff;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: background 0.3s, color 0.3s;
         }
 
         nav {
@@ -23,15 +46,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            transition: background 0.3s, border-color 0.3s;
         }
 
         .logo {
             font-size: 1.1rem;
             font-weight: 600;
-            color: #1a1a1a;
+            color: var(--text-primary);
             text-decoration: none;
             letter-spacing: -0.02em;
+            transition: color 0.3s;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
         }
 
         .nav-links {
@@ -41,14 +73,67 @@
         }
 
         .nav-links a {
-            color: #666;
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.95rem;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: #1a1a1a;
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            width: 32px;
+            height: 32px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--text-secondary);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text-primary);
+            transition: stroke 0.3s;
+        }
+
+        .theme-toggle .sun-icon {
+            display: block;
+        }
+
+        .theme-toggle .moon-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .theme-toggle .sun-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .theme-toggle .moon-icon {
+            display: block;
+        }
+
+        /* Dark mode SVG adjustments */
+        [data-theme="dark"] .mental-model-card svg path,
+        [data-theme="dark"] .mental-model-card svg rect,
+        [data-theme="dark"] .mental-model-card svg circle,
+        [data-theme="dark"] .addition-cover.mental-model svg path,
+        [data-theme="dark"] .addition-cover.mental-model svg rect {
+            stroke: var(--text-primary);
+        }
+
+        [data-theme="dark"] .mental-model-card svg text {
+            fill: var(--text-primary);
         }
 
         .hero {
@@ -78,34 +163,94 @@
             height: auto;
         }
 
+        .hero-img-light {
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-img-dark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        [data-theme="dark"] .hero-img-light {
+            opacity: 0;
+        }
+
+        [data-theme="dark"] .hero-img-dark {
+            opacity: 1;
+        }
+
         .hero h1 {
             font-size: 2.2rem;
             font-weight: 600;
             margin-bottom: 0.15rem;
             letter-spacing: -0.02em;
-            color: #1a1a1a;
+            color: var(--text-primary);
             white-space: nowrap;
+            transition: color 0.3s;
         }
 
         .hero-intro {
             font-size: 1.1rem;
-            color: #666;
-            line-height: 1.8;
+            color: var(--text-secondary);
+            line-height: 1.5;
             margin-bottom: 3rem;
+            transition: color 0.3s;
         }
 
         .hero-intro p {
-            margin-bottom: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .hero-section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-tertiary);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .hero-border-left {
+            border-left: 2px solid var(--border-color);
+            padding-left: 1.5rem;
+            transition: border-color 0.3s;
+        }
+
+        .hero-text-primary {
+            margin-bottom: 0;
+            color: var(--text-primary);
+            transition: color 0.3s;
+            line-height: 1.4;
+        }
+
+        .hero-link {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            line-height: 1.3;
+        }
+
+        .hero-link span {
+            text-decoration: underline;
         }
 
         .cta-link {
             display: inline-block;
-            color: #1a1a1a;
+            color: var(--text-primary);
             text-decoration: none;
             font-size: 0.95rem;
             padding-bottom: 2px;
-            border-bottom: 2px solid #1a1a1a;
-            transition: opacity 0.2s;
+            border-bottom: 2px solid var(--text-primary);
+            transition: opacity 0.2s, color 0.3s, border-color 0.3s;
         }
 
         .cta-link:hover {
@@ -120,10 +265,11 @@
 
         .section-label {
             font-size: 0.85rem;
-            color: #999;
+            color: var(--text-tertiary);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: 1.5rem;
+            transition: color 0.3s;
         }
 
         .additions-grid {
@@ -144,47 +290,53 @@
         .addition-cover {
             width: 100%;
             aspect-ratio: 2/3;
-            background: #f5f5f5;
+            background: var(--bg-secondary);
             border-radius: 2px;
             margin-bottom: 0.5rem;
             object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px var(--shadow-color);
             display: block;
+            transition: background 0.3s, box-shadow 0.3s;
         }
 
         .addition-cover.mental-model {
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #fafafa;
-            border: 1px solid #e5e5e5;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
             font-size: 2rem;
+            transition: background 0.3s, border-color 0.3s;
         }
 
         .addition-title {
             font-size: 0.85rem;
-            color: #1a1a1a;
+            color: var(--text-primary);
             line-height: 1.4;
+            transition: color 0.3s;
         }
 
         .addition-meta {
             font-size: 0.75rem;
-            color: #999;
+            color: var(--text-tertiary);
             margin-top: 0.25rem;
+            transition: color 0.3s;
         }
 
         .tabbed-section {
             max-width: 1000px;
             margin: 0 auto;
             padding: 4rem 2rem;
-            border-top: 1px solid #e5e5e5;
+            border-top: 1px solid var(--border-color);
+            transition: border-color 0.3s;
         }
 
         .tabs {
             display: flex;
             gap: 2rem;
             margin-bottom: 3rem;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid var(--border-color);
+            transition: border-color 0.3s;
         }
 
         .tab {
@@ -192,7 +344,7 @@
             background: none;
             border: none;
             font-size: 1rem;
-            color: #999;
+            color: var(--text-tertiary);
             cursor: pointer;
             transition: color 0.2s;
             border-bottom: 2px solid transparent;
@@ -200,12 +352,12 @@
         }
 
         .tab:hover {
-            color: #666;
+            color: var(--text-secondary);
         }
 
         .tab.active {
-            color: #1a1a1a;
-            border-bottom-color: #1a1a1a;
+            color: var(--text-primary);
+            border-bottom-color: var(--text-primary);
         }
 
         .filters {
@@ -217,23 +369,23 @@
 
         .filter-btn {
             padding: 0.5rem 1rem;
-            background: #f5f5f5;
-            border: 1px solid #e5e5e5;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
             border-radius: 20px;
             font-size: 0.85rem;
-            color: #666;
+            color: var(--text-secondary);
             cursor: pointer;
             transition: all 0.2s;
         }
 
         .filter-btn:hover {
-            background: #e5e5e5;
+            background: var(--border-color);
         }
 
         .filter-btn.active {
-            background: #1a1a1a;
-            color: white;
-            border-color: #1a1a1a;
+            background: var(--text-primary);
+            color: var(--bg-primary);
+            border-color: var(--text-primary);
         }
 
         .tab-content {
@@ -267,7 +419,8 @@
             position: relative;
             border-radius: 2px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: box-shadow 0.3s;
         }
 
         .book-cover {
@@ -296,21 +449,23 @@
 
         .book-title {
             font-size: 0.85rem;
-            color: #1a1a1a;
+            color: var(--text-primary);
             margin-bottom: 0.25rem;
             line-height: 1.3;
+            transition: color 0.3s;
         }
 
         .book-author {
             font-size: 0.75rem;
-            color: #999;
+            color: var(--text-tertiary);
+            transition: color 0.3s;
         }
 
         .mental-model-card {
             width: 100%;
             aspect-ratio: 1;
-            background: #fafafa;
-            border: 1px solid #e5e5e5;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
             border-radius: 4px;
             margin-bottom: 0.75rem;
             padding: 1.5rem;
@@ -319,6 +474,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            transition: background 0.3s, border-color 0.3s;
         }
 
         .sketch-icon {
@@ -334,15 +490,17 @@
 
         .model-title {
             font-size: 0.9rem;
-            color: #1a1a1a;
+            color: var(--text-primary);
             font-weight: 500;
             margin-top: 0.5rem;
+            transition: color 0.3s;
         }
 
         .model-description {
             font-size: 0.75rem;
-            color: #999;
+            color: var(--text-tertiary);
             margin-top: 0.25rem;
+            transition: color 0.3s;
         }
 
         /* Adventures Collage Grid - Masonry Layout */
@@ -420,6 +578,22 @@
             opacity: 0.9;
         }
 
+        .nyc-img-light {
+            display: block;
+        }
+
+        .nyc-img-dark {
+            display: none;
+        }
+
+        [data-theme="dark"] .nyc-img-light {
+            display: none;
+        }
+
+        [data-theme="dark"] .nyc-img-dark {
+            display: block;
+        }
+
         /* NYC Modal */
         .nyc-modal {
             display: none;
@@ -446,6 +620,11 @@
             background: rgba(255, 255, 255, 0.6);
             -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
+            transition: background 0.3s;
+        }
+
+        [data-theme="dark"] .nyc-modal-backdrop {
+            background: rgba(0, 0, 0, 0.6);
         }
 
         .nyc-modal-content {
@@ -453,10 +632,11 @@
             width: 90%;
             max-width: 760px;
             max-height: 80vh;
-            background: #faf9f7;
+            background: var(--bg-tertiary);
             border-radius: 12px;
             overflow-y: auto;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 60px var(--shadow-color);
+            transition: background 0.3s, box-shadow 0.3s;
         }
 
         .nyc-modal-close {
@@ -466,7 +646,7 @@
             background: none;
             border: none;
             font-size: 1.75rem;
-            color: #999;
+            color: var(--text-tertiary);
             cursor: pointer;
             z-index: 10;
             width: 40px;
@@ -478,7 +658,7 @@
         }
 
         .nyc-modal-close:hover {
-            color: #1a1a1a;
+            color: var(--text-primary);
         }
 
         .nyc-modal-inner {
@@ -493,13 +673,15 @@
         .nyc-modal-title {
             font-size: 2.5rem;
             font-weight: 600;
-            color: #1a1a1a;
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
+            transition: color 0.3s;
         }
 
         .nyc-modal-subtitle {
             font-size: 1rem;
-            color: #888;
+            color: var(--text-secondary);
+            transition: color 0.3s;
         }
 
         .nyc-modal-restaurants {
@@ -524,37 +706,42 @@
         .restaurant-name {
             font-size: 1.2rem;
             font-weight: 600;
-            color: #1a1a1a;
+            color: var(--text-primary);
             margin: 0;
+            transition: color 0.3s;
         }
 
         .restaurant-neighborhood {
             font-size: 0.85rem;
-            color: #888;
+            color: var(--text-secondary);
             margin: 0;
             margin-top: -0.25rem;
+            transition: color 0.3s;
         }
 
         .restaurant-description {
             font-size: 0.95rem;
-            color: #444;
+            color: var(--text-secondary);
             line-height: 1.6;
             margin: 0;
+            transition: color 0.3s;
         }
 
         .restaurant-recommendation {
             font-size: 0.9rem;
-            color: #666;
+            color: var(--text-secondary);
             font-style: italic;
             margin: 0;
+            transition: color 0.3s;
         }
 
         .nyc-modal-footer {
             margin-top: 4rem;
             padding-top: 2rem;
-            border-top: 1px solid #e5e5e5;
+            border-top: 1px solid var(--border-color);
             display: flex;
             justify-content: center;
+            transition: border-color 0.3s;
         }
 
         .nyc-modal-next {
@@ -574,12 +761,14 @@
 
         .next-text {
             font-size: 1rem;
-            color: #666;
+            color: var(--text-secondary);
+            transition: color 0.3s;
         }
 
         .next-category-name {
             font-weight: 600;
-            color: #1a1a1a;
+            color: var(--text-primary);
+            transition: color 0.3s;
         }
 
         .pointing-hand {
@@ -588,9 +777,11 @@
         }
 
         footer {
-            border-top: 1px solid #e5e5e5;
+            border-top: 1px solid var(--border-color);
             padding: 3rem 3rem;
             margin-top: 6rem;
+            background: var(--bg-primary);
+            transition: border-color 0.3s, background 0.3s;
         }
 
         .footer-content {
@@ -603,7 +794,8 @@
 
         .footer-text {
             font-size: 0.85rem;
-            color: #999;
+            color: var(--text-tertiary);
+            transition: color 0.3s;
         }
 
         .social-links {
@@ -612,14 +804,14 @@
         }
 
         .social-links a {
-            color: #666;
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.85rem;
             transition: color 0.2s;
         }
 
         .social-links a:hover {
-            color: #1a1a1a;
+            color: var(--text-primary);
         }
 
         @media (max-width: 768px) {
@@ -679,49 +871,59 @@
 <body>
     <nav>
         <a href="#" class="logo">Perry Kramer</a>
-        <ul class="nav-links">
-            <li><a href="#adventures">Adventures</a></li>
-            <li><a href="#collections">Collections</a></li>
-            <li><a href="#reflections">Reflections</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#adventures">Adventures</a></li>
+                <li><a href="#collections">Collections</a></li>
+                <li><a href="#reflections">Reflections</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
     </nav>
 
     <section class="hero">
         <div class="hero-text">
-            <h1>Seeking simplicity in a complex world</h1>
-            <p style="font-size: 1.1rem; color: #666; margin-bottom: 1.5rem; font-weight: 400;">Notes on thinking, work, and life</p>
+            <h1>Notes on thinking, work, life, and travel</h1>
             <div class="hero-intro">
                 <div style="margin-bottom: 1.5rem;">
-                    <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 0.75rem; font-weight: 600;">Currently</p>
-                    <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
+                    <p class="hero-section-label">Currently</p>
+                    <div class="hero-border-left">
                         <div style="margin-bottom: 0.75rem;">
-                            <p style="margin-bottom: 0; color: #1a1a1a;">Living in NYC, exploring neighborhoods and restaurants</p>
-                            <a href="#nyc-top-3s" class="tab-link" data-tab="nyc-top-3s" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">NYC top 3's</span></a>
+                            <p class="hero-text-primary">Living in NYC, exploring neighborhoods and restaurants</p>
+                            <a href="#nyc-top-3s" class="tab-link hero-link" data-tab="nyc-top-3s">→ <span>NYC top 3's</span></a>
                         </div>
                         <div style="margin-bottom: 0.75rem;">
-                            <p style="margin-bottom: 0; color: #1a1a1a;">Helping companies price, launch, and scale at BCG</p>
-                            <a href="#contact" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">Interested in consulting? Happy to chat</span></a>
+                            <p class="hero-text-primary">Helping companies price, launch, and scale at BCG</p>
+                            <a href="#contact" class="hero-link">→ <span>Interested in consulting? Happy to chat</span></a>
                         </div>
                         <div>
-                            <p style="margin-bottom: 0; color: #1a1a1a;">Reading about economics and writing about mental models</p>
-                            <a href="#" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">Mental models I use to think clearly</span></a>
+                            <p class="hero-text-primary">Reading about economics and writing about mental models</p>
+                            <a href="#" class="hero-link">→ <span>Mental models I use to think clearly</span></a>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; color: #999; margin-bottom: 0.75rem; font-weight: 600;">Previously</p>
-                    <div style="border-left: 2px solid #e5e5e5; padding-left: 1.5rem;">
+                    <p class="hero-section-label">Previously</p>
+                    <div class="hero-border-left">
                         <div style="margin-bottom: 0.75rem;">
-                            <p style="margin-bottom: 0; color: #1a1a1a;">Studied math and entrepreneurship, played lacrosse at W&L</p>
+                            <p class="hero-text-primary">Studied math and entrepreneurship, played lacrosse at W&L</p>
                         </div>
                         <div style="margin-bottom: 0.75rem;">
-                            <p style="margin-bottom: 0; color: #1a1a1a;">Visited 12 countries in 12 weeks with everything in a backpack</p>
-                            <a href="#adventures" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">Photos, itineraries, and packing lists</span></a>
+                            <p class="hero-text-primary">Visited 12 countries in 12 weeks with everything in a backpack</p>
+                            <a href="#adventures" class="hero-link">→ <span>Photos, itineraries, and packing lists</span></a>
                         </div>
                         <div>
-                            <p style="margin-bottom: 0; color: #1a1a1a;">Helped students with coursework and consulting recruiting</p>
-                            <a href="#contact" style="font-size: 0.85rem; color: #888; text-decoration: none;">→ <span style="text-decoration: underline;">Happy to help with recruiting or mock cases</span></a>
+                            <p class="hero-text-primary">Helped students with coursework and consulting recruiting</p>
+                            <a href="#contact" class="hero-link">→ <span>Happy to help with recruiting or mock cases</span></a>
                         </div>
                     </div>
                 </div>
@@ -729,7 +931,8 @@
             <a href="#contact" class="cta-link">Get in touch</a>
         </div>
         <div class="hero-image">
-            <img src="images/Mont St Victoire Watercolor 6.jpg" alt="Mont St Victoire">
+            <img src="images/Mont St Victoire Watercolor 6.jpg" alt="Mont St Victoire" class="hero-img-light">
+            <img src="images/Fire Watercolor.jpg" alt="Fire Watercolor" class="hero-img-dark">
         </div>
     </section>
 
@@ -926,9 +1129,11 @@
             <div class="nyc-gallery">
                 <img src="images/nyc top 3s/Pizza.jpg" alt="Pizza" style="transform: rotate(-2deg); margin-top: 0;">
                 <img src="images/nyc top 3s/Sushi.jpg" alt="Sushi" style="transform: rotate(1.5deg); margin-top: 2.5rem;">
-                <img src="images/nyc top 3s/Bagles.jpg" alt="Bagels" style="transform: rotate(-1deg); margin-top: -1rem;">
+                <img src="images/nyc top 3s/Bagels.jpg" alt="Bagels" style="transform: rotate(-1deg); margin-top: -1rem;">
                 <img src="images/nyc top 3s/Thai.jpg" alt="Thai" style="transform: rotate(2.5deg); margin-top: 1.5rem;">
                 <img src="images/nyc top 3s/Burgers.jpg" alt="Burgers" style="transform: rotate(-1.5deg); margin-top: -0.5rem;">
+                <img src="images/nyc top 3s/Korean.jpg" alt="Korean" style="transform: rotate(1deg); margin-top: 1rem;">
+                <img src="images/nyc top 3s/Sandwiches.jpg" alt="Sandwiches" style="transform: rotate(-2deg); margin-top: 0.5rem;">
             </div>
         </div>
     </section>
@@ -1276,7 +1481,7 @@
             {
                 id: 'bagels',
                 name: 'Bagels',
-                image: 'images/nyc top 3s/Bagles.jpg',
+                image: 'images/nyc top 3s/Bagels.jpg',
                 restaurants: [
                     {
                         name: 'Russ & Daughters',
@@ -1356,6 +1561,56 @@
                         recommendation: 'Get this: Bistro Burger with bacon'
                     }
                 ]
+            },
+            {
+                id: 'korean',
+                name: 'Korean',
+                image: 'images/nyc top 3s/Korean.jpg',
+                restaurants: [
+                    {
+                        name: 'Atomix',
+                        neighborhood: 'NoMad',
+                        description: 'A two-Michelin-star experience presenting Korean cuisine as fine dining. Intimate, inventive, and unforgettable.',
+                        recommendation: 'Get this: the tasting menu'
+                    },
+                    {
+                        name: 'Her Name is Han',
+                        neighborhood: 'Koreatown',
+                        description: 'Modern Korean comfort food in a stylish setting. Great for groups and late-night cravings.',
+                        recommendation: 'Get this: Korean fried chicken'
+                    },
+                    {
+                        name: 'Kang Ho Dong Baekjeong',
+                        neighborhood: 'Koreatown',
+                        description: 'The ultimate Korean BBQ experience. Grill your own meat at the table with all the banchan you can eat.',
+                        recommendation: 'Get this: beef brisket and pork belly combo'
+                    }
+                ]
+            },
+            {
+                id: 'sandwiches',
+                name: 'Sandwiches',
+                image: 'images/nyc top 3s/Sandwiches.jpg',
+                restaurants: [
+                    {
+                        name: "Katz's Delicatessen",
+                        neighborhood: 'Lower East Side',
+                        description: 'The iconic NYC deli since 1888. Hand-carved pastrami piled high on rye — a true New York institution.',
+                        recommendation: 'Get this: pastrami on rye'
+                    },
+                    {
+                        name: "Alidoro",
+                        neighborhood: 'SoHo',
+                        description: 'Italian sandwiches made with imported ingredients on fresh-baked bread. Simple, authentic, perfect.',
+                        recommendation: 'Get this: Il Soprano'
+                    },
+                    {
+                        name: "Court Street Grocers",
+                        neighborhood: 'Carroll Gardens',
+                        description: 'Creative deli sandwiches with quality ingredients. The kind of neighborhood spot every area deserves.',
+                        recommendation: 'Get this: The Angus'
+                    }
+                ]
             }
         ];
 
@@ -1428,6 +1683,27 @@
 
         // Next category handler
         nycModal.querySelector('.nyc-modal-next').addEventListener('click', nextCategory);
+
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme === 'dark' ? 'dark' : '');
+            if (newTheme === 'light') {
+                html.removeAttribute('data-theme');
+            }
+            localStorage.setItem('theme', newTheme);
+        });
     </script>
 </body>
 </html>
