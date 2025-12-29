@@ -163,20 +163,18 @@
             height: auto;
         }
 
-        .hero-img-light,
+        .hero-img-light {
+            position: relative;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
         .hero-img-dark {
             position: absolute;
             top: 0;
             left: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .hero-img-light {
-            opacity: 1;
-        }
-
-        .hero-img-dark {
             opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         [data-theme="dark"] .hero-img-light {
