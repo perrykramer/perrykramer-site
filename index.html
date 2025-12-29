@@ -575,6 +575,22 @@
             opacity: 0.9;
         }
 
+        .nyc-img-light {
+            display: block;
+        }
+
+        .nyc-img-dark {
+            display: none;
+        }
+
+        [data-theme="dark"] .nyc-img-light {
+            display: none;
+        }
+
+        [data-theme="dark"] .nyc-img-dark {
+            display: block;
+        }
+
         /* NYC Modal */
         .nyc-modal {
             display: none;
@@ -1110,7 +1126,8 @@
             <div class="nyc-gallery">
                 <img src="images/nyc top 3s/Pizza.jpg" alt="Pizza" style="transform: rotate(-2deg); margin-top: 0;">
                 <img src="images/nyc top 3s/Sushi.jpg" alt="Sushi" style="transform: rotate(1.5deg); margin-top: 2.5rem;">
-                <img src="images/nyc top 3s/Bagles.jpg" alt="Bagels" style="transform: rotate(-1deg); margin-top: -1rem;">
+                <img src="images/nyc top 3s/Bagles.jpg" alt="Bagels" class="nyc-img-light" style="transform: rotate(-1deg); margin-top: -1rem;">
+                <img src="images/nyc top 3s/Bagles Night Mode.jpg" alt="Bagels" class="nyc-img-dark" style="transform: rotate(-1deg); margin-top: -1rem;">
                 <img src="images/nyc top 3s/Thai.jpg" alt="Thai" style="transform: rotate(2.5deg); margin-top: 1.5rem;">
                 <img src="images/nyc top 3s/Burgers.jpg" alt="Burgers" style="transform: rotate(-1.5deg); margin-top: -0.5rem;">
             </div>
