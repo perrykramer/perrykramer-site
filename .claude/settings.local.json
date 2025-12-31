@@ -18,7 +18,9 @@
       "Bash(\"/c/Program Files/ImageMagick-7.1.2-Q16-HDRI/magick.exe\" --version)",
       "Bash(MAGICK=\"/c/Program Files/ImageMagick-7.1.2-Q16-HDRI/magick.exe\")",
       "Bash(\"$MAGICK\" identify \"C:/Users/Kramer Perry/documents/perrykramer-site/images/Mont St Victoire.jpg\")",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(git merge:*)"
     ]
   }
 }
