@@ -20,7 +20,11 @@
       "Bash(\"$MAGICK\" identify \"C:/Users/Kramer Perry/documents/perrykramer-site/images/Mont St Victoire.jpg\")",
       "Bash(git push:*)",
       "Bash(git checkout:*)",
-      "Bash(git merge:*)"
+      "Bash(git merge:*)",
+      "Bash(\"/c/Program Files/ImageMagick-7.1.2-Q16-HDRI/magick.exe\" identify:*)",
+      "Bash(\"/c/Program Files/ImageMagick-7.1.2-Q16-HDRI/magick.exe\" \"C:/Users/Kramer Perry/documents/perrykramer-site/images/nyc top 3s/Restaurant pics/Prince St.jpg\" -resize 50% \"C:/Users/Kramer Perry/documents/perrykramer-site/images/nyc top 3s/Restaurant pics/Prince St.jpg\")",
+      "Bash(\"/c/Program Files/ImageMagick-7.1.2-Q16-HDRI/magick.exe\" \"C:/Users/Kramer Perry/documents/perrykramer-site/images/nyc top 3s/Restaurant pics/L''Industrie.jpg.png\" -gravity center -crop 512x343+0+0 +repage \"C:/Users/Kramer Perry/documents/perrykramer-site/images/nyc top 3s/Restaurant pics/L''Industrie.jpg.png\")",
+      "Bash(\"/c/Program Files/ImageMagick-7.1.2-Q16-HDRI/magick.exe\" \"C:/Users/Kramer Perry/documents/perrykramer-site/images/nyc top 3s/Restaurant pics/Rubirosa.jpg\" -gravity south -crop 512x343+0+0 +repage \"C:/Users/Kramer Perry/documents/perrykramer-site/images/nyc top 3s/Restaurant pics/Rubirosa.jpg\")"
     ]
   }
 }
