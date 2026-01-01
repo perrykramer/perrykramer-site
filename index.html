@@ -714,15 +714,15 @@
         }
 
         .restaurant-neighborhood {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             margin: 0;
-            margin-top: -0.25rem;
+            margin-top: -0.5rem;
             transition: color 0.3s;
         }
 
         .restaurant-description {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.6;
             margin: 0;
@@ -1631,7 +1631,7 @@
                 <article class="restaurant-item">
                     ${r.image ? `<img src="${r.image}" alt="${r.name}" class="restaurant-image">` : ''}
                     <h3 class="restaurant-name">${r.name}</h3>
-                    <p class="restaurant-neighborhood">${r.neighborhood}</p>
+                    <p class="restaurant-neighborhood">📍 ${r.neighborhood}</p>
                     <p class="restaurant-description">${r.description}</p>
                     <p class="restaurant-recommendation">${r.recommendation}</p>
                 </article>
