@@ -697,10 +697,12 @@
         }
 
         .restaurant-image {
-            width: 100%;
-            height: auto;
+            width: 40%;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
             display: block;
             margin-bottom: 0.5rem;
+            border-radius: 4px;
         }
 
         .restaurant-name {
@@ -712,15 +714,15 @@
         }
 
         .restaurant-neighborhood {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             margin: 0;
-            margin-top: -0.25rem;
+            margin-top: -0.5rem;
             transition: color 0.3s;
         }
 
         .restaurant-description {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             line-height: 1.6;
             margin: 0;
@@ -1377,7 +1379,7 @@
             { fileName: "Osaka Castle (2).JPG", caption: "Osaka Castle", size: "medium" },
             { fileName: "Red Bamboo.jpg", caption: "Red Bamboo", size: "small" },
             { fileName: "Temple in Tokyo.jpg", caption: "Temple in Tokyo", size: "small" },
-            { fileName: "Tokyo Peaceful Setting.jpg", caption: "Tokyo Peaceful Setting", size: "medium" },
+            { fileName: "Tokyo Peaceful Setting.jpg", caption: "Kyoto", size: "medium" },
             { fileName: "Cliff in Bali.jpg", caption: "Cliff in Bali", size: "large" },
             { fileName: "Putu! In Bali.jpg", caption: "Putu in Bali", size: "medium" },
             { fileName: "Gili Air Beach.jpg", caption: "Gili Air Beach", size: "medium" },
@@ -1428,25 +1430,25 @@
                 image: 'images/nyc top 3s/Pizza.jpg',
                 restaurants: [
                     {
-                        name: 'Lucali',
-                        neighborhood: 'Carroll Gardens',
-                        image: 'images/nyc top 3s/restaurants/lucali.jpg',
-                        description: 'A tiny, candlelit spot where the owner hand-stretches every pie. No slices, no reservations — just perfect pizza worth the wait.',
-                        recommendation: 'Get this: plain pie with fresh basil'
+                        name: 'Rubirosa',
+                        neighborhood: 'Nolita',
+                        image: 'images/nyc top 3s/Restaurant pics/Rubirosa.jpg',
+                        description: 'Big pies in a sit-down restaurant with old school Italian-American vibes.',
+                        recommendation: 'Get this: Honey Pie'
                     },
                     {
-                        name: "L'industrie Pizzeria",
+                        name: "Prince St. Pizza",
+                        neighborhood: 'Nolita',
+                        image: 'images/nyc top 3s/Restaurant pics/Prince St.jpg',
+                        description: 'Sicilian-style (Thick, doughy square slices) known to include vodka sauce.',
+                        recommendation: 'Get this: The Naughty Pie'
+                    },
+                    {
+                        name: "L'Industrie Pizzeria",
                         neighborhood: 'Williamsburg',
-                        image: 'images/nyc top 3s/restaurants/lindustrie.jpg',
-                        description: 'Crispy, slightly charred slices with creative toppings. The vibe is casual and the line moves fast.',
-                        recommendation: 'Get this: burrata slice with hot honey'
-                    },
-                    {
-                        name: "Joe's Pizza",
-                        neighborhood: 'West Village',
-                        image: 'images/nyc top 3s/restaurants/joes.jpg',
-                        description: 'The quintessential New York slice. Thin, foldable, and consistently excellent since 1975.',
-                        recommendation: 'Get this: classic cheese slice'
+                        image: "images/nyc top 3s/Restaurant pics/L'Industrie.jpg.png",
+                        description: 'Big, thin-crust slices with burratta / ricotta cheese on top. Order ahead to avoid the line.',
+                        recommendation: 'Get this: New Yorker'
                     }
                 ]
             },
@@ -1456,25 +1458,25 @@
                 image: 'images/nyc top 3s/Sushi.jpg',
                 restaurants: [
                     {
+                        name: 'Omakase by Korami',
+                        neighborhood: 'Midtown',
+                        image: 'images/nyc top 3s/Restaurant pics/Omakase by Korami.jpg',
+                        description: 'Intimate spot for omakase-style sushi: sit at the bar and watch the chefs make 15 different pieces for you one at a time.',
+                        recommendation: 'Get this: Omakase'
+                    },
+                    {
                         name: 'Sugarfish',
                         neighborhood: 'Multiple Locations',
-                        image: 'images/nyc top 3s/restaurants/sugarfish.jpg',
-                        description: 'Trust the chef with their signature tasting menus. Simple, high-quality fish served at the perfect temperature.',
-                        recommendation: 'Get this: Trust Me menu'
+                        image: 'images/nyc top 3s/Restaurant pics/Sugarfish.jpg',
+                        description: 'Traditional sushi with a focus on high-quality ingredients.',
+                        recommendation: 'Get this: Trust Me'
                     },
                     {
-                        name: 'Tanoshi',
-                        neighborhood: 'Upper East Side',
-                        image: 'images/nyc top 3s/restaurants/tanoshi.jpg',
-                        description: 'An intimate omakase experience with just a few seats at the bar. Personal, unpretentious, memorable.',
-                        recommendation: 'Get this: omakase (chef\'s choice)'
-                    },
-                    {
-                        name: 'Sushi Nakazawa',
-                        neighborhood: 'West Village',
-                        image: 'images/nyc top 3s/restaurants/nakazawa.jpg',
-                        description: 'From the Jiro Dreams of Sushi apprentice. A special occasion spot with impeccable technique.',
-                        recommendation: 'Get this: 20-course omakase'
+                        name: 'Sushi Hatsune',
+                        neighborhood: 'Multiple Locations',
+                        image: 'images/nyc top 3s/Restaurant pics/Sushi Hatsune.jpg',
+                        description: 'Best delivery sushi in the city.',
+                        recommendation: 'Get this: Tuna Lovers'
                     }
                 ]
             },
@@ -1629,7 +1631,7 @@
                 <article class="restaurant-item">
                     ${r.image ? `<img src="${r.image}" alt="${r.name}" class="restaurant-image">` : ''}
                     <h3 class="restaurant-name">${r.name}</h3>
-                    <p class="restaurant-neighborhood">${r.neighborhood}</p>
+                    <p class="restaurant-neighborhood">📍 ${r.neighborhood}</p>
                     <p class="restaurant-description">${r.description}</p>
                     <p class="restaurant-recommendation">${r.recommendation}</p>
                 </article>
