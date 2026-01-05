@@ -174,7 +174,7 @@ Korean barbeque — grill your own meat on a little gas grill at the table. Go w
 
 ## Sushi
 
-### 1. Omakase by Korami — Midtown
+### 1. Omakase by Korami — Hell's Kitchen
 
 ![Omakase by Korami](images/nyc%20top%203s/Restaurant%20pics/Omakase%20by%20Korami.jpg)
 
