@@ -30,7 +30,12 @@
       "Bash(\"/c/Program Files/ImageMagick-7.1.2-Q16-HDRI/magick.exe\" \"C:/Users/Kramer Perry/documents/perrykramer-site/images/nyc top 3s/Restaurant pics/Rubirosa.jpg\" -resize 400x300^ -gravity south -extent 400x300 \"C:/Users/Kramer Perry/documents/perrykramer-site/images/nyc top 3s/Restaurant pics/Rubirosa.jpg\")",
       "Bash(node --version:*)",
       "Bash(npx --version:*)",
-      "Bash(npx live-server)"
+      "Bash(npx live-server)",
+      "Bash(cat:*)",
+      "Bash(powershell -Command \"\\(Get-Content index.html\\) -replace \"\"name: ''Russ & Daughters'',\"\", \"\"name: ''Barney Greengrass'',\"\" | Set-Content index.html\")",
+      "WebFetch(domain:who.is)",
+      "Bash(git stash:*)",
+      "WebFetch(domain:perrykramer.com)"
     ]
   }
 }
