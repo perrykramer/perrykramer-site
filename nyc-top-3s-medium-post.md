@@ -190,7 +190,7 @@ Traditional sushi with a focus on high-quality ingredients.
 
 **Get this:** Trust Me
 
-### 3. Sushi Hatsune — Multiple Locations
+### 3. Sushi Hatsune — Chinatown
 
 ![Sushi Hatsune](images/nyc%20top%203s/Restaurant%20pics/Sushi%20Hatsune.jpg)
 
