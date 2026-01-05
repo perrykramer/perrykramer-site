@@ -42,7 +42,7 @@
         }
 
         nav {
-            padding: 2rem 3rem;
+            padding: 2rem 0.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -84,9 +84,12 @@
         }
 
         .theme-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
             width: 32px;
             height: 32px;
-            background: transparent;
+            background: var(--bg-primary);
             border: 1px solid var(--border-color);
             border-radius: 4px;
             cursor: pointer;
@@ -94,6 +97,8 @@
             align-items: center;
             justify-content: center;
             transition: border-color 0.2s, background 0.2s;
+            pointer-events: auto;
+            z-index: 10;
         }
 
         .theme-toggle:hover {
@@ -137,9 +142,9 @@
         }
 
         .hero {
-            max-width: 1100px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 4rem 2rem 6rem;
+            padding: 4rem 0.5rem 6rem;
             position: relative;
         }
 
@@ -154,7 +159,7 @@
             top: 50%;
             right: -5%;
             transform: translateY(-50%);
-            width: 800px;
+            width: 960px;
             pointer-events: none;
         }
 
@@ -245,22 +250,27 @@
 
         .cta-link {
             display: inline-block;
-            color: var(--text-primary);
+            color: #ffffff;
+            background: var(--text-primary);
             text-decoration: none;
             font-size: 0.95rem;
-            padding-bottom: 2px;
-            border-bottom: 2px solid var(--text-primary);
-            transition: opacity 0.2s, color 0.3s, border-color 0.3s;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px var(--shadow-color);
         }
 
         .cta-link:hover {
-            opacity: 0.6;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-color);
         }
 
         .new-additions {
-            max-width: 1000px;
+            max-width: 1300px;
             margin: 0 auto 4rem;
-            padding: 0 2rem;
+            padding: 0 0.5rem;
         }
 
         .section-label {
@@ -324,9 +334,9 @@
         }
 
         .tabbed-section {
-            max-width: 1000px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 4rem 0.5rem;
             border-top: 1px solid var(--border-color);
             transition: border-color 0.3s;
         }
@@ -780,14 +790,14 @@
 
         footer {
             border-top: 1px solid var(--border-color);
-            padding: 3rem 3rem;
+            padding: 3rem 0.5rem;
             margin-top: 6rem;
             background: var(--bg-primary);
             transition: border-color 0.3s, background 0.3s;
         }
 
         .footer-content {
-            max-width: 1000px;
+            max-width: 1300px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -818,13 +828,13 @@
 
         @media (max-width: 768px) {
             nav {
-                padding: 1.5rem;
+                padding: 0.5rem;
                 flex-direction: column;
                 gap: 1.5rem;
             }
 
             .hero {
-                padding: 4rem 1.5rem 3rem;
+                padding: 4rem 0.5rem 3rem;
             }
 
             .hero-text {
@@ -847,7 +857,7 @@
 
             .new-additions,
             .tabbed-section {
-                padding: 2rem 1.5rem;
+                padding: 2rem 0.5rem;
             }
 
             .photo-collage {
@@ -880,15 +890,6 @@
                 <li><a href="#reflections">Reflections</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="theme-toggle" aria-label="Toggle dark mode">
-                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="5"/>
-                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                </svg>
-                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                </svg>
-            </button>
         </div>
     </nav>
 
@@ -905,7 +906,7 @@
                         </div>
                         <div style="margin-bottom: 0.75rem;">
                             <p class="hero-text-primary">Helping companies price, launch, and scale at BCG</p>
-                            <a href="#contact" class="hero-link">→ <span>Interested in consulting? Happy to chat</span></a>
+                            <a href="mailto:perrykramer51@gmail.com" class="hero-link">→ <span>Interested in consulting? Happy to chat</span></a>
                         </div>
                         <div>
                             <p class="hero-text-primary">Reading about economics and writing about mental models</p>
@@ -925,14 +926,23 @@
                         </div>
                         <div>
                             <p class="hero-text-primary">Helped students with coursework and consulting recruiting</p>
-                            <a href="#contact" class="hero-link">→ <span>Happy to help with recruiting or mock cases</span></a>
+                            <a href="mailto:perrykramer51@gmail.com" class="hero-link">→ <span>Happy to help with recruiting or mock cases</span></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <a href="#contact" class="cta-link">Get in touch</a>
+            <a href="mailto:perrykramer51@gmail.com" class="cta-link">Get in touch</a>
         </div>
         <div class="hero-image">
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
             <img src="images/Mont St Victoire Watercolor 6.jpg" alt="Mont St Victoire" class="hero-img-light">
             <img src="images/Fire Watercolor.jpg" alt="Fire Watercolor" class="hero-img-dark">
         </div>
@@ -1129,13 +1139,13 @@
 
         <div id="nyc-top-3s" class="tab-content">
             <div class="nyc-gallery">
-                <img src="images/nyc top 3s/Pizza.jpg" alt="Pizza" style="transform: rotate(-2deg); margin-top: 0;">
-                <img src="images/nyc top 3s/Sushi.jpg" alt="Sushi" style="transform: rotate(1.5deg); margin-top: 2.5rem;">
-                <img src="images/nyc top 3s/Bagels.jpg" alt="Bagels" style="transform: rotate(-1deg); margin-top: -1rem;">
-                <img src="images/nyc top 3s/Thai.jpg" alt="Thai" style="transform: rotate(2.5deg); margin-top: 1.5rem;">
-                <img src="images/nyc top 3s/Burgers.jpg" alt="Burgers" style="transform: rotate(-1.5deg); margin-top: -0.5rem;">
-                <img src="images/nyc top 3s/Korean.jpg" alt="Korean" style="transform: rotate(1deg); margin-top: 1rem;">
-                <img src="images/nyc top 3s/Sandwiches.jpg" alt="Sandwiches" style="transform: rotate(-2deg); margin-top: 0.5rem;">
+                <img src="images/nyc top 3s/Bagels.jpg" alt="Bagels" style="transform: rotate(-2deg); margin-top: 0;">
+                <img src="images/nyc top 3s/Burgers.jpg" alt="Burgers" style="transform: rotate(1.5deg); margin-top: 2.5rem;">
+                <img src="images/nyc top 3s/Pizza.jpg" alt="Pizza" style="transform: rotate(-1deg); margin-top: -1rem;">
+                <img src="images/nyc top 3s/Sandwiches.jpg" alt="Sandwiches" style="transform: rotate(2.5deg); margin-top: 1.5rem;">
+                <img src="images/nyc top 3s/Thai.jpg" alt="Thai" style="transform: rotate(-1.5deg); margin-top: -0.5rem;">
+                <img src="images/nyc top 3s/Korean.jpg" alt="Korean" style="transform: rotate(1deg); margin-top: 1rem; width: 240px;">
+                <img src="images/nyc top 3s/Sushi.jpg" alt="Sushi" style="transform: rotate(-2deg); margin-top: 0.5rem;">
             </div>
         </div>
     </section>
@@ -1425,6 +1435,62 @@
         // NYC Top 3's Modal
         const nycCategories = [
             {
+                id: 'bagels',
+                name: 'Bagels',
+                image: 'images/nyc top 3s/Bagels.jpg',
+                restaurants: [
+                    {
+                        name: 'Barney Greengrass',
+                        neighborhood: 'Upper West Side',
+                        image: 'images/nyc top 3s/Restaurant pics/Barney Greengrass.jpg',
+                        description: 'Old school deli around since 1908 that specializes in smoked fish and handles all transactions with cash and paper receipts.',
+                        recommendation: 'Get this: Sturgeon sandwich'
+                    },
+                    {
+                        name: 'Tompkins Square Bagels',
+                        neighborhood: 'East Village',
+                        image: 'images/nyc top 3s/Restaurant pics/Thompkins Square Bagles.jpg',
+                        description: 'A New York City staple - stand in line and watch the bagels get made before your eyes.',
+                        recommendation: 'Get this: Sausage egg and cheese on an everything bagel with a dollop of cream cheese'
+                    },
+                    {
+                        name: 'Popup Bagels',
+                        neighborhood: 'Various Locations',
+                        image: 'images/nyc top 3s/Restaurant pics/Popup Bagles.jpg',
+                        description: 'A different take on bagels - buy a 3-pack, rip, and dip into a tub of schmear.',
+                        recommendation: 'Get this: 3-pack with scallion cream cheese schmear'
+                    }
+                ]
+            },
+            {
+                id: 'burgers',
+                name: 'Burgers',
+                image: 'images/nyc top 3s/Burgers.jpg',
+                restaurants: [
+                    {
+                        name: 'Au Cheval',
+                        neighborhood: 'Tribeca',
+                        image: 'images/nyc top 3s/Restaurant pics/Au Cheval.jpg',
+                        description: 'Swanky spot tucked away in an alley serving the same burger as the famous 4 Charles.',
+                        recommendation: 'Get this: Double Cheeseburger with bacon and egg'
+                    },
+                    {
+                        name: "Lovely's Old Fashioned",
+                        neighborhood: 'Hell\'s Kitchen',
+                        image: 'images/nyc top 3s/Restaurant pics/Lovely\'s.jpg',
+                        description: '1950s-style burger joint; sit at the counter and watch them make your smashburger with caramelized onions on a potato bun.',
+                        recommendation: 'Get this: Charlotte\'s Special'
+                    },
+                    {
+                        name: 'Nowon',
+                        neighborhood: 'East Village',
+                        image: 'images/nyc top 3s/Restaurant pics/Nowon.jpg',
+                        description: 'Korean-American spot with walk-in seats at the bar and hip hop music.',
+                        recommendation: 'Get this: The Legendary Cheeseburger with bacon and egg'
+                    }
+                ]
+            },
+            {
                 id: 'pizza',
                 name: 'Pizza',
                 image: 'images/nyc top 3s/Pizza.jpg',
@@ -1453,58 +1519,30 @@
                 ]
             },
             {
-                id: 'sushi',
-                name: 'Sushi',
-                image: 'images/nyc top 3s/Sushi.jpg',
+                id: 'sandwiches',
+                name: 'Sandwiches',
+                image: 'images/nyc top 3s/Sandwiches.jpg',
                 restaurants: [
                     {
-                        name: 'Omakase by Korami',
-                        neighborhood: 'Midtown',
-                        image: 'images/nyc top 3s/Restaurant pics/Omakase by Korami.jpg',
-                        description: 'Intimate spot for omakase-style sushi: sit at the bar and watch the chefs make 15 different pieces for you one at a time.',
-                        recommendation: 'Get this: Omakase'
+                        name: 'Carnitas Ramirez',
+                        neighborhood: 'West Village',
+                        image: 'images/nyc top 3s/Restaurant pics/Carnitas Ramirez.jpg.png',
+                        description: 'Beloved spot for tacos that serves a torta (sandwich on a soft roll) as part of a $15 lunch special available Wednesday through Friday, 1-5pm: pork sandwich, chicharrones (fried pork rinds) and a drink. Incredible.',
+                        recommendation: 'Get this: Torta de Carnitas Lunch Special'
                     },
                     {
-                        name: 'Sugarfish',
-                        neighborhood: 'Multiple Locations',
-                        image: 'images/nyc top 3s/Restaurant pics/Sugarfish.jpg',
-                        description: 'Traditional sushi with a focus on high-quality ingredients.',
-                        recommendation: 'Get this: Trust Me'
+                        name: "Faicco's Italian Specialties",
+                        neighborhood: 'West Village',
+                        image: 'images/nyc top 3s/Restaurant pics/Faicco\'s.jpg',
+                        description: 'Italian deli selling massive Italian sandwiches loaded with meat. Consider saving half for dinner.',
+                        recommendation: 'Get this: Italian Special'
                     },
                     {
-                        name: 'Sushi Hatsune',
-                        neighborhood: 'Multiple Locations',
-                        image: 'images/nyc top 3s/Restaurant pics/Sushi Hatsune.jpg',
-                        description: 'Best delivery sushi in the city.',
-                        recommendation: 'Get this: Tuna Lovers'
-                    }
-                ]
-            },
-            {
-                id: 'bagels',
-                name: 'Bagels',
-                image: 'images/nyc top 3s/Bagels.jpg',
-                restaurants: [
-                    {
-                        name: 'Barney Greengrass',
-                        neighborhood: 'Upper West Side',
-                        image: 'images/nyc top 3s/Restaurant pics/Barney Greengrass.jpg',
-                        description: 'Old school deli around since 1908 that specializes in smoked fish and handles all transactions with cash and paper receipts.',
-                        recommendation: 'Get this: Sturgeon sandwich'
-                    },
-                    {
-                        name: 'Tompkins Square Bagels',
+                        name: "Danny & Coop's Cheesesteaks",
                         neighborhood: 'East Village',
-                        image: 'images/nyc top 3s/Restaurant pics/Thompkins Square Bagles.jpg',
-                        description: 'A New York City staple - stand in line and watch the bagels get made before your eyes.',
-                        recommendation: 'Get this: Sausage egg and cheese on an everything bagel with a dollop of cream cheese'
-                    },
-                    {
-                        name: 'Popup Bagels',
-                        neighborhood: 'Various Locations',
-                        image: 'images/nyc top 3s/Restaurant pics/Popup Bagles.jpg',
-                        description: 'A different take on bagels - buy a 3-pack, rip, and dip into a tub of schmear.',
-                        recommendation: 'Get this: 3-pack with scallion cream cheese schmear'
+                        image: 'images/nyc top 3s/Restaurant pics/Danny and Coops.jpg',
+                        description: 'Serving the best Philly cheesesteaks in New York, Danny & Coops comes from the same people behind the famous Angelo\'s in Philadelphia, plus Bradley Cooper.',
+                        recommendation: 'Get this: Cheesesteak Sandwich with a side of sweet peppers'
                     }
                 ]
             },
@@ -1537,80 +1575,58 @@
                 ]
             },
             {
-                id: 'burgers',
-                name: 'Burgers',
-                image: 'images/nyc top 3s/Burgers.jpg',
-                restaurants: [
-                    {
-                        name: 'J.G. Melon',
-                        neighborhood: 'Upper East Side',
-                        image: 'images/nyc top 3s/restaurants/jg-melon.jpg',
-                        description: 'A neighborhood tavern serving one of the best burgers in the city since 1972. No frills, just a perfect patty.',
-                        recommendation: 'Get this: cheeseburger, medium rare'
-                    },
-                    {
-                        name: "Minetta Tavern",
-                        neighborhood: 'Greenwich Village',
-                        image: 'images/nyc top 3s/restaurants/minetta-tavern.jpg',
-                        description: 'The Black Label burger is legendary — dry-aged beef that melts in your mouth. A splurge-worthy classic.',
-                        recommendation: 'Get this: Black Label burger'
-                    },
-                    {
-                        name: 'Corner Bistro',
-                        neighborhood: 'West Village',
-                        image: 'images/nyc top 3s/restaurants/corner-bistro.jpg',
-                        description: 'A dive bar with a cult-following burger. Cash only, no pretense, pure satisfaction.',
-                        recommendation: 'Get this: Bistro Burger with bacon'
-                    }
-                ]
-            },
-            {
                 id: 'korean',
                 name: 'Korean',
                 image: 'images/nyc top 3s/Korean.jpg',
                 restaurants: [
                     {
-                        name: 'Atomix',
-                        neighborhood: 'NoMad',
-                        description: 'A two-Michelin-star experience presenting Korean cuisine as fine dining. Intimate, inventive, and unforgettable.',
-                        recommendation: 'Get this: the tasting menu'
+                        name: 'Kisa',
+                        neighborhood: 'Lower East Side',
+                        image: 'images/nyc top 3s/Restaurant pics/Kisa.jpg',
+                        description: 'Korean diner experience based on a kisa sikdang, which serves taxi drivers. Set meal served on a big round tray with your choice for the main and a plethora of side dishes. No reservations, so put your name down and head two doors down to Two Doors Down for a drink while you wait.',
+                        recommendation: 'Get this: Platter with Bulgogi'
                     },
                     {
-                        name: 'Her Name is Han',
-                        neighborhood: 'Koreatown',
-                        description: 'Modern Korean comfort food in a stylish setting. Great for groups and late-night cravings.',
-                        recommendation: 'Get this: Korean fried chicken'
+                        name: 'Thursday Kitchen',
+                        neighborhood: 'East Village',
+                        image: 'images/nyc top 3s/Restaurant pics/Thursday Kitchen.jpg',
+                        description: 'Quirky small plates like truffle oil edamame dumplings and tuna tartar tacos, with hip hop vibes in a cozy space. Great for group dinners - put your name down and head to Romeos while you wait.',
+                        recommendation: 'Get this: Steak, lucky noodle, edamame dumpling'
                     },
                     {
-                        name: 'Kang Ho Dong Baekjeong',
+                        name: 'Gan-Hoo Barbeque',
                         neighborhood: 'Koreatown',
-                        description: 'The ultimate Korean BBQ experience. Grill your own meat at the table with all the banchan you can eat.',
-                        recommendation: 'Get this: beef brisket and pork belly combo'
+                        image: 'images/nyc top 3s/Restaurant pics/Gan-Hoo BBQ.jpg',
+                        description: 'Korean barbeque - grill your own meat on a little gas grill at the table. Go with some friends and avoid overcooking the wagyu.',
+                        recommendation: 'Get this: Meat Lover\'s Stair Combo'
                     }
                 ]
             },
             {
-                id: 'sandwiches',
-                name: 'Sandwiches',
-                image: 'images/nyc top 3s/Sandwiches.jpg',
+                id: 'sushi',
+                name: 'Sushi',
+                image: 'images/nyc top 3s/Sushi.jpg',
                 restaurants: [
                     {
-                        name: "Katz's Delicatessen",
-                        neighborhood: 'Lower East Side',
-                        description: 'The iconic NYC deli since 1888. Hand-carved pastrami piled high on rye — a true New York institution.',
-                        recommendation: 'Get this: pastrami on rye'
+                        name: 'Omakase by Korami',
+                        neighborhood: 'Midtown',
+                        image: 'images/nyc top 3s/Restaurant pics/Omakase by Korami.jpg',
+                        description: 'Intimate spot for omakase-style sushi: sit at the bar and watch the chefs make 15 different pieces for you one at a time.',
+                        recommendation: 'Get this: Omakase'
                     },
                     {
-                        name: "Alidoro",
-                        neighborhood: 'SoHo',
-                        description: 'Italian sandwiches made with imported ingredients on fresh-baked bread. Simple, authentic, perfect.',
-                        recommendation: 'Get this: Il Soprano'
+                        name: 'Sugarfish',
+                        neighborhood: 'Multiple Locations',
+                        image: 'images/nyc top 3s/Restaurant pics/Sugarfish.jpg',
+                        description: 'Traditional sushi with a focus on high-quality ingredients.',
+                        recommendation: 'Get this: Trust Me'
                     },
                     {
-                        name: "Court Street Grocers",
-                        neighborhood: 'Carroll Gardens',
-                        description: 'Creative deli sandwiches with quality ingredients. The kind of neighborhood spot every area deserves.',
-                        recommendation: 'Get this: The Angus'
+                        name: 'Sushi Hatsune',
+                        neighborhood: 'Multiple Locations',
+                        image: 'images/nyc top 3s/Restaurant pics/Sushi Hatsune.jpg',
+                        description: 'Best delivery sushi in the city.',
+                        recommendation: 'Get this: Tuna Lovers'
                     }
                 ]
             }

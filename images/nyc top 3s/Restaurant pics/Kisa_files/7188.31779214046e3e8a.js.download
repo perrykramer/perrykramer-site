@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[7188],{87188:function(e,s,t){t.r(s);var o=t(84814),i=t(47041);s.default=()=>((0,o.useEffect)((()=>{const e=Number((0,i.getCookie)("visitorSessions"))||0;e<20&&(0,i.setCookie)("visitorSessions",e+1,{maxAge:31536e3}),e<2&&sessionStorage.setItem("newUser","1")}),[]),null)}}]);
