@@ -85,9 +85,9 @@
         }
 
         .theme-toggle {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
             width: 32px;
             height: 32px;
             background: var(--bg-primary);
@@ -99,7 +99,7 @@
             justify-content: center;
             transition: border-color 0.2s, background 0.2s;
             pointer-events: auto;
-            z-index: 10;
+            z-index: 1000;
         }
 
         .theme-toggle:hover {
