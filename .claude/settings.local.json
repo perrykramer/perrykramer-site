@@ -31,9 +31,7 @@
       "Bash(node --version:*)",
       "Bash(npx --version:*)",
       "Bash(npx live-server)",
-      "Bash(cat:*)",
-      "Bash(powershell -Command \"\\(Get-Content index.html\\) -replace \"\"name: ''Russ & Daughters'',\"\", \"\"name: ''Barney Greengrass'',\"\" | Set-Content index.html\")",
-      "WebFetch(domain:who.is)",
+      "WebFetch(domain:medium.com)",
       "Bash(git stash:*)",
       "WebFetch(domain:perrykramer.com)"
     ]
