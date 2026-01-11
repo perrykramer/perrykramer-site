@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perry Kramer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -61,6 +64,12 @@
             transition: color 0.3s;
         }
 
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
         .nav-right {
             display: flex;
             align-items: center;
@@ -84,10 +93,33 @@
             color: var(--text-primary);
         }
 
+        .nav-case-academy {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #1e3a5f;
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            transition: opacity 0.2s;
+        }
+
+        .nav-case-academy:hover {
+            opacity: 0.7;
+        }
+
+        [data-theme="dark"] .nav-case-academy {
+            color: #ffffff;
+        }
+
+        .nav-case-academy svg {
+            width: 12px;
+            height: 12px;
+        }
+
         .theme-toggle {
-            position: fixed;
-            top: 6.5rem;
-            right: 1.5rem;
             width: 32px;
             height: 32px;
             background: var(--bg-primary);
@@ -98,8 +130,6 @@
             align-items: center;
             justify-content: center;
             transition: border-color 0.2s, background 0.2s;
-            pointer-events: auto;
-            z-index: 1000;
         }
 
         .theme-toggle:hover {
@@ -266,6 +296,10 @@
         .cta-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        [data-theme="dark"] .cta-link {
+            color: #0a0a0a;
         }
 
         .new-additions {
@@ -620,6 +654,10 @@
 
         .nyc-modal.active {
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
         }
 
         .nyc-modal-backdrop {
@@ -642,7 +680,7 @@
             position: relative;
             width: 90%;
             max-width: 760px;
-            max-height: 80vh;
+            max-height: 70vh;
             background: var(--bg-tertiary);
             border-radius: 12px;
             overflow-y: auto;
@@ -749,23 +787,41 @@
         }
 
         .nyc-modal-footer {
-            margin-top: 4rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--border-color);
+            margin-top: 1.5rem;
             display: flex;
             justify-content: center;
-            transition: border-color 0.3s;
+            position: relative;
+            z-index: 10;
+            /* Override generic footer styles */
+            background: transparent !important;
+            border: none !important;
+            border-top: none !important;
+            padding: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .nyc-modal-footer::before,
+        .nyc-modal-footer::after {
+            display: none !important;
+            content: none !important;
         }
 
         .nyc-modal-next {
             display: flex;
             align-items: center;
             gap: 1rem;
-            background: none;
-            border: none;
+            background: transparent !important;
+            border: none !important;
             cursor: pointer;
             padding: 0.5rem;
             transition: opacity 0.2s;
+            box-shadow: none !important;
+        }
+
+        .nyc-modal-next::before,
+        .nyc-modal-next::after {
+            display: none !important;
+            content: none !important;
         }
 
         .nyc-modal-next:hover {
@@ -774,19 +830,185 @@
 
         .next-text {
             font-size: 1rem;
-            color: var(--text-secondary);
-            transition: color 0.3s;
+            color: var(--text-primary);
+            text-shadow: none;
         }
 
         .next-category-name {
             font-weight: 600;
             color: var(--text-primary);
-            transition: color 0.3s;
+        }
+
+        [data-theme="dark"] .next-text {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        [data-theme="dark"] .next-category-name {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
 
         .pointing-hand {
             width: 60px;
             height: auto;
+        }
+
+        /* Book Modal */
+        .book-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .book-modal.active {
+            display: flex;
+        }
+
+        .book-modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.6);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            transition: background 0.3s;
+        }
+
+        [data-theme="dark"] .book-modal-backdrop {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .book-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 900px;
+            max-height: 80vh;
+            background: var(--bg-tertiary);
+            border-radius: 12px;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px var(--shadow-color);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .book-modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            color: var(--text-tertiary);
+            cursor: pointer;
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s;
+        }
+
+        .book-modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .book-modal-inner {
+            padding: 3rem;
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .book-modal-cover {
+            flex-shrink: 0;
+            width: 220px;
+        }
+
+        .book-modal-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 8px 24px var(--shadow-color);
+        }
+
+        .book-modal-details {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .book-modal-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .book-modal-author {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .book-modal-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+
+        .book-modal-buy-btn {
+            display: inline-block;
+            padding: 0.875rem 1.75rem;
+            background: #FF9900;
+            color: #111;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .book-modal-buy-btn:hover {
+            background: #e68a00;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .book-modal-inner {
+                flex-direction: column;
+                padding: 2rem;
+                gap: 2rem;
+            }
+
+            .book-modal-cover {
+                width: 160px;
+                margin: 0 auto;
+            }
+
+            .book-modal-title {
+                font-size: 1.5rem;
+                text-align: center;
+            }
+
+            .book-modal-author {
+                text-align: center;
+            }
+
+            .book-modal-details {
+                text-align: center;
+            }
         }
 
         footer {
@@ -853,7 +1075,8 @@
             }
 
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.75rem;
+                white-space: normal;
             }
 
             .new-additions,
@@ -882,24 +1105,30 @@
     </style>
 </head>
 <body>
-    <button class="theme-toggle" aria-label="Toggle dark mode">
-        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5"/>
-            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-        </svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-    </button>
     <nav>
         <a href="#" class="logo">Perry Kramer</a>
         <div class="nav-right">
+            <a href="/case-academy" class="nav-case-academy">
+                Case Academy
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
             <ul class="nav-links">
                 <li><a href="#adventures">Adventures</a></li>
                 <li><a href="#collections">Collections</a></li>
                 <li><a href="#reflections">Reflections</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
         </div>
     </nav>
 
@@ -911,12 +1140,12 @@
                     <p class="hero-section-label">Currently</p>
                     <div class="hero-border-left">
                         <div style="margin-bottom: 0.75rem;">
-                            <p class="hero-text-primary">Living in NYC, exploring neighborhoods and restaurants</p>
-                            <a href="#nyc-top-3s" class="tab-link hero-link" data-tab="nyc-top-3s">→ <span>NYC top 3's</span></a>
+                            <p class="hero-text-primary">Helping companies price, launch, and scale at BCG</p>
+                            <a href="/case-academy" class="hero-link">→ <span>Interested in consulting? Check out Case Academy</span></a>
                         </div>
                         <div style="margin-bottom: 0.75rem;">
-                            <p class="hero-text-primary">Helping companies price, launch, and scale at BCG</p>
-                            <a href="mailto:perrykramer51@gmail.com" class="hero-link">→ <span>Interested in consulting? Happy to chat</span></a>
+                            <p class="hero-text-primary">Living in NYC, exploring neighborhoods and restaurants</p>
+                            <a href="#nyc-top-3s" class="tab-link hero-link" data-tab="nyc-top-3s">→ <span>NYC top 3's</span></a>
                         </div>
                         <div>
                             <p class="hero-text-primary">Reading about economics and writing about mental models</p>
@@ -1172,79 +1401,98 @@
                     <p class="nyc-modal-subtitle">My personal top 3 spots in NYC</p>
                 </header>
                 <div class="nyc-modal-restaurants"></div>
-                <footer class="nyc-modal-footer">
-                    <button class="nyc-modal-next">
-                        <span class="next-text">Next up: <span class="next-category-name"></span></span>
-                        <img src="images/nyc top 3s/Pointing Finger.jpg" alt="Next" class="pointing-hand">
-                    </button>
-                </footer>
+            </div>
+        </div>
+        <footer class="nyc-modal-footer">
+            <button class="nyc-modal-next">
+                <span class="next-text">Next up: <span class="next-category-name"></span></span>
+                <img src="images/nyc top 3s/Pointing Finger.jpg" alt="Next" class="pointing-hand">
+            </button>
+        </footer>
+    </div>
+
+    <!-- Book Modal -->
+    <div id="book-modal" class="book-modal">
+        <div class="book-modal-backdrop"></div>
+        <div class="book-modal-content">
+            <button class="book-modal-close">&times;</button>
+            <div class="book-modal-inner">
+                <div class="book-modal-cover">
+                    <img src="" alt="" class="book-modal-image">
+                </div>
+                <div class="book-modal-details">
+                    <h2 class="book-modal-title"></h2>
+                    <p class="book-modal-author"></p>
+                    <p class="book-modal-description">A thought-provoking read that challenges conventional wisdom and offers fresh perspectives on its subject matter. This book combines compelling storytelling with deep insights, making it both an enjoyable and enriching experience. Whether you're new to the topic or well-versed in it, you'll find something valuable within these pages.</p>
+                    <a href="" target="_blank" class="book-modal-buy-btn">Buy on Amazon</a>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
                 const books = [
-            {title: "1984", author: "George Orwell", fileName: "1984.jpg", tags: ["fiction", "classic", "dystopian"]},
-            {title: "Adventures of Huckleberry Finn", author: "Mark Twain", fileName: "Adventures of Huckleberry Finn.jpg", tags: ["fiction", "classic"]},
-            {title: "The Alchemist", author: "Paulo Coelho", fileName: "The Alchemist.jpg", tags: ["fiction", "philosophy"]},
-            {title: "All the Pretty Horses", author: "Cormac McCarthy", fileName: "All the Pretty Horses.jpg", tags: ["fiction"]},
-            {title: "And Then There Were None", author: "Agatha Christie", fileName: "And Then There Were None.jpg", tags: ["fiction", "mystery"]},
-            {title: "Angela's Ashes", author: "Frank McCourt", fileName: "Angela's Ashes.jpg", tags: ["nonfiction", "biography", "memoir"]},
-            {title: "Animal Farm", author: "George Orwell", fileName: "Animal Farm.jpg", tags: ["fiction", "classic"]},
-            {title: "Anna Karenina", author: "Leo Tolstoy", fileName: "Anna Karenina.jpg", tags: ["fiction", "classic"]},
-            {title: "Atlas Shrugged", author: "Ayn Rand", fileName: "Atlas Shrugged.jpg", tags: ["fiction", "philosophy"]},
-            {title: "The Bitcoin Standard", author: "Saifedean Ammous", fileName: "The Bitcoin Standard.jpg", tags: ["nonfiction", "economics", "technology"]},
-            {title: "The Book Thief", author: "Markus Zusak", fileName: "The Book Thief.jpg", tags: ["fiction", "historical"]},
-            {title: "Brave New World", author: "Aldous Huxley", fileName: "Brave New World.jpg", tags: ["fiction", "classic", "dystopian"]},
-            {title: "Change By Design", author: "Tim Brown", fileName: "Change By Design.jpg", tags: ["nonfiction", "business", "design"]},
-            {title: "The Charisma Myth", author: "Olivia Fox Cabane", fileName: "The Charisma Myth.jpg", tags: ["nonfiction", "psychology", "self-help"]},
-            {title: "The Count of Monte Cristo", author: "Alexandre Dumas", fileName: "The Count of Monte Cristo.jpg", tags: ["fiction", "classic"]},
-            {title: "Death of a Salesman", author: "Arthur Miller", fileName: "Death of a Salesman.jpg", tags: ["fiction", "drama", "classic"]},
-            {title: "The Defining Decade", author: "Meg Jay", fileName: "The Defining Decade.jpg", tags: ["nonfiction", "psychology", "self-help"]},
-            {title: "The Demon in the Freezer", author: "Richard Preston", fileName: "The Demon in the Freezer.jpg", tags: ["nonfiction", "science"]},
-            {title: "Design is Storytelling", author: "Ellen Lupton", fileName: "Design is Storytelling.jpg", tags: ["nonfiction", "design"]},
-            {title: "Ender's Game", author: "Orson Scott Card", fileName: "Ender's Game.jpg", tags: ["fiction", "science-fiction"]},
-            {title: "Factfulness", author: "Hans Rosling", fileName: "Factfulness.jpg", tags: ["nonfiction", "economics", "statistics"]},
-            {title: "Fathers and Sons", author: "Ivan Turgenev", fileName: "Fathers and Sons.jpg", tags: ["fiction", "classic"]},
-            {title: "Fermat's Last Theorem", author: "Simon Singh", fileName: "Fermat's Last Theorem.jpg", tags: ["nonfiction", "mathematics"]},
-            {title: "Flow", author: "Mihaly Csikszentmihalyi", fileName: "Flow.jpg", tags: ["nonfiction", "psychology"]},
-            {title: "The Four Pillars of Geometry", author: "John Stillwell", fileName: "The Four Pillars of Geometry.jpg", tags: ["nonfiction", "mathematics"]},
-            {title: "Freakonomics", author: "Steven D. Levitt", fileName: "Freakonomics.jpg", tags: ["nonfiction", "economics"]},
-            {title: "A Game of Thrones", author: "George R.R. Martin", fileName: "A Game of Thrones.jpg", tags: ["fiction", "fantasy"]},
-            {title: "Getting Things Done", author: "David Allen", fileName: "Getting Things Done.jpg", tags: ["nonfiction", "productivity", "business"]},
-            {title: "The Great Gatsby", author: "F. Scott Fitzgerald", fileName: "The Great Gatsby.jpg", tags: ["fiction", "classic"]},
-            {title: "How to Read Literature Like a Professor", author: "Thomas C. Foster", fileName: "How to Read Literature Like a Professor.jpg", tags: ["nonfiction", "literature"]},
-            {title: "How Will You Measure Your Life?", author: "Clayton M. Christensen", fileName: "How Will You Measure Your Life.jpg", tags: ["nonfiction", "business", "self-help"]},
-            {title: "The Importance of Being Earnest", author: "Oscar Wilde", fileName: "The Importance of Being Earnest.jpg", tags: ["fiction", "drama", "classic"]},
-            {title: "Invisible Man", author: "Ralph Ellison", fileName: "Invisible Man.jpg", tags: ["fiction", "classic"]},
-            {title: "Into the Wild", author: "Jon Krakauer", fileName: "Into the Wild.jpg", tags: ["nonfiction", "biography", "adventure"]},
-            {title: "Into Thin Air", author: "Jon Krakauer", fileName: "Into Thin Air.jpg", tags: ["nonfiction", "biography", "adventure"]},
-            {title: "King Lear", author: "William Shakespeare", fileName: "King Lear.jpg", tags: ["fiction", "drama", "classic"]},
-            {title: "Leonardo Da Vinci", author: "Walter Isaacson", fileName: "Leonardo Da Vinci.jpg", tags: ["nonfiction", "biography"]},
-            {title: "Lord of the Flies", author: "William Golding", fileName: "Lord of the Flies.jpg", tags: ["fiction", "classic"]},
-            {title: "The Lords of Strategy", author: "Walter Kiechel", fileName: "The Lords of Strategy.jpg", tags: ["nonfiction", "business"]},
-            {title: "Murder on the Orient Express", author: "Agatha Christie", fileName: "Murder on the Orient Express.jpg", tags: ["fiction", "mystery"]},
-            {title: "No Country for Old Men", author: "Cormac McCarthy", fileName: "No Country for Old Men.jpg", tags: ["fiction"]},
-            {title: "The Omnivore's Dilemma", author: "Michael Pollan", fileName: "The Omnivore's Dilemma.jpg", tags: ["nonfiction", "food", "environment"]},
-            {title: "On the Road", author: "Jack Kerouac", fileName: "On the Road.jpg", tags: ["fiction", "classic"]},
-            {title: "One Second After", author: "William R. Forstchen", fileName: "One Second After.jpg", tags: ["fiction", "thriller"]},
-            {title: "One Year After", author: "William R. Forstchen", fileName: "One Year After.jpg", tags: ["fiction", "thriller"]},
-            {title: "Outcasts United", author: "Warren St. John", fileName: "Outcasts United.jpg", tags: ["nonfiction", "biography", "sports"]},
-            {title: "Outliers", author: "Malcolm Gladwell", fileName: "Outliers.jpg", tags: ["nonfiction", "psychology", "business"]},
-            {title: "Poor Charlie's Almanac", author: "Charles Munger", fileName: "Poor Charlie's Almanac.jpg", tags: ["nonfiction", "business", "investing"]},
-            {title: "Pride and Prejudice", author: "Jane Austen", fileName: "Pride and Prejudice.jpg", tags: ["fiction", "classic", "romance"]},
-            {title: "Revolutionary Characters", author: "Gordon S. Wood", fileName: "Revolutionary Characters.jpg", tags: ["nonfiction", "history", "biography"]},
-            {title: "The Shape of Space", author: "Jeffrey R. Weeks", fileName: "The Shape of Space.jpg", tags: ["nonfiction", "mathematics"]},
-            {title: "Shape Up", author: "Ryan Singer", fileName: "Shape Up.jpg", tags: ["nonfiction", "business", "productivity"]},
-            {title: "The Road", author: "Cormac McCarthy", fileName: "The Road.jpg", tags: ["fiction"]},
-            {title: "Romeo and Juliet", author: "William Shakespeare", fileName: "Romeo and Juliet.jpg", tags: ["fiction", "drama", "classic"]},
-            {title: "The Things They Carried", author: "Tim O'Brien", fileName: "The Things They Carried.jpg", tags: ["fiction", "war"]},
-            {title: "Think and Grow Rich", author: "Napoleon Hill", fileName: "Think and Grow Rich.jpg", tags: ["nonfiction", "business", "self-help"]},
-            {title: "A Time to Kill", author: "John Grisham", fileName: "A Time to Kill.jpg", tags: ["fiction", "thriller"]},
-            {title: "'Tis", author: "Frank McCourt", fileName: "'Tis.jpg", tags: ["nonfiction", "biography", "memoir"]},
-            {title: "The Watsons Go to Birmingham", author: "Christopher Paul Curtis", fileName: "The Watsons Go to Birmingham.jpg", tags: ["fiction", "historical"]},
-            {title: "Why We Sleep", author: "Matthew Walker", fileName: "Why We Sleep.jpg", tags: ["nonfiction", "science", "health"]},
-            {title: "Writing Science in Plain English", author: "Anne E. Greene", fileName: "Writing Science in Plain English.jpg", tags: ["nonfiction", "writing", "science"]},
+            {title: "1984", author: "George Orwell", fileName: "1984.jpg", tags: ["fiction", "classic", "dystopian"], asin: "0451524934"},
+            {title: "Adventures of Huckleberry Finn", author: "Mark Twain", fileName: "Adventures of Huckleberry Finn.jpg", tags: ["fiction", "classic"], asin: "0486280616"},
+            {title: "The Alchemist", author: "Paulo Coelho", fileName: "The Alchemist.jpg", tags: ["fiction", "philosophy"], asin: "0062315005"},
+            {title: "All the Pretty Horses", author: "Cormac McCarthy", fileName: "All the Pretty Horses.jpg", tags: ["fiction"], asin: "0679744398"},
+            {title: "And Then There Were None", author: "Agatha Christie", fileName: "And Then There Were None.jpg", tags: ["fiction", "mystery"], asin: "0062073486"},
+            {title: "Angela's Ashes", author: "Frank McCourt", fileName: "Angela's Ashes.jpg", tags: ["nonfiction", "biography", "memoir"], asin: "068484267X"},
+            {title: "Animal Farm", author: "George Orwell", fileName: "Animal Farm.jpg", tags: ["fiction", "classic"], asin: "0451526341"},
+            {title: "Anna Karenina", author: "Leo Tolstoy", fileName: "Anna Karenina.jpg", tags: ["fiction", "classic"], asin: "0143035002"},
+            {title: "Atlas Shrugged", author: "Ayn Rand", fileName: "Atlas Shrugged.jpg", tags: ["fiction", "philosophy"], asin: "0451191145"},
+            {title: "The Bitcoin Standard", author: "Saifedean Ammous", fileName: "The Bitcoin Standard.jpg", tags: ["nonfiction", "economics", "technology"], asin: "1119473861"},
+            {title: "The Book Thief", author: "Markus Zusak", fileName: "The Book Thief.jpg", tags: ["fiction", "historical"], asin: "0375842209"},
+            {title: "Brave New World", author: "Aldous Huxley", fileName: "Brave New World.jpg", tags: ["fiction", "classic", "dystopian"], asin: "0060850523"},
+            {title: "Change By Design", author: "Tim Brown", fileName: "Change By Design.jpg", tags: ["nonfiction", "business", "design"], asin: "0061766089"},
+            {title: "The Charisma Myth", author: "Olivia Fox Cabane", fileName: "The Charisma Myth.jpg", tags: ["nonfiction", "psychology", "self-help"], asin: "1591845947"},
+            {title: "The Count of Monte Cristo", author: "Alexandre Dumas", fileName: "The Count of Monte Cristo.jpg", tags: ["fiction", "classic"], asin: "0140449264"},
+            {title: "Death of a Salesman", author: "Arthur Miller", fileName: "Death of a Salesman.jpg", tags: ["fiction", "drama", "classic"], asin: "0140481346"},
+            {title: "The Defining Decade", author: "Meg Jay", fileName: "The Defining Decade.jpg", tags: ["nonfiction", "psychology", "self-help"], asin: "0446561754"},
+            {title: "The Demon in the Freezer", author: "Richard Preston", fileName: "The Demon in the Freezer.jpg", tags: ["nonfiction", "science"], asin: "0345466632"},
+            {title: "Design is Storytelling", author: "Ellen Lupton", fileName: "Design is Storytelling.jpg", tags: ["nonfiction", "design"], asin: "1942303199"},
+            {title: "Ender's Game", author: "Orson Scott Card", fileName: "Ender's Game.jpg", tags: ["fiction", "science-fiction"], asin: "0812550706"},
+            {title: "Factfulness", author: "Hans Rosling", fileName: "Factfulness.jpg", tags: ["nonfiction", "economics", "statistics"], asin: "1250123828"},
+            {title: "Fathers and Sons", author: "Ivan Turgenev", fileName: "Fathers and Sons.jpg", tags: ["fiction", "classic"], asin: "0140441476"},
+            {title: "Fermat's Last Theorem", author: "Simon Singh", fileName: "Fermat's Last Theorem.jpg", tags: ["nonfiction", "mathematics"], asin: "0385493622"},
+            {title: "Flow", author: "Mihaly Csikszentmihalyi", fileName: "Flow.jpg", tags: ["nonfiction", "psychology"], asin: "0061339202"},
+            {title: "The Four Pillars of Geometry", author: "John Stillwell", fileName: "The Four Pillars of Geometry.jpg", tags: ["nonfiction", "mathematics"], asin: "0387255303"},
+            {title: "Freakonomics", author: "Steven D. Levitt", fileName: "Freakonomics.jpg", tags: ["nonfiction", "economics"], asin: "0060731338"},
+            {title: "A Game of Thrones", author: "George R.R. Martin", fileName: "A Game of Thrones.jpg", tags: ["fiction", "fantasy"], asin: "0553573403"},
+            {title: "Getting Things Done", author: "David Allen", fileName: "Getting Things Done.jpg", tags: ["nonfiction", "productivity", "business"], asin: "0143126563"},
+            {title: "The Great Gatsby", author: "F. Scott Fitzgerald", fileName: "The Great Gatsby.jpg", tags: ["fiction", "classic"], asin: "0743273567"},
+            {title: "How to Read Literature Like a Professor", author: "Thomas C. Foster", fileName: "How to Read Literature Like a Professor.jpg", tags: ["nonfiction", "literature"], asin: "006296359X"},
+            {title: "How Will You Measure Your Life?", author: "Clayton M. Christensen", fileName: "How Will You Measure Your Life.jpg", tags: ["nonfiction", "business", "self-help"], asin: "0062102419"},
+            {title: "The Importance of Being Earnest", author: "Oscar Wilde", fileName: "The Importance of Being Earnest.jpg", tags: ["fiction", "drama", "classic"], asin: "0486264785"},
+            {title: "Invisible Man", author: "Ralph Ellison", fileName: "Invisible Man.jpg", tags: ["fiction", "classic"], asin: "0679732764"},
+            {title: "Into the Wild", author: "Jon Krakauer", fileName: "Into the Wild.jpg", tags: ["nonfiction", "biography", "adventure"], asin: "0385486804"},
+            {title: "Into Thin Air", author: "Jon Krakauer", fileName: "Into Thin Air.jpg", tags: ["nonfiction", "biography", "adventure"], asin: "0385494785"},
+            {title: "King Lear", author: "William Shakespeare", fileName: "King Lear.jpg", tags: ["fiction", "drama", "classic"], asin: "0743482778"},
+            {title: "Leonardo Da Vinci", author: "Walter Isaacson", fileName: "Leonardo Da Vinci.jpg", tags: ["nonfiction", "biography"], asin: "1501139150"},
+            {title: "Lord of the Flies", author: "William Golding", fileName: "Lord of the Flies.jpg", tags: ["fiction", "classic"], asin: "0399501487"},
+            {title: "The Lords of Strategy", author: "Walter Kiechel", fileName: "The Lords of Strategy.jpg", tags: ["nonfiction", "business"], asin: "1591397820"},
+            {title: "Murder on the Orient Express", author: "Agatha Christie", fileName: "Murder on the Orient Express.jpg", tags: ["fiction", "mystery"], asin: "0062073508"},
+            {title: "No Country for Old Men", author: "Cormac McCarthy", fileName: "No Country for Old Men.jpg", tags: ["fiction"], asin: "0375706674"},
+            {title: "The Omnivore's Dilemma", author: "Michael Pollan", fileName: "The Omnivore's Dilemma.jpg", tags: ["nonfiction", "food", "environment"], asin: "0143038583"},
+            {title: "On the Road", author: "Jack Kerouac", fileName: "On the Road.jpg", tags: ["fiction", "classic"], asin: "0140283293"},
+            {title: "One Second After", author: "William R. Forstchen", fileName: "One Second After.jpg", tags: ["fiction", "thriller"], asin: "0765356864"},
+            {title: "One Year After", author: "William R. Forstchen", fileName: "One Year After.jpg", tags: ["fiction", "thriller"], asin: "0765376717"},
+            {title: "Outcasts United", author: "Warren St. John", fileName: "Outcasts United.jpg", tags: ["nonfiction", "biography", "sports"], asin: "0385522045"},
+            {title: "Outliers", author: "Malcolm Gladwell", fileName: "Outliers.jpg", tags: ["nonfiction", "psychology", "business"], asin: "0316017930"},
+            {title: "Poor Charlie's Almanac", author: "Charles Munger", fileName: "Poor Charlie's Almanac.jpg", tags: ["nonfiction", "business", "investing"], asin: "1578645018"},
+            {title: "Pride and Prejudice", author: "Jane Austen", fileName: "Pride and Prejudice.jpg", tags: ["fiction", "classic", "romance"], asin: "0141439513"},
+            {title: "Revolutionary Characters", author: "Gordon S. Wood", fileName: "Revolutionary Characters.jpg", tags: ["nonfiction", "history", "biography"], asin: "0143112082"},
+            {title: "The Shape of Space", author: "Jeffrey R. Weeks", fileName: "The Shape of Space.jpg", tags: ["nonfiction", "mathematics"], asin: "0824707095"},
+            {title: "Shape Up", author: "Ryan Singer", fileName: "Shape Up.jpg", tags: ["nonfiction", "business", "productivity"], asin: "B08XLGPP1K"},
+            {title: "The Road", author: "Cormac McCarthy", fileName: "The Road.jpg", tags: ["fiction"], asin: "0307387895"},
+            {title: "Romeo and Juliet", author: "William Shakespeare", fileName: "Romeo and Juliet.jpg", tags: ["fiction", "drama", "classic"], asin: "0743477111"},
+            {title: "The Things They Carried", author: "Tim O'Brien", fileName: "The Things They Carried.jpg", tags: ["fiction", "war"], asin: "0618706410"},
+            {title: "Think and Grow Rich", author: "Napoleon Hill", fileName: "Think and Grow Rich.jpg", tags: ["nonfiction", "business", "self-help"], asin: "0449214923"},
+            {title: "A Time to Kill", author: "John Grisham", fileName: "A Time to Kill.jpg", tags: ["fiction", "thriller"], asin: "0385338600"},
+            {title: "'Tis", author: "Frank McCourt", fileName: "'Tis.jpg", tags: ["nonfiction", "biography", "memoir"], asin: "0684865742"},
+            {title: "The Watsons Go to Birmingham", author: "Christopher Paul Curtis", fileName: "The Watsons Go to Birmingham.jpg", tags: ["fiction", "historical"], asin: "0440414121"},
+            {title: "Why We Sleep", author: "Matthew Walker", fileName: "Why We Sleep.jpg", tags: ["nonfiction", "science", "health"], asin: "1501144316"},
+            {title: "Writing Science in Plain English", author: "Anne E. Greene", fileName: "Writing Science in Plain English.jpg", tags: ["nonfiction", "writing", "science"], asin: "0226026361"},
         ];
 
         const bookGrid = document.getElementById('bookGrid');
@@ -1309,7 +1557,11 @@
             item.appendChild(wrapper);
             item.appendChild(titleDiv);
             item.appendChild(authorDiv);
-            
+
+            // Store book data and add click handler
+            item.dataset.bookIndex = index;
+            item.addEventListener('click', () => openBookModal(index));
+
             bookGrid.appendChild(item);
         });
 
@@ -1701,6 +1953,47 @@
 
         // Next category handler
         nycModal.querySelector('.nyc-modal-next').addEventListener('click', nextCategory);
+
+        // Book Modal
+        const bookModal = document.getElementById('book-modal');
+        const bookModalImage = bookModal.querySelector('.book-modal-image');
+        const bookModalTitle = bookModal.querySelector('.book-modal-title');
+        const bookModalAuthor = bookModal.querySelector('.book-modal-author');
+        const bookModalBuyBtn = bookModal.querySelector('.book-modal-buy-btn');
+
+        function openBookModal(bookIndex) {
+            const book = books[bookIndex];
+            bookModalImage.src = `images/book covers/${book.fileName}`;
+            bookModalImage.alt = book.title;
+            bookModalTitle.textContent = book.title;
+            bookModalAuthor.textContent = `by ${book.author}`;
+
+            // Generate Amazon affiliate link
+            if (book.asin) {
+                bookModalBuyBtn.href = `https://www.amazon.com/dp/${book.asin}?tag=perrykramer5-20`;
+            } else {
+                // Fallback to search if no ASIN
+                const searchQuery = encodeURIComponent(`${book.title} ${book.author}`);
+                bookModalBuyBtn.href = `https://www.amazon.com/s?k=${searchQuery}&tag=perrykramer5-20`;
+            }
+
+            bookModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookModal() {
+            bookModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Book modal close handlers
+        bookModal.querySelector('.book-modal-close').addEventListener('click', closeBookModal);
+        bookModal.querySelector('.book-modal-backdrop').addEventListener('click', closeBookModal);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && bookModal.classList.contains('active')) {
+                closeBookModal();
+            }
+        });
 
         // Theme toggle functionality
         const themeToggle = document.querySelector('.theme-toggle');

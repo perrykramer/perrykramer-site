@@ -1,0 +1,11 @@
+<svg width="80" height="56" viewBox="0 0 80 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
+    </style>
+  </defs>
+  <!-- CA letters - white -->
+  <text x="0" y="44" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 48px; letter-spacing: -0.02em;" fill="#ffffff">CA</text>
+  <!-- Northeast arrow - superscript position -->
+  <path d="M62 18L72 8M72 8H64M72 8V16" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Academy Logo Export</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fa;
+            padding: 40px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: #1a1a2e;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 32px;
+        }
+
+        .instructions {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 40px;
+            font-size: 0.9rem;
+            color: #92400e;
+        }
+
+        .instructions strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .export-section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #374151;
+        }
+
+        .export-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .export-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .export-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed #d1d5db;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .export-box.dark {
+            background: #1e3a5f;
+        }
+
+        .export-label {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        /* Logo styles */
+        .logo-full {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .logo-full .wordmark {
+            color: #1e3a5f;
+        }
+
+        .logo-full.white .wordmark {
+            color: white;
+        }
+
+        .logo-ca {
+            display: inline-flex;
+            align-items: flex-start;
+            gap: 6px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-ca .letters {
+            color: #1e3a5f;
+        }
+
+        .logo-ca.white .letters {
+            color: white;
+        }
+
+        .logo-ca .arrow {
+            margin-top: 6px;
+        }
+
+        /* Size variations */
+        .size-800 .wordmark { font-size: 68px; }
+        .size-800 .arrow svg { width: 48px; height: 48px; }
+
+        .size-400 .wordmark { font-size: 34px; }
+        .size-400 .arrow svg { width: 24px; height: 24px; }
+
+        .size-200 .wordmark { font-size: 17px; }
+        .size-200 .arrow svg { width: 12px; height: 12px; }
+
+        .ca-512 .letters { font-size: 200px; }
+        .ca-512 .arrow { margin-top: 24px; }
+        .ca-512 .arrow svg { width: 88px; height: 88px; }
+
+        .ca-256 .letters { font-size: 100px; }
+        .ca-256 .arrow { margin-top: 12px; }
+        .ca-256 .arrow svg { width: 44px; height: 44px; }
+
+        .ca-128 .letters { font-size: 50px; }
+        .ca-128 .arrow { margin-top: 6px; }
+        .ca-128 .arrow svg { width: 22px; height: 22px; }
+
+        .ca-64 .letters { font-size: 25px; }
+        .ca-64 .arrow { margin-top: 3px; }
+        .ca-64 .arrow svg { width: 11px; height: 11px; }
+
+        .ca-32 .letters { font-size: 12px; }
+        .ca-32 .arrow { margin-top: 1px; }
+        .ca-32 .arrow svg { width: 6px; height: 6px; }
+
+        /* Export box sizes */
+        .box-800 { width: 800px; height: 160px; }
+        .box-400 { width: 400px; height: 80px; }
+        .box-200 { width: 200px; height: 40px; }
+        .box-512 { width: 512px; height: 512px; }
+        .box-256 { width: 256px; height: 256px; }
+        .box-128 { width: 128px; height: 128px; }
+        .box-64 { width: 64px; height: 64px; }
+        .box-32 { width: 32px; height: 32px; }
+
+        /* Color swatches */
+        .color-section {
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .color-grid {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .color-swatch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .swatch {
+            width: 64px;
+            height: 64px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .color-info {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        .color-info strong {
+            display: block;
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <h1>Case Academy Logo Export Kit</h1>
+    <p class="subtitle">All logo versions ready for export</p>
+
+    <div class="instructions">
+        <strong>How to export PNGs:</strong>
+        1. Right-click on any logo below → "Inspect" → Find the export-box div<br>
+        2. Right-click the element → "Capture node screenshot" (Chrome/Edge)<br>
+        3. Or use a browser extension like "GoFullPage" or "FireShot"<br>
+        4. For best results, export at 2x size and scale down
+    </div>
+
+    <!-- Full Wordmark - Light -->
+    <div class="export-section">
+        <div class="section-title">Full Wordmark — Light Background</div>
+        <div class="export-grid">
+            <div class="export-item">
+                <div class="export-box box-800">
+                    <div class="logo-full size-800">
+                        <span class="wordmark">Case Academy</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">800 × 160 — Hero/Header</span>
+            </div>
+            <div class="export-item">
+                <div class="export-box box-400">
+                    <div class="logo-full size-400">
+                        <span class="wordmark">Case Academy</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">400 × 80 — Email Header</span>
+            </div>
+            <div class="export-item">
+                <div class="export-box box-200">
+                    <div class="logo-full size-200">
+                        <span class="wordmark">Case Academy</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">200 × 40 — Small</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Full Wordmark - Dark -->
+    <div class="export-section">
+        <div class="section-title">Full Wordmark — Dark Background</div>
+        <div class="export-grid">
+            <div class="export-item">
+                <div class="export-box box-800 dark">
+                    <div class="logo-full size-800 white">
+                        <span class="wordmark">Case Academy</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">800 × 160 — Hero/Header (Dark)</span>
+            </div>
+            <div class="export-item">
+                <div class="export-box box-400 dark">
+                    <div class="logo-full size-400 white">
+                        <span class="wordmark">Case Academy</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">400 × 80 — Email Header (Dark)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CA Mark - Light -->
+    <div class="export-section">
+        <div class="section-title">CA Mark — Light Background (Icons/Avatars)</div>
+        <div class="export-grid">
+            <div class="export-item">
+                <div class="export-box box-512">
+                    <div class="logo-ca ca-512">
+                        <span class="letters">CA</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">512 × 512 — High-res</span>
+            </div>
+            <div class="export-item">
+                <div class="export-box box-256">
+                    <div class="logo-ca ca-256">
+                        <span class="letters">CA</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">256 × 256 — Social Avatar</span>
+            </div>
+            <div class="export-item">
+                <div class="export-box box-128">
+                    <div class="logo-ca ca-128">
+                        <span class="letters">CA</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">128 × 128 — Circle Icon</span>
+            </div>
+            <div class="export-item">
+                <div class="export-box box-64">
+                    <div class="logo-ca ca-64">
+                        <span class="letters">CA</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">64 × 64</span>
+            </div>
+            <div class="export-item">
+                <div class="export-box box-32">
+                    <div class="logo-ca ca-32">
+                        <span class="letters">CA</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">32 × 32 — Favicon</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- CA Mark - Dark -->
+    <div class="export-section">
+        <div class="section-title">CA Mark — Dark Background</div>
+        <div class="export-grid">
+            <div class="export-item">
+                <div class="export-box box-512 dark">
+                    <div class="logo-ca ca-512 white">
+                        <span class="letters">CA</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">512 × 512 — High-res (Dark)</span>
+            </div>
+            <div class="export-item">
+                <div class="export-box box-256 dark">
+                    <div class="logo-ca ca-256 white">
+                        <span class="letters">CA</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">256 × 256 — Social Avatar (Dark)</span>
+            </div>
+            <div class="export-item">
+                <div class="export-box box-128 dark">
+                    <div class="logo-ca ca-128 white">
+                        <span class="letters">CA</span>
+                        <span class="arrow">
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <span class="export-label">128 × 128 — Circle Icon (Dark)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Brand Colors -->
+    <div class="color-section">
+        <div class="section-title">Brand Colors</div>
+        <div class="color-grid">
+            <div class="color-swatch">
+                <div class="swatch" style="background: #1e3a5f;"></div>
+                <div class="color-info">
+                    <strong>Navy</strong>
+                    #1e3a5f<br>
+                    rgb(30, 58, 95)
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="swatch" style="background: #f59e0b;"></div>
+                <div class="color-info">
+                    <strong>Amber</strong>
+                    #f59e0b<br>
+                    rgb(245, 158, 11)
+                </div>
+            </div>
+            <div class="color-swatch">
+                <div class="swatch" style="background: #ffffff; border: 1px solid #e5e7eb;"></div>
+                <div class="color-info">
+                    <strong>White</strong>
+                    #ffffff<br>
+                    rgb(255, 255, 255)
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

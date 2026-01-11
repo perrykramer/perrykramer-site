@@ -1,0 +1,11 @@
+<svg width="280" height="48" viewBox="0 0 280 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&amp;display=swap');
+    </style>
+  </defs>
+  <!-- Case Academy wordmark -->
+  <text x="0" y="34" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 34px; letter-spacing: -0.01em;" fill="#1e3a5f">Case Academy</text>
+  <!-- Northeast arrow -->
+  <path d="M255 17L265 7M265 7H257M265 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

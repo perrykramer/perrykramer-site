@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Academy - Break into consulting with confidence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --bg-tertiary: #fafafa;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+            --text-tertiary: #999;
+            --border-color: #e5e5e5;
+            --shadow-color: rgba(0,0,0,0.1);
+            --accent: #f59e0b;
+            --accent-hover: #d97706;
+            --brand-navy: #1e3a5f;
+            --brand-amber: #f59e0b;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1e3a5f;
+            --bg-secondary: #162d4a;
+            --bg-tertiary: #1a3352;
+            --text-primary: #f0f0f0;
+            --text-secondary: #b8c9dc;
+            --text-tertiary: #7a9bbd;
+            --border-color: #2a4a6f;
+            --shadow-color: rgba(0,0,0,0.3);
+            --accent: #f59e0b;
+            --accent-hover: #fbbf24;
+            --brand-navy: #1e3a5f;
+            --brand-amber: #f59e0b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Navigation */
+        nav {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--brand-navy);
+            letter-spacing: -0.01em;
+            transition: color 0.3s;
+        }
+
+        [data-theme="dark"] .logo-text {
+            color: #ffffff;
+        }
+
+        .logo-arrow {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-arrow svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Hero Logo */
+        .hero-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--brand-navy);
+            letter-spacing: -0.01em;
+            transition: color 0.3s;
+        }
+
+        [data-theme="dark"] .hero-logo-text {
+            color: #ffffff;
+        }
+
+        .hero-logo-arrow {
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-logo-arrow svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            width: 32px;
+            height: 32px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--text-secondary);
+        }
+
+        .theme-toggle svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--text-primary);
+            transition: stroke 0.3s;
+        }
+
+        .theme-toggle .sun-icon {
+            display: block;
+        }
+
+        .theme-toggle .moon-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .theme-toggle .sun-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .theme-toggle .moon-icon {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 6rem 2rem 5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            color: var(--brand-navy);
+            line-height: 1.2;
+            transition: color 0.3s;
+        }
+
+        [data-theme="dark"] .hero h1 {
+            color: #ffffff;
+        }
+
+        .hero-signup-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .hero-signup {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 420px;
+            margin: 0 auto 1rem;
+        }
+
+        .hero-email-input {
+            flex: 1;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .hero-email-input::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .hero-email-input:focus {
+            border-color: var(--accent);
+        }
+
+        .hero-submit-btn {
+            padding: 0.875rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fff;
+            background: var(--accent);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .hero-submit-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .compare-plans-link {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .compare-plans-link:hover {
+            color: var(--text-primary);
+        }
+
+        .hero-subhead {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: color 0.3s;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            color: #ffffff;
+            background: var(--accent);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.875rem 2rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px var(--shadow-color);
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-color);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: var(--bg-secondary);
+            padding: 5rem 2rem;
+            transition: background 0.3s;
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .pricing-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .pricing-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--accent);
+            box-shadow: 0 8px 32px var(--shadow-color);
+            position: relative;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .pricing-tier {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .pricing-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            transition: color 0.3s;
+        }
+
+        .pricing-tagline {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .pricing-price {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            transition: color 0.3s;
+        }
+
+        .pricing-price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 1.5rem 0;
+            flex-grow: 1;
+        }
+
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            transition: color 0.3s;
+        }
+
+        .pricing-features li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .pricing-cta {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.875rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .pricing-cta-primary {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+        }
+
+        .pricing-cta-primary:hover {
+            background: var(--accent-hover);
+        }
+
+        .pricing-cta-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .pricing-cta-secondary:hover {
+            border-color: var(--text-secondary);
+            background: var(--bg-secondary);
+        }
+
+        .pricing-note {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            text-align: center;
+            margin-top: 0.75rem;
+            transition: color 0.3s;
+        }
+
+        .pricing-signup {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .pricing-email-input {
+            flex: 1;
+            min-width: 0;
+            padding: 0.75rem 0.75rem;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .pricing-email-input::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .pricing-email-input:focus {
+            border-color: var(--accent);
+        }
+
+        .pricing-submit-btn {
+            padding: 0.75rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #fff;
+            background: var(--accent);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        .pricing-submit-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        /* About Section */
+        .about {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .about-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: color 0.3s;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-tertiary);
+            font-size: 0.85rem;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .about-text {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            transition: color 0.3s;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .about-placeholder {
+            padding: 2rem;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px dashed var(--border-color);
+            color: var(--text-tertiary);
+            font-style: italic;
+            transition: background 0.3s, border-color 0.3s, color 0.3s;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            background: var(--bg-primary);
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-text {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            transition: color 0.3s;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .pricing-card.featured {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-logo-text {
+                font-size: 1.75rem;
+            }
+
+            .hero-logo-arrow svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .hero-signup {
+                flex-direction: column;
+                max-width: 100%;
+            }
+
+            .hero-submit-btn {
+                width: 100%;
+            }
+
+            .hero-subhead {
+                font-size: 1.1rem;
+            }
+
+            .pricing {
+                padding: 3rem 1.5rem;
+            }
+
+            .about {
+                padding: 3rem 1.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-image {
+                margin: 0 auto;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/case-academy" class="logo">
+            <span class="logo-text">Case Academy</span>
+            <span class="logo-arrow">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+        </a>
+        <div class="nav-right">
+            <a href="/" class="nav-link">Back to Perry Kramer</a>
+            <button class="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                </svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-logo">
+            <span class="hero-logo-text">Case Academy</span>
+            <span class="hero-logo-arrow">
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M7 17L17 7M17 7H9M17 7V15" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+        </div>
+        <h1>Break into consulting with confidence</h1>
+        <p class="hero-subhead">Weekly case practice, deadline tracking, and the prep that actually matters—built for students navigating consulting recruiting.</p>
+        <p class="hero-signup-text">Join CA Weekly — free weekly case practice, business news, and deadline tracking.</p>
+        <form class="hero-signup" action="#" method="POST">
+            <input type="email" class="hero-email-input" placeholder="Enter your email" required>
+            <button type="submit" class="hero-submit-btn">Subscribe - Free</button>
+        </form>
+        <a href="#pricing" class="compare-plans-link">Compare plans →</a>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="pricing-header">
+            <h2>Choose your plan</h2>
+        </div>
+        <div class="pricing-grid">
+            <!-- CA Weekly (Free) -->
+            <div class="pricing-card">
+                <div class="pricing-tier">Free</div>
+                <h3 class="pricing-name">CA Weekly Newsletter</h3>
+                <p class="pricing-tagline">Stay sharp</p>
+                <div class="pricing-price">$0</div>
+                <ul class="pricing-features">
+                    <li>Weekly case problem</li>
+                    <li>Solution frameworks</li>
+                    <li>Deadline roundup</li>
+                    <li>Headline briefing</li>
+                </ul>
+                <form class="pricing-signup" action="#" method="POST">
+                    <input type="email" class="pricing-email-input" placeholder="Enter your email" required>
+                    <button type="submit" class="pricing-submit-btn">Subscribe</button>
+                </form>
+            </div>
+
+            <!-- Case Academy ($19.99/mo) - Featured -->
+            <div class="pricing-card featured">
+                <span class="featured-badge">Popular</span>
+                <div class="pricing-tier">Monthly</div>
+                <h3 class="pricing-name">Case Academy</h3>
+                <p class="pricing-tagline">Go deeper</p>
+                <div class="pricing-price">$29<span>/mo</span></div>
+                <ul class="pricing-features">
+                    <li>Everything in Free</li>
+                    <li>Video solutions library</li>
+                    <li>Peer community</li>
+                    <li>Resource vault</li>
+                    <li>Practice partner matching</li>
+                </ul>
+                <a href="#" class="pricing-cta pricing-cta-primary">Join Waitlist</a>
+                <p class="pricing-note">Launching soon</p>
+            </div>
+
+            <!-- All-Access -->
+            <div class="pricing-card">
+                <div class="pricing-tier">Premium</div>
+                <h3 class="pricing-name">All-Access</h3>
+                <p class="pricing-tagline">Get personal</p>
+                <div class="pricing-price">Apply</div>
+                <ul class="pricing-features">
+                    <li>Everything in Case Academy</li>
+                    <li>1:1 coaching sessions</li>
+                    <li>Resume + application review</li>
+                    <li>Priority support</li>
+                </ul>
+                <a href="#" class="pricing-cta pricing-cta-secondary">Apply</a>
+                <p class="pricing-note">Limited spots</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-header">
+            <h2>Why Case Academy?</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-image">
+                Headshot
+            </div>
+            <div class="about-text">
+                <div class="about-placeholder">
+                    <p>Bio placeholder — tell your story here. What's your background? Why did you create Case Academy? What makes your approach different?</p>
+                    <p>Share your consulting experience, the challenges you faced during recruiting, and how Case Academy helps students avoid common pitfalls.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">&copy; Case Academy 2025</p>
+            <div class="footer-links">
+                <a href="mailto:perrykramer51@gmail.com">Contact</a>
+                <a href="https://www.linkedin.com/in/perry-kramer/" target="_blank">LinkedIn</a>
+                <a href="https://www.instagram.com/perrykramer/" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme === 'dark' ? 'dark' : '');
+            if (newTheme === 'light') {
+                html.removeAttribute('data-theme');
+            }
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
