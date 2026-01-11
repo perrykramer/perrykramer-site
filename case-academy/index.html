@@ -531,18 +531,13 @@
             align-items: start;
         }
 
-        .about-image {
+        .about-headshot {
             width: 200px;
             height: 200px;
             border-radius: 12px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-tertiary);
-            font-size: 0.85rem;
-            transition: background 0.3s, border-color 0.3s;
+            object-fit: cover;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: box-shadow 0.3s;
         }
 
         .about-text {
@@ -554,16 +549,6 @@
 
         .about-text p {
             margin-bottom: 1rem;
-        }
-
-        .about-placeholder {
-            padding: 2rem;
-            background: var(--bg-secondary);
-            border-radius: 8px;
-            border: 1px dashed var(--border-color);
-            color: var(--text-tertiary);
-            font-style: italic;
-            transition: background 0.3s, border-color 0.3s, color 0.3s;
         }
 
         /* Footer */
@@ -664,7 +649,7 @@
                 text-align: center;
             }
 
-            .about-image {
+            .about-headshot {
                 margin: 0 auto;
             }
 
@@ -783,14 +768,11 @@
             <h2>Why Case Academy?</h2>
         </div>
         <div class="about-content">
-            <div class="about-image">
-                Headshot
-            </div>
+            <img src="/images/Site pics/Headshot.JPG" alt="Perry Kramer" class="about-headshot">
             <div class="about-text">
-                <div class="about-placeholder">
-                    <p>Bio placeholder — tell your story here. What's your background? Why did you create Case Academy? What makes your approach different?</p>
-                    <p>Share your consulting experience, the challenges you faced during recruiting, and how Case Academy helps students avoid common pitfalls.</p>
-                </div>
+                <p>Hi, I'm Perry Kramer — an Associate at Boston Consulting Group (BCG) in New York City.</p>
+                <p>A few years ago, I was exactly where you are now: curious about consulting as a career path, but unsure what cases actually looked like or what the day-to-day job entailed.</p>
+                <p>I was fortunate to have mentors and friends who helped me navigate the process. Case Academy is my way of paying that forward — everything I wish I had when I was starting out, all in one place.</p>
             </div>
         </div>
     </section>
