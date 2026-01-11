@@ -1051,9 +1051,34 @@
 
         @media (max-width: 768px) {
             nav {
-                padding: 0.5rem;
+                position: relative;
+                padding: 1rem 0.5rem;
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 1rem;
+            }
+
+            .nav-right {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem 1.25rem;
+            }
+
+            .nav-case-academy {
+                order: -1;
+                margin-bottom: 0.5rem;
+            }
+
+            .theme-toggle {
+                position: absolute;
+                top: 1rem;
+                right: 0.5rem;
             }
 
             .hero {
