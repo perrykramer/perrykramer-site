@@ -339,7 +339,7 @@
         }
 
         .pricing-card.featured {
-            border: 2px solid var(--accent);
+            border: 1px solid var(--accent);
             box-shadow: 0 8px 32px var(--shadow-color);
             position: relative;
         }
@@ -593,7 +593,7 @@
         @media (max-width: 900px) {
             .pricing-grid {
                 grid-template-columns: 1fr;
-                max-width: 400px;
+                max-width: 500px;
                 margin: 0 auto;
             }
         }
@@ -640,12 +640,15 @@
             .pricing-grid {
                 max-width: 100%;
                 padding: 0;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .pricing-card {
                 width: 100%;
                 max-width: 100%;
-                margin: 0;
+                margin-left: 0;
+                margin-right: 0;
             }
 
             .about {
