@@ -267,6 +267,25 @@
             color: var(--text-primary);
         }
 
+        .hero-form-message {
+            font-size: 0.9rem;
+            margin-top: 0.75rem;
+            text-align: center;
+        }
+
+        .hero-form-message.success {
+            color: #10b981;
+        }
+
+        .hero-form-message.error {
+            color: #ef4444;
+        }
+
+        .hero-submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
         .hero-subhead {
             font-size: 1.25rem;
             color: var(--text-secondary);
@@ -299,210 +318,105 @@
             box-shadow: 0 4px 12px var(--shadow-color);
         }
 
-        /* Pricing Section */
-        .pricing {
+        /* What You Get Section */
+        .what-you-get {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .what-you-get h2 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+
+        .what-you-get-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .what-you-get-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
+        .what-you-get-list li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Coming Soon Section */
+        .coming-soon {
             background: var(--bg-secondary);
-            padding: 5rem 2rem;
+            padding: 4rem 2rem;
             transition: background 0.3s;
         }
 
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .pricing-header h2 {
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .pricing-grid {
-            max-width: 1100px;
+        .coming-soon-content {
+            max-width: 700px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            align-items: stretch;
+            text-align: center;
         }
 
-        .pricing-card {
-            background: var(--bg-primary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
-        }
-
-        .pricing-card.featured {
-            border: 1px solid var(--accent);
-            box-shadow: 0 8px 32px var(--shadow-color);
-            position: relative;
-        }
-
-        .featured-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent);
-            color: #fff;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 0.25rem 1rem;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .pricing-tier {
-            font-size: 0.85rem;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.5rem;
-            transition: color 0.3s;
-        }
-
-        .pricing-name {
-            font-size: 1.5rem;
+        .coming-soon h2 {
+            font-size: 1.75rem;
             font-weight: 600;
             color: var(--text-primary);
-            margin-bottom: 0.25rem;
+            margin-bottom: 1rem;
             transition: color 0.3s;
         }
 
-        .pricing-tagline {
-            font-size: 0.95rem;
+        .coming-soon-description {
+            font-size: 1.05rem;
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             transition: color 0.3s;
         }
 
-        .pricing-price {
-            font-size: 2.25rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 0.25rem;
-            transition: color 0.3s;
-        }
-
-        .pricing-price span {
-            font-size: 1rem;
-            font-weight: 400;
-            color: var(--text-secondary);
-        }
-
-        .pricing-features {
+        .coming-soon-features {
             list-style: none;
-            margin: 1.5rem 0;
-            flex-grow: 1;
+            display: inline-block;
+            text-align: left;
+            margin-bottom: 1.5rem;
         }
 
-        .pricing-features li {
+        .coming-soon-features li {
             display: flex;
             align-items: flex-start;
             gap: 0.75rem;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: var(--text-secondary);
             margin-bottom: 0.75rem;
             transition: color 0.3s;
         }
 
-        .pricing-features li::before {
+        .coming-soon-features li::before {
             content: "✓";
             color: var(--accent);
             font-weight: 600;
             flex-shrink: 0;
         }
 
-        .pricing-cta {
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 0.875rem 1.5rem;
-            border-radius: 6px;
+        .coming-soon-note {
             font-size: 0.95rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .pricing-cta-primary {
-            background: var(--accent);
-            color: #fff;
-            border: none;
-        }
-
-        .pricing-cta-primary:hover {
-            background: var(--accent-hover);
-        }
-
-        .pricing-cta-secondary {
-            background: transparent;
-            color: var(--text-primary);
-            border: 1px solid var(--border-color);
-        }
-
-        .pricing-cta-secondary:hover {
-            border-color: var(--text-secondary);
-            background: var(--bg-secondary);
-        }
-
-        .pricing-note {
-            font-size: 0.8rem;
             color: var(--text-tertiary);
-            text-align: center;
-            margin-top: 0.75rem;
+            font-style: italic;
             transition: color 0.3s;
-        }
-
-        .pricing-signup {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .pricing-email-input {
-            flex: 1;
-            min-width: 0;
-            padding: 0.75rem 0.75rem;
-            font-size: 0.85rem;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            outline: none;
-            transition: border-color 0.2s, background 0.2s;
-        }
-
-        .pricing-email-input::placeholder {
-            color: var(--text-tertiary);
-        }
-
-        .pricing-email-input:focus {
-            border-color: var(--accent);
-        }
-
-        .pricing-submit-btn {
-            padding: 0.75rem 1rem;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #fff;
-            background: var(--accent);
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            white-space: nowrap;
-            transition: background 0.2s;
-        }
-
-        .pricing-submit-btn:hover {
-            background: var(--accent-hover);
         }
 
         /* About Section */
@@ -590,14 +504,6 @@
         }
 
         /* Responsive */
-        @media (max-width: 900px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-                margin: 0 auto;
-            }
-        }
-
         @media (max-width: 768px) {
             nav {
                 padding: 1rem 1.5rem;
@@ -633,22 +539,12 @@
                 font-size: 1.1rem;
             }
 
-            .pricing {
+            .what-you-get {
                 padding: 3rem 1.5rem;
             }
 
-            .pricing-grid {
-                max-width: 100%;
-                padding: 0;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .pricing-card {
-                width: 100%;
-                max-width: 100%;
-                margin-left: 0;
-                margin-right: 0;
+            .coming-soon {
+                padding: 3rem 1.5rem;
             }
 
             .about {
@@ -683,7 +579,7 @@
             </span>
         </a>
         <div class="nav-right">
-            <a href="/" class="nav-link">Back to Perry Kramer</a>
+            <a href="/" class="nav-link">Perrykramer.com</a>
             <button class="theme-toggle" aria-label="Toggle dark mode">
                 <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="5"/>
@@ -706,71 +602,35 @@
             </span>
         </div>
         <h1>Navigate recruiting season with confidence</h1>
-        <p class="hero-subhead">Weekly case practice, deadline tracking, and the prep that actually matters—built for students navigating consulting recruiting.</p>
+        <p class="hero-subhead">Weekly case practice, deadline tracking, and everything you need to ace your interviews.</p>
         <p class="hero-signup-text">Join CA Weekly — free weekly case practice, business news, and deadline tracking.</p>
-        <form class="hero-signup" action="#" method="POST">
-            <input type="email" class="hero-email-input" placeholder="Enter your email" required>
-            <button type="submit" class="hero-submit-btn">Subscribe for free</button>
+        <form id="hero-signup-form" class="hero-signup">
+            <input type="email" id="hero-email-input" class="hero-email-input" placeholder="Enter your email" required>
+            <button type="submit" id="hero-submit-btn" class="hero-submit-btn">Subscribe for free</button>
         </form>
-        <a href="#pricing" class="compare-plans-link">Compare plans →</a>
+        <p id="hero-form-message" class="hero-form-message"></p>
+        <a href="#what-you-get" class="compare-plans-link">Learn more →</a>
     </section>
 
-    <section class="pricing" id="pricing">
-        <div class="pricing-header">
-            <h2>Choose your plan</h2>
-        </div>
-        <div class="pricing-grid">
-            <!-- CA Weekly (Free) -->
-            <div class="pricing-card">
-                <div class="pricing-tier">Free</div>
-                <h3 class="pricing-name">CA Weekly Newsletter</h3>
-                <p class="pricing-tagline">Stay sharp</p>
-                <div class="pricing-price">$0</div>
-                <ul class="pricing-features">
-                    <li>Weekly case problem</li>
-                    <li>Solution frameworks</li>
-                    <li>Deadline roundup</li>
-                    <li>Headline briefing</li>
-                </ul>
-                <form class="pricing-signup" action="#" method="POST">
-                    <input type="email" class="pricing-email-input" placeholder="Enter your email" required>
-                    <button type="submit" class="pricing-submit-btn">Subscribe</button>
-                </form>
-            </div>
+    <section class="what-you-get" id="what-you-get">
+        <h2>What you get with CA Weekly</h2>
+        <ul class="what-you-get-list">
+            <li>Weekly case problem + solution framework</li>
+            <li>Deadline roundup (MBB application dates)</li>
+            <li>Headline briefing (business news that matters for consulting)</li>
+        </ul>
+    </section>
 
-            <!-- Case Academy ($19.99/mo) - Featured -->
-            <div class="pricing-card featured">
-                <span class="featured-badge">Popular</span>
-                <div class="pricing-tier">Monthly</div>
-                <h3 class="pricing-name">Case Academy</h3>
-                <p class="pricing-tagline">Go deeper</p>
-                <div class="pricing-price">$29<span>/mo</span></div>
-                <ul class="pricing-features">
-                    <li>Everything in Free</li>
-                    <li>Video solutions library</li>
-                    <li>Peer community</li>
-                    <li>Resource vault</li>
-                    <li>Practice partner matching</li>
-                </ul>
-                <a href="#" class="pricing-cta pricing-cta-primary">Join Waitlist</a>
-                <p class="pricing-note">Launching soon</p>
-            </div>
-
-            <!-- All-Access -->
-            <div class="pricing-card">
-                <div class="pricing-tier">Premium</div>
-                <h3 class="pricing-name">All-Access</h3>
-                <p class="pricing-tagline">Get personal</p>
-                <div class="pricing-price">Apply</div>
-                <ul class="pricing-features">
-                    <li>Everything in Case Academy</li>
-                    <li>1:1 coaching sessions</li>
-                    <li>Resume + application review</li>
-                    <li>Priority support</li>
-                </ul>
-                <a href="#" class="pricing-cta pricing-cta-secondary">Apply</a>
-                <p class="pricing-note">Limited spots</p>
-            </div>
+    <section class="coming-soon">
+        <div class="coming-soon-content">
+            <h2>Go deeper with the full Case Academy</h2>
+            <p class="coming-soon-description">When you're ready for more, the paid community includes:</p>
+            <ul class="coming-soon-features">
+                <li>Video solutions library, including walkthroughs for weekly practice problems</li>
+                <li>Peer community + practice partner matching</li>
+                <li>Resource vault</li>
+            </ul>
+            <p class="coming-soon-note">Launching soon — join CA Weekly to get early access.</p>
         </div>
     </section>
 
@@ -784,7 +644,7 @@
                 <p>Hi, I'm Perry Kramer — an Associate at Boston Consulting Group (BCG) in New York City.</p>
                 <p>A few years ago, I was exactly where you are now: curious about consulting as a career path, but unsure what cases actually looked like or what the day-to-day job entailed.</p>
                 <p>I was fortunate to have mentors who helped me navigate the process. Case Academy is my way of paying that forward — everything I wish I had when I was starting out, all in one place.</p>
-                <p>That means weekly headlines to keep you informed, deadline tracking so you're never caught off guard, and case practice designed to take you from confused to confident — ready for whatever your interviewer throws at you.</p>
+                <p>That means weekly headlines to keep you informed, deadline tracking so you're never caught off guard, and case practice designed to take you from curious to confident — ready for whatever your interviewer throws at you.</p>
             </div>
         </div>
     </section>
@@ -835,6 +695,72 @@
                 }
             });
         });
+
+        // ConvertKit form integration
+        const heroForm = document.getElementById('hero-signup-form');
+        const heroEmailInput = document.getElementById('hero-email-input');
+        const heroSubmitBtn = document.getElementById('hero-submit-btn');
+        const heroMessageEl = document.getElementById('hero-form-message');
+
+        const CONVERTKIT_FORM_ID = '9013243';
+        const CONVERTKIT_API_KEY = 'oRA6Iwj5Dbplv6h9KYW6Qw';
+
+        heroForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = heroEmailInput.value.trim();
+
+            if (!email) {
+                showHeroMessage('Please enter your email address.', 'error');
+                return;
+            }
+
+            heroSubmitBtn.disabled = true;
+            heroSubmitBtn.textContent = 'Joining...';
+            heroMessageEl.textContent = '';
+            heroMessageEl.className = 'hero-form-message';
+
+            try {
+                const response = await fetch(
+                    `https://api.convertkit.com/v3/forms/${CONVERTKIT_FORM_ID}/subscribe`,
+                    {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            api_key: CONVERTKIT_API_KEY,
+                            email: email,
+                        }),
+                    }
+                );
+
+                const data = await response.json();
+
+                if (response.ok && data.subscription) {
+                    showHeroMessage(
+                        "You're in! Check your inbox for a welcome email from Case Academy. If you don't see it in a few minutes, check spam and mark us as safe.",
+                        'success'
+                    );
+                    heroEmailInput.value = '';
+                    heroSubmitBtn.textContent = 'Subscribed ✓';
+                } else {
+                    throw new Error(data.message || 'Something went wrong');
+                }
+            } catch (error) {
+                showHeroMessage(
+                    'Something went wrong. Please try again or email me directly.',
+                    'error'
+                );
+                heroSubmitBtn.disabled = false;
+                heroSubmitBtn.textContent = 'Subscribe for free';
+            }
+        });
+
+        function showHeroMessage(text, type) {
+            heroMessageEl.textContent = text;
+            heroMessageEl.className = `hero-form-message ${type}`;
+        }
     </script>
 </body>
 </html>
