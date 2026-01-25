@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- 3/4 circle: starts at top center, goes clockwise, ends at left center (missing top-left quadrant) -->
+  <path 
+    d="M32 8 A24 24 0 1 1 8 32" 
+    stroke="#1e3a5f" 
+    stroke-width="4" 
+    stroke-linecap="round"
+    fill="none"
+  />
+  <!-- Arrowhead: rotated 90 degrees, pointing down -->
+  <path 
+    d="M8 32 L0 40 M8 32 L16 40" 
+    stroke="#1e3a5f" 
+    stroke-width="4" 
+    stroke-linecap="round"
+    fill="none"
+  />
+</svg>

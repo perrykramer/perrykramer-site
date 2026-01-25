@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Diagonal line -->
+  <path 
+    d="M12 52 L52 12" 
+    stroke="#1e3a5f" 
+    stroke-width="4" 
+    stroke-linecap="round"
+    fill="none"
+  />
+  <!-- Arrow head -->
+  <path 
+    d="M52 12 L40 12 M52 12 L52 24" 
+    stroke="#1e3a5f" 
+    stroke-width="4" 
+    stroke-linecap="round"
+    fill="none"
+  />
+</svg>
