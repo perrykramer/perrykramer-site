@@ -419,6 +419,82 @@
             transition: color 0.3s;
         }
 
+        /* Mission and Values Section */
+        .mission-values {
+            background: var(--bg-secondary);
+            padding: 5rem 2rem;
+            transition: background 0.3s;
+        }
+
+        .mission-values-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .mission-statement {
+            font-size: 1.35rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .value-card {
+            text-align: center;
+        }
+
+        .value-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .value-icon img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .value-icon .light-icon {
+            display: block;
+        }
+
+        .value-icon .dark-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .value-icon .light-icon {
+            display: none;
+        }
+
+        [data-theme="dark"] .value-icon .dark-icon {
+            display: block;
+        }
+
+        .value-heading {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            transition: color 0.3s;
+        }
+
+        .value-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+        }
+
         /* About Section */
         .about {
             max-width: 900px;
@@ -547,6 +623,20 @@
                 padding: 3rem 1.5rem;
             }
 
+            .mission-values {
+                padding: 3rem 1.5rem;
+            }
+
+            .mission-statement {
+                font-size: 1.15rem;
+                margin-bottom: 3rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
             .about {
                 padding: 3rem 1.5rem;
             }
@@ -645,6 +735,41 @@
                 <p>A few years ago, I was exactly where you are now: curious about consulting as a career path, but unsure what cases actually looked like or what the day-to-day job entailed.</p>
                 <p>I was fortunate to have mentors who helped me navigate the process. Case Academy is my way of paying that forward — everything I wish I had when I was starting out, all in one place.</p>
                 <p>That means weekly headlines to keep you informed, deadline tracking so you're never caught off guard, and case practice designed to take you from curious to confident — ready for whatever your interviewer throws at you.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-values">
+        <div class="mission-values-content">
+            <p class="mission-statement">Help students stand out in consulting recruiting by teaching them how cases actually work, what consultants really do, and how to prepare with confidence.</p>
+
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <img src="/case-academy/Case Academy Logo Kit/add-value-icon.svg" alt="Add value" class="light-icon">
+                        <img src="/case-academy/Case Academy Logo Kit/add-value-icon-dark.svg" alt="Add value" class="dark-icon">
+                    </div>
+                    <h3 class="value-heading">Add value</h3>
+                    <p class="value-description">Everything we create—guides, resources, answers—exists to help you succeed. If it's not useful, it's not worth making.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <img src="/case-academy/Case Academy Logo Kit/feedback-icon.svg" alt="Seek feedback" class="light-icon">
+                        <img src="/case-academy/Case Academy Logo Kit/feedback-icon-dark.svg" alt="Seek feedback" class="dark-icon">
+                    </div>
+                    <h3 class="value-heading">Seek feedback</h3>
+                    <p class="value-description">We can't help you if we don't listen to you. We actively ask what's working, what's missing, and what to build next.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <img src="/case-academy/Case Academy Logo Kit/improve-icon.svg" alt="Improve constantly" class="light-icon">
+                        <img src="/case-academy/Case Academy Logo Kit/improve-icon-dark.svg" alt="Improve constantly" class="dark-icon">
+                    </div>
+                    <h3 class="value-heading">Improve constantly</h3>
+                    <p class="value-description">Case Academy gets better over time. We take feedback seriously and use it to refine what exists and build what's needed.</p>
+                </div>
             </div>
         </div>
     </section>
