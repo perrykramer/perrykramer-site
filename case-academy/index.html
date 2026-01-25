@@ -431,21 +431,53 @@
             margin: 0 auto;
         }
 
+        .mission-values-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .mission-values-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: color 0.3s;
+        }
+
+        .mission-section {
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-tertiary);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
         .mission-statement {
             font-size: 1.35rem;
             line-height: 1.6;
             color: var(--text-primary);
             text-align: center;
             max-width: 800px;
-            margin: 0 auto 4rem;
+            margin: 0 auto;
             font-weight: 500;
             transition: color 0.3s;
+        }
+
+        .values-section {
+            margin-top: 4rem;
         }
 
         .values-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 2.5rem;
+            margin-top: 2rem;
         }
 
         .value-card {
@@ -627,8 +659,19 @@
                 padding: 3rem 1.5rem;
             }
 
+            .mission-values-header {
+                margin-bottom: 2rem;
+            }
+
+            .mission-values-header h2 {
+                font-size: 1.75rem;
+            }
+
             .mission-statement {
                 font-size: 1.15rem;
+            }
+
+            .mission-section {
                 margin-bottom: 3rem;
             }
 
@@ -741,34 +784,44 @@
 
     <section class="mission-values">
         <div class="mission-values-content">
-            <p class="mission-statement">Help students stand out in consulting recruiting by teaching them how cases actually work, what consultants really do, and how to prepare with confidence.</p>
+            <div class="mission-values-header">
+                <h2>Our Mission & Values</h2>
+            </div>
 
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
-                        <img src="/case-academy/Case Academy Logo Kit/add-value-icon.svg" alt="Add value" class="light-icon">
-                        <img src="/case-academy/Case Academy Logo Kit/add-value-icon-dark.svg" alt="Add value" class="dark-icon">
-                    </div>
-                    <h3 class="value-heading">Add value</h3>
-                    <p class="value-description">Everything we create—guides, resources, answers—exists to help you succeed. If it's not useful, it's not worth making.</p>
-                </div>
+            <div class="mission-section">
+                <p class="section-label">Our Mission</p>
+                <p class="mission-statement">Help students stand out in consulting recruiting by teaching them how cases actually work, what consultants really do, and how to prepare with confidence.</p>
+            </div>
 
-                <div class="value-card">
-                    <div class="value-icon">
-                        <img src="/case-academy/Case Academy Logo Kit/feedback-icon.svg" alt="Seek feedback" class="light-icon">
-                        <img src="/case-academy/Case Academy Logo Kit/feedback-icon-dark.svg" alt="Seek feedback" class="dark-icon">
+            <div class="values-section">
+                <p class="section-label">Our Values</p>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <img src="/case-academy/Case Academy Logo Kit/add-value-icon.svg" alt="Add value" class="light-icon">
+                            <img src="/case-academy/Case Academy Logo Kit/add-value-icon-dark.svg" alt="Add value" class="dark-icon">
+                        </div>
+                        <h3 class="value-heading">Add value</h3>
+                        <p class="value-description">Everything we create—guides, resources, answers—exists to help you succeed. If it's not useful, it's not worth making.</p>
                     </div>
-                    <h3 class="value-heading">Seek feedback</h3>
-                    <p class="value-description">We can't help you if we don't listen to you. We actively ask what's working, what's missing, and what to build next.</p>
-                </div>
 
-                <div class="value-card">
-                    <div class="value-icon">
-                        <img src="/case-academy/Case Academy Logo Kit/improve-icon.svg" alt="Improve constantly" class="light-icon">
-                        <img src="/case-academy/Case Academy Logo Kit/improve-icon-dark.svg" alt="Improve constantly" class="dark-icon">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <img src="/case-academy/Case Academy Logo Kit/feedback-icon.svg" alt="Seek feedback" class="light-icon">
+                            <img src="/case-academy/Case Academy Logo Kit/feedback-icon-dark.svg" alt="Seek feedback" class="dark-icon">
+                        </div>
+                        <h3 class="value-heading">Seek feedback</h3>
+                        <p class="value-description">We can't help you if we don't listen to you. We actively ask what's working, what's missing, and what to build next.</p>
                     </div>
-                    <h3 class="value-heading">Improve constantly</h3>
-                    <p class="value-description">Case Academy gets better over time. We take feedback seriously and use it to refine what exists and build what's needed.</p>
+
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <img src="/case-academy/Case Academy Logo Kit/improve-icon.svg" alt="Improve constantly" class="light-icon">
+                            <img src="/case-academy/Case Academy Logo Kit/improve-icon-dark.svg" alt="Improve constantly" class="dark-icon">
+                        </div>
+                        <h3 class="value-heading">Improve constantly</h3>
+                        <p class="value-description">Case Academy gets better over time. We take feedback seriously and use it to refine what exists and build what's needed.</p>
+                    </div>
                 </div>
             </div>
         </div>
