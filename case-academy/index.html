@@ -330,7 +330,7 @@
             font-weight: 600;
             color: var(--text-primary);
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             transition: color 0.3s;
         }
 
@@ -390,18 +390,20 @@
 
         .coming-soon-features {
             list-style: none;
-            display: inline-block;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
             text-align: left;
-            margin-bottom: 1.5rem;
         }
 
         .coming-soon-features li {
             display: flex;
             align-items: flex-start;
-            gap: 0.75rem;
-            font-size: 1rem;
+            gap: 1rem;
+            font-size: 1.05rem;
             color: var(--text-secondary);
-            margin-bottom: 0.75rem;
             transition: color 0.3s;
         }
 
@@ -409,6 +411,7 @@
             content: "✓";
             color: var(--accent);
             font-weight: 600;
+            font-size: 1.2rem;
             flex-shrink: 0;
         }
 
@@ -747,10 +750,11 @@
 
     <section class="what-you-get" id="what-you-get">
         <h2>What you get with CA Weekly</h2>
+        <p class="coming-soon-description" style="text-align: center;">All you need to stay sharp delivered to your inbox</p>
         <ul class="what-you-get-list">
-            <li>Weekly case problem + solution framework</li>
-            <li>Deadline roundup (Company-specific application dates)</li>
-            <li>Headline briefing (business news that matters for consulting)</li>
+            <li>Weekly case practice problem</li>
+            <li>Company-specific application tracker</li>
+            <li>Business news to stay informed</li>
         </ul>
     </section>
 
@@ -759,9 +763,10 @@
             <h2>Go deeper with the full Case Academy</h2>
             <p class="coming-soon-description">When you're ready for more, the paid community includes:</p>
             <ul class="coming-soon-features">
-                <li>Video solutions library, including walkthroughs for weekly practice problems</li>
-                <li>Peer community + practice partner matching</li>
-                <li>Resource vault</li>
+                <li>Full walkthrough video walkthrough courses</li>
+                <li>Practice library with video solutions for CA Weekly problems</li>
+                <li>Practice partner matching within peer community</li>
+                <li>Resource vault including resume and cover letter templates and guides</li>
             </ul>
             <p class="coming-soon-note">Launching soon — join CA Weekly to get early access.</p>
         </div>
