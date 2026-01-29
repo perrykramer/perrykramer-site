@@ -181,6 +181,7 @@
             margin: 0 auto;
             padding: 4rem 0.5rem 6rem;
             position: relative;
+            overflow: visible !important;
         }
 
         .hero-text {
@@ -195,12 +196,17 @@
             right: -5%;
             transform: translateY(-50%);
             width: 960px;
-            pointer-events: none;
+            pointer-events: auto;
+            display: block;
+            line-height: 0;
+            overflow: visible !important;
         }
 
         .hero-image img {
             width: 100%;
             height: auto;
+            pointer-events: none;
+            display: block;
         }
 
         .hero-img-light {
@@ -223,6 +229,101 @@
 
         [data-theme="dark"] .hero-img-dark {
             opacity: 1;
+        }
+
+        /* Image Info Overlay */
+        .image-info-overlay {
+            position: absolute;
+            top: auto;
+            bottom: 60px;
+            right: 80px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            gap: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 50%;
+            padding: 0;
+            width: auto;
+            min-width: 32px;
+            max-width: 32px;
+            height: 32px;
+            overflow: hidden;
+            transition: max-width 0.3s ease-out, border-radius 0.3s ease-out, padding-right 0.3s ease-out, gap 0.3s ease-out;
+            pointer-events: auto;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        [data-theme="dark"] .image-info-overlay {
+            background: rgba(255, 255, 255, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-info-overlay:hover {
+            max-width: 500px;
+            padding-right: 16px;
+            border-radius: 20px;
+            gap: 8px;
+        }
+
+        .info-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
+            transition: color 0.3s ease;
+            margin: 0;
+            padding: 0;
+        }
+
+        [data-theme="dark"] .info-icon {
+            color: white;
+        }
+
+        .info-text {
+            opacity: 0;
+            white-space: nowrap;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            transition: opacity 0.2s ease-out 0.1s;
+            pointer-events: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .image-info-overlay:hover .info-text {
+            opacity: 1;
+        }
+
+        /* Show only light mode text by default */
+        .info-text-light {
+            display: inline;
+        }
+
+        .info-text-dark {
+            display: none;
+        }
+
+        /* Show dark mode text when dark theme is active */
+        [data-theme="dark"] .info-text-light {
+            display: none;
+        }
+
+        [data-theme="dark"] .info-text-dark {
+            display: inline;
         }
 
         .hero h1 {
@@ -1118,6 +1219,33 @@
                 margin: 2rem auto 0;
             }
 
+            .image-info-overlay {
+                bottom: 40px !important;
+                right: 30px !important;
+                width: auto;
+                min-width: 28px;
+                max-width: 28px;
+                height: 28px;
+            }
+
+            .info-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 12px;
+                margin: 0;
+                padding: 0;
+            }
+
+            .info-text {
+                font-size: 11px;
+            }
+
+            .image-info-overlay:hover {
+                max-width: 400px;
+                padding-right: 14px;
+                gap: 8px;
+            }
+
             .hero h1 {
                 font-size: 1.75rem;
                 white-space: normal;
@@ -1220,6 +1348,11 @@
         <div class="hero-image">
             <img src="images/site-pics/Mont St Victoire Watercolor 6.jpg" alt="Mont St Victoire" class="hero-img-light">
             <img src="images/site-pics/Fire Watercolor.jpg" alt="Fire Watercolor" class="hero-img-dark">
+            <div class="image-info-overlay">
+                <span class="info-icon">i</span>
+                <span class="info-text info-text-light">On top of Mount St. Victoire in Provence, France</span>
+                <span class="info-text info-text-dark">Camping under the stars in White Desert National Park, Egypt</span>
+            </div>
         </div>
     </section>
 
@@ -2060,6 +2193,56 @@
             }
             localStorage.setItem('theme', newTheme);
         });
+
+        // Image info overlay touch support for mobile
+        const imageInfoOverlay = document.querySelector('.image-info-overlay');
+        if (imageInfoOverlay) {
+            let isExpanded = false;
+            let hideTimeout;
+
+            // Handle touch events on mobile
+            imageInfoOverlay.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+
+                    if (isExpanded) {
+                        imageInfoOverlay.style.maxWidth = '';
+                        imageInfoOverlay.style.paddingRight = '';
+                        imageInfoOverlay.style.gap = '';
+                        imageInfoOverlay.querySelector('.info-text').style.opacity = '';
+                        isExpanded = false;
+                    } else {
+                        imageInfoOverlay.style.maxWidth = '400px';
+                        imageInfoOverlay.style.paddingRight = '14px';
+                        imageInfoOverlay.style.gap = '8px';
+                        imageInfoOverlay.querySelector('.info-text').style.opacity = '1';
+                        isExpanded = true;
+
+                        // Auto-collapse after 3 seconds
+                        clearTimeout(hideTimeout);
+                        hideTimeout = setTimeout(() => {
+                            imageInfoOverlay.style.maxWidth = '';
+                            imageInfoOverlay.style.paddingRight = '';
+                            imageInfoOverlay.style.gap = '';
+                            imageInfoOverlay.querySelector('.info-text').style.opacity = '';
+                            isExpanded = false;
+                        }, 3000);
+                    }
+                }
+            });
+
+            // Close on outside tap for mobile
+            document.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768 && isExpanded && !imageInfoOverlay.contains(e.target)) {
+                    imageInfoOverlay.style.maxWidth = '';
+                    imageInfoOverlay.style.paddingRight = '';
+                    imageInfoOverlay.style.gap = '';
+                    imageInfoOverlay.querySelector('.info-text').style.opacity = '';
+                    isExpanded = false;
+                    clearTimeout(hideTimeout);
+                }
+            });
+        }
 
         // Handle placeholder links (href="#") - show "Work in progress" message
         document.querySelectorAll('a.hero-link[href="#"]').forEach(link => {
