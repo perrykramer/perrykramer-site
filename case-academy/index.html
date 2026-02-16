@@ -625,6 +625,17 @@
             color: var(--text-primary);
         }
 
+        .back-to-top {
+            color: var(--accent) !important;
+            font-weight: 500;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .back-to-top:hover {
+            color: var(--accent-hover) !important;
+            transform: translateY(-2px);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             nav {
@@ -718,6 +729,17 @@
                 flex-direction: column;
                 gap: 1.5rem;
                 text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .back-to-top {
+                margin-top: 0.5rem;
+                padding-top: 0.5rem;
+                border-top: 1px solid var(--border-color);
             }
         }
     </style>
@@ -859,6 +881,7 @@
                 <a href="mailto:perrykramer51@gmail.com">Contact</a>
                 <a href="https://www.linkedin.com/in/perry-kramer/" target="_blank">LinkedIn</a>
                 <a href="https://www.instagram.com/perrykramer/" target="_blank">Instagram</a>
+                <a href="#" id="back-to-top" class="back-to-top">Back to top ↑</a>
             </div>
         </div>
     </footer>
@@ -964,6 +987,16 @@
             heroMessageEl.textContent = text;
             heroMessageEl.className = `hero-form-message ${type}`;
         }
+
+        // Back to top functionality
+        const backToTopBtn = document.getElementById('back-to-top');
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
