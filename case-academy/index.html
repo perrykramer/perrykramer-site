@@ -256,11 +256,13 @@
         }
 
         .compare-plans-link {
-            display: inline-block;
+            display: block;
             font-size: 0.9rem;
             color: var(--text-secondary);
             text-decoration: none;
             transition: color 0.2s;
+            text-align: center;
+            margin-top: 1.5rem;
         }
 
         .compare-plans-link:hover {
@@ -327,6 +329,152 @@
 
         .hero-cta:hover {
             box-shadow: 0 6px 20px rgba(245, 158, 11, 0.35);
+        }
+
+        /* Two-Track Section */
+        .two-track {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 3rem;
+        }
+
+        .two-track-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .track-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .track-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px var(--shadow-color);
+        }
+
+        .track-card h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            transition: color 0.3s;
+        }
+
+        .track-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .track-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .track-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.875rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            transition: color 0.3s;
+        }
+
+        .track-features li:last-child {
+            margin-bottom: 0;
+        }
+
+        .checkmark {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            font-size: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .newsletter-input::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .newsletter-input:focus {
+            border-color: var(--accent);
+        }
+
+        .newsletter-btn {
+            padding: 0.875rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fff;
+            background: var(--accent);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        .newsletter-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-message {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .form-message.success {
+            color: #10b981;
+        }
+
+        .form-message.error {
+            color: #ef4444;
+        }
+
+        .track-cta {
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            padding: 0.875rem 1.5rem;
+        }
+
+        .learn-more-wrapper {
+            text-align: center;
+            margin-top: 2rem;
         }
 
         /* What You Get Section */
@@ -679,6 +827,31 @@
                 max-width: 100%;
             }
 
+            .two-track {
+                padding: 3rem 1.5rem 2rem;
+            }
+
+            .two-track-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .track-card {
+                padding: 1.5rem;
+            }
+
+            .track-card h2 {
+                font-size: 1.35rem;
+            }
+
+            .track-description {
+                font-size: 0.95rem;
+            }
+
+            .track-features li {
+                font-size: 0.9rem;
+            }
+
             .what-you-get {
                 padding: 3rem 1.5rem;
             }
@@ -779,38 +952,57 @@
         </div>
         <h1>Navigate recruiting season with confidence</h1>
         <p class="hero-subhead">Weekly case practice, deadline tracking, and everything you need to ace your interviews.</p>
-        <a href="https://case-academy-app.vercel.app" class="cta-btn hero-cta">Enter Case Academy →</a>
-        <p class="hero-signup-text">Join CA Weekly Newsletter — free weekly case practice, business news, and deadline tracking.</p>
-        <form id="hero-signup-form" class="hero-signup">
-            <input type="email" id="hero-email-input" class="hero-email-input" placeholder="Enter your email" required>
-            <button type="submit" id="hero-submit-btn" class="hero-submit-btn">Subscribe for free</button>
-        </form>
-        <p id="hero-form-message" class="hero-form-message"></p>
-        <a href="#what-you-get" class="compare-plans-link">Learn more →</a>
+        <a href="#two-tracks" class="compare-plans-link">Learn more →</a>
     </section>
 
-    <section class="what-you-get" id="what-you-get">
-        <h2>What you get with CA Weekly</h2>
-        <p class="coming-soon-description" style="text-align: center;">All you need to stay sharp, delivered to your inbox</p>
-        <ul class="what-you-get-list">
-            <li>Weekly case practice problem</li>
-            <li>Company-specific application tracker</li>
-            <li>Business news to stay informed</li>
-        </ul>
-    </section>
+    <!-- Two-Track Section -->
+    <section class="two-track" id="two-tracks">
+        <div class="two-track-container">
+            <!-- Card 1: CA Weekly -->
+            <div class="track-card">
+                <h2>Start Free with CA Weekly</h2>
+                <p class="track-description">A free weekly newsletter to keep you sharp — case practice problems, company-specific application deadlines, and business news.</p>
+                <ul class="track-features">
+                    <li>
+                        <span class="checkmark">✓</span>
+                        <span>Weekly case practice problem</span>
+                    </li>
+                    <li>
+                        <span class="checkmark">✓</span>
+                        <span>Company-specific application tracker</span>
+                    </li>
+                    <li>
+                        <span class="checkmark">✓</span>
+                        <span>Business news to stay informed</span>
+                    </li>
+                </ul>
+                <form id="hero-signup-form" class="newsletter-form">
+                    <input type="email" id="hero-email-input" class="newsletter-input" placeholder="Enter your email" required>
+                    <button type="submit" id="hero-submit-btn" class="newsletter-btn">Subscribe for free</button>
+                </form>
+                <p id="hero-form-message" class="form-message"></p>
+            </div>
 
-    <section class="coming-soon">
-        <div class="coming-soon-content">
-            <h2>Go deeper with the full Case Academy</h2>
-            <p class="coming-soon-description">When you're ready for more, the paid community includes:</p>
-            <ul class="coming-soon-features">
-                <li>Full video walkthrough courses for case and behavioral interviews</li>
-                <li>Practice library with video solutions for CA Weekly problems</li>
-                <li>Practice partner matching within peer community</li>
-                <li>Resource vault including resume and cover letter templates and guides</li>
-            </ul>
-            <p class="coming-soon-note" style="margin-bottom: 1.5rem;">Launching soon — join CA Weekly to get early access.</p>
-            <a href="https://case-academy-app.vercel.app" class="cta-btn">Get Started →</a>
+            <!-- Card 2: Full Case Academy -->
+            <div class="track-card">
+                <h2>Go Deeper with Case Academy</h2>
+                <p class="track-description">The full platform — video courses, a practice library, and a peer community to get you interview-ready.</p>
+                <ul class="track-features">
+                    <li>
+                        <span class="checkmark">✓</span>
+                        <span>Full video walkthrough courses for case and behavioral interviews</span>
+                    </li>
+                    <li>
+                        <span class="checkmark">✓</span>
+                        <span>Practice library with video solutions for CA Weekly problems</span>
+                    </li>
+                    <li>
+                        <span class="checkmark">✓</span>
+                        <span>Practice partner matching within peer community</span>
+                    </li>
+                </ul>
+                <a href="https://case-academy-app.vercel.app" class="cta-btn track-cta">Enter Case Academy →</a>
+            </div>
         </div>
     </section>
 
@@ -944,7 +1136,7 @@
             heroSubmitBtn.disabled = true;
             heroSubmitBtn.textContent = 'Joining...';
             heroMessageEl.textContent = '';
-            heroMessageEl.className = 'hero-form-message';
+            heroMessageEl.className = 'form-message';
 
             try {
                 const response = await fetch(
@@ -985,7 +1177,7 @@
 
         function showHeroMessage(text, type) {
             heroMessageEl.textContent = text;
-            heroMessageEl.className = `hero-form-message ${type}`;
+            heroMessageEl.className = `form-message ${type}`;
         }
 
         // Back to top functionality
