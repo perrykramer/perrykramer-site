@@ -1348,11 +1348,11 @@
         <div class="hero-image">
             <img src="images/site-pics/Mont St Victoire Watercolor 6.jpg" alt="Mont St Victoire" class="hero-img-light">
             <img src="images/site-pics/Fire Watercolor.jpg" alt="Fire Watercolor" class="hero-img-dark">
-            <div class="image-info-overlay">
+            <a class="image-info-overlay" href="https://open.substack.com/pub/perrykramer/p/lessons-from-a-backpack?utm_campaign=post&utm_medium=email" target="_blank" rel="noopener noreferrer">
                 <span class="info-icon">i</span>
                 <span class="info-text info-text-light">On top of Mont St. Victoire in Provence, France</span>
                 <span class="info-text info-text-dark">Camping under the stars in White Desert National Park, Egypt</span>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -2194,55 +2194,7 @@
             localStorage.setItem('theme', newTheme);
         });
 
-        // Image info overlay touch support for mobile
-        const imageInfoOverlay = document.querySelector('.image-info-overlay');
-        if (imageInfoOverlay) {
-            let isExpanded = false;
-            let hideTimeout;
-
-            // Handle touch events on mobile
-            imageInfoOverlay.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-
-                    if (isExpanded) {
-                        imageInfoOverlay.style.maxWidth = '';
-                        imageInfoOverlay.style.paddingRight = '';
-                        imageInfoOverlay.style.gap = '';
-                        imageInfoOverlay.querySelector('.info-text').style.opacity = '';
-                        isExpanded = false;
-                    } else {
-                        imageInfoOverlay.style.maxWidth = '400px';
-                        imageInfoOverlay.style.paddingRight = '14px';
-                        imageInfoOverlay.style.gap = '8px';
-                        imageInfoOverlay.querySelector('.info-text').style.opacity = '1';
-                        isExpanded = true;
-
-                        // Auto-collapse after 3 seconds
-                        clearTimeout(hideTimeout);
-                        hideTimeout = setTimeout(() => {
-                            imageInfoOverlay.style.maxWidth = '';
-                            imageInfoOverlay.style.paddingRight = '';
-                            imageInfoOverlay.style.gap = '';
-                            imageInfoOverlay.querySelector('.info-text').style.opacity = '';
-                            isExpanded = false;
-                        }, 3000);
-                    }
-                }
-            });
-
-            // Close on outside tap for mobile
-            document.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768 && isExpanded && !imageInfoOverlay.contains(e.target)) {
-                    imageInfoOverlay.style.maxWidth = '';
-                    imageInfoOverlay.style.paddingRight = '';
-                    imageInfoOverlay.style.gap = '';
-                    imageInfoOverlay.querySelector('.info-text').style.opacity = '';
-                    isExpanded = false;
-                    clearTimeout(hideTimeout);
-                }
-            });
-        }
+        // Image info overlay is now a link — no JS needed
 
         // Handle placeholder links (href="#") - show "Work in progress" message
         document.querySelectorAll('a.hero-link[href="#"]').forEach(link => {
