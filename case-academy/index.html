@@ -1131,7 +1131,7 @@
             });
         });
 
-        // Substack newsletter signup integration
+        // Substack newsletter signup integration (redirect approach)
         const heroForm = document.getElementById('hero-signup-form');
         const heroEmailInput = document.getElementById('hero-email-input');
         const heroSubmitBtn = document.getElementById('hero-submit-btn');
@@ -1139,7 +1139,7 @@
 
         const SUBSTACK_URL = 'https://perrykramer5.substack.com';
 
-        heroForm.addEventListener('submit', async (e) => {
+        heroForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
             const email = heroEmailInput.value.trim();
@@ -1149,46 +1149,9 @@
                 return;
             }
 
-            heroSubmitBtn.disabled = true;
-            heroSubmitBtn.textContent = 'Joining...';
-            heroMessageEl.textContent = '';
-            heroMessageEl.className = 'form-message';
-
-            try {
-                const formData = new URLSearchParams();
-                formData.append('email', email);
-                formData.append('first_url', window.location.href);
-                formData.append('first_referrer', document.referrer || '');
-                formData.append('current_url', window.location.href);
-                formData.append('current_referrer', document.referrer || '');
-
-                await fetch(
-                    `${SUBSTACK_URL}/api/v1/free?nojs=true`,
-                    {
-                        method: 'POST',
-                        mode: 'no-cors',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                        },
-                        body: formData.toString(),
-                    }
-                );
-
-                showHeroMessage(
-                    "You're in! Check your inbox for a welcome email from CA Weekly. If you don't see it in a few minutes, check spam and mark us as safe.",
-                    'success'
-                );
-                heroEmailInput.value = '';
-                heroSubmitBtn.textContent = 'Subscribed ✓';
-
-            } catch (error) {
-                showHeroMessage(
-                    'Something went wrong. Please try again or email me directly.',
-                    'error'
-                );
-                heroSubmitBtn.disabled = false;
-                heroSubmitBtn.textContent = 'Subscribe for free';
-            }
+            // Redirect to Substack subscribe page with email pre-filled
+            const subscribeUrl = `${SUBSTACK_URL}/subscribe?email=${encodeURIComponent(email)}`;
+            window.location.href = subscribeUrl;
         });
 
         function showHeroMessage(text, type) {
