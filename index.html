@@ -1649,6 +1649,7 @@
             {title: "Leonardo Da Vinci", author: "Walter Isaacson", fileName: "Leonardo Da Vinci.jpg", tags: ["nonfiction", "biography"], asin: "1501139150"},
             {title: "Lord of the Flies", author: "William Golding", fileName: "Lord of the Flies.jpg", tags: ["fiction", "classic"], asin: "0399501487"},
             {title: "The Lords of Strategy", author: "Walter Kiechel", fileName: "The Lords of Strategy.jpg", tags: ["nonfiction", "business"], asin: "1591397820"},
+            {title: "The Minto Pyramid Principle", author: "Barbara Minto", imageUrl: "https://images-na.ssl-images-amazon.com/images/I/81M4t6tb31L.jpg", tags: ["nonfiction", "business", "writing"], asin: "0960191046"},
             {title: "Murder on the Orient Express", author: "Agatha Christie", fileName: "Murder on the Orient Express.jpg", tags: ["fiction", "mystery"], asin: "0062073508"},
             {title: "No Country for Old Men", author: "Cormac McCarthy", fileName: "No Country for Old Men.jpg", tags: ["fiction"], asin: "0375706674"},
             {title: "The Omnivore's Dilemma", author: "Michael Pollan", fileName: "The Omnivore's Dilemma.jpg", tags: ["nonfiction", "food", "environment"], asin: "0143038583"},
@@ -1709,7 +1710,7 @@
             img.className = 'book-cover';
             img.alt = book.title;
             img.style.display = 'none';
-            img.src = `images/book covers/${book.fileName}`;
+            img.src = book.imageUrl || `images/book covers/${book.fileName}`;
             
             img.onload = function() {
                 if (this.naturalWidth > 1 && this.naturalHeight > 1) {
@@ -2141,7 +2142,7 @@
 
         function openBookModal(bookIndex) {
             const book = books[bookIndex];
-            bookModalImage.src = `images/book covers/${book.fileName}`;
+            bookModalImage.src = book.imageUrl || `images/book covers/${book.fileName}`;
             bookModalImage.alt = book.title;
             bookModalTitle.textContent = book.title;
             bookModalAuthor.textContent = `by ${book.author}`;
