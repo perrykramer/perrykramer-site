@@ -1088,6 +1088,45 @@
             transition: color 0.3s;
         }
 
+        .book-modal-description p {
+            margin: 0 0 1rem;
+        }
+
+        .book-modal-description ol,
+        .book-modal-description ul {
+            margin: 0 0 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .book-modal-description li ul {
+            margin: 0.25rem 0 0.5rem;
+        }
+
+        .book-modal-description a {
+            color: var(--text-primary);
+            text-decoration: underline;
+        }
+
+        .book-modal-photos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 0 0 1rem;
+        }
+
+        .book-modal-photos figure {
+            margin: 0;
+            width: 120px;
+        }
+
+        .book-modal-photos img {
+            display: block;
+            width: 120px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
         .book-modal-buy-btn {
             display: inline-block;
             padding: 0.875rem 1.75rem;
@@ -1128,6 +1167,10 @@
 
             .book-modal-details {
                 text-align: center;
+            }
+
+            .book-modal-description {
+                text-align: left;
             }
         }
 
@@ -1329,7 +1372,7 @@
                     <div class="hero-border-left">
                         <div style="margin-bottom: 0.75rem;">
                             <p class="hero-text-primary">Studied math and entrepreneurship, played lacrosse at W&L</p>
-                            <a href="#" class="hero-link">→ <span>The Aleks and Alex story</span></a>
+                            <a href="https://perrykramer.substack.com/p/the-house-on-the-hill?r=1ov2km&utm_campaign=post&utm_medium=web" class="hero-link" target="_blank" rel="noopener noreferrer">→ <span>... and met Aleks and Alex while trespassing on their property</span></a>
                         </div>
                         <div style="margin-bottom: 0.75rem;">
                             <p class="hero-text-primary">Visited 12 countries in 12 weeks with everything in a backpack</p>
@@ -1600,7 +1643,7 @@
                 <div class="book-modal-details">
                     <h2 class="book-modal-title"></h2>
                     <p class="book-modal-author"></p>
-                    <p class="book-modal-description">A thought-provoking read that challenges conventional wisdom and offers fresh perspectives on its subject matter. This book combines compelling storytelling with deep insights, making it both an enjoyable and enriching experience. Whether you're new to the topic or well-versed in it, you'll find something valuable within these pages.</p>
+                    <div class="book-modal-description"><p>A thought-provoking read that challenges conventional wisdom and offers fresh perspectives on its subject matter. This book combines compelling storytelling with deep insights, making it both an enjoyable and enriching experience. Whether you're new to the topic or well-versed in it, you'll find something valuable within these pages.</p></div>
                     <a href="" target="_blank" class="book-modal-buy-btn">Buy on Amazon</a>
                 </div>
             </div>
@@ -1609,71 +1652,72 @@
 
     <script>
                 const books = [
-            {title: "1984", author: "George Orwell", fileName: "1984.jpg", tags: ["fiction", "classic", "dystopian"], asin: "0451524934"},
-            {title: "Adventures of Huckleberry Finn", author: "Mark Twain", fileName: "Adventures of Huckleberry Finn.jpg", tags: ["fiction", "classic"], asin: "0486280616"},
-            {title: "The Alchemist", author: "Paulo Coelho", fileName: "The Alchemist.jpg", tags: ["fiction", "philosophy"], asin: "0062315005"},
-            {title: "All the Pretty Horses", author: "Cormac McCarthy", fileName: "All the Pretty Horses.jpg", tags: ["fiction"], asin: "0679744398"},
-            {title: "And Then There Were None", author: "Agatha Christie", fileName: "And Then There Were None.jpg", tags: ["fiction", "mystery"], asin: "0062073486"},
-            {title: "Angela's Ashes", author: "Frank McCourt", fileName: "Angela's Ashes.jpg", tags: ["nonfiction", "biography", "memoir"], asin: "068484267X"},
-            {title: "Animal Farm", author: "George Orwell", fileName: "Animal Farm.jpg", tags: ["fiction", "classic"], asin: "0451526341"},
-            {title: "Anna Karenina", author: "Leo Tolstoy", fileName: "Anna Karenina.jpg", tags: ["fiction", "classic"], asin: "0143035002"},
-            {title: "Atlas Shrugged", author: "Ayn Rand", fileName: "Atlas Shrugged.jpg", tags: ["fiction", "philosophy"], asin: "0451191145"},
-            {title: "The Bitcoin Standard", author: "Saifedean Ammous", fileName: "The Bitcoin Standard.jpg", tags: ["nonfiction", "economics", "technology"], asin: "1119473861"},
-            {title: "The Book Thief", author: "Markus Zusak", fileName: "The Book Thief.jpg", tags: ["fiction", "historical"], asin: "0375842209"},
-            {title: "Brave New World", author: "Aldous Huxley", fileName: "Brave New World.jpg", tags: ["fiction", "classic", "dystopian"], asin: "0060850523"},
-            {title: "Change By Design", author: "Tim Brown", fileName: "Change By Design.jpg", tags: ["nonfiction", "business", "design"], asin: "0061766089"},
-            {title: "The Charisma Myth", author: "Olivia Fox Cabane", fileName: "The Charisma Myth.jpg", tags: ["nonfiction", "psychology", "self-help"], asin: "1591845947"},
-            {title: "The Count of Monte Cristo", author: "Alexandre Dumas", fileName: "The Count of Monte Cristo.jpg", tags: ["fiction", "classic"], asin: "0140449264"},
-            {title: "Death of a Salesman", author: "Arthur Miller", fileName: "Death of a Salesman.jpg", tags: ["fiction", "drama", "classic"], asin: "0140481346"},
-            {title: "The Defining Decade", author: "Meg Jay", fileName: "The Defining Decade.jpg", tags: ["nonfiction", "psychology", "self-help"], asin: "0446561754"},
-            {title: "The Demon in the Freezer", author: "Richard Preston", fileName: "The Demon in the Freezer.jpg", tags: ["nonfiction", "science"], asin: "0345466632"},
-            {title: "Design is Storytelling", author: "Ellen Lupton", fileName: "Design is Storytelling.jpg", tags: ["nonfiction", "design"], asin: "1942303199"},
-            {title: "Ender's Game", author: "Orson Scott Card", fileName: "Ender's Game.jpg", tags: ["fiction", "science-fiction"], asin: "0812550706"},
-            {title: "Factfulness", author: "Hans Rosling", fileName: "Factfulness.jpg", tags: ["nonfiction", "economics", "statistics"], asin: "1250123828"},
-            {title: "Fathers and Sons", author: "Ivan Turgenev", fileName: "Fathers and Sons.jpg", tags: ["fiction", "classic"], asin: "0140441476"},
-            {title: "Fermat's Last Theorem", author: "Simon Singh", fileName: "Fermat's Last Theorem.jpg", tags: ["nonfiction", "mathematics"], asin: "0385493622"},
-            {title: "Flow", author: "Mihaly Csikszentmihalyi", fileName: "Flow.jpg", tags: ["nonfiction", "psychology"], asin: "0061339202"},
-            {title: "The Four Pillars of Geometry", author: "John Stillwell", fileName: "The Four Pillars of Geometry.jpg", tags: ["nonfiction", "mathematics"], asin: "0387255303"},
-            {title: "Freakonomics", author: "Steven D. Levitt", fileName: "Freakonomics.jpg", tags: ["nonfiction", "economics"], asin: "0060731338"},
-            {title: "A Game of Thrones", author: "George R.R. Martin", fileName: "A Game of Thrones.jpg", tags: ["fiction", "fantasy"], asin: "0553573403"},
-            {title: "Getting Things Done", author: "David Allen", fileName: "Getting Things Done.jpg", tags: ["nonfiction", "productivity", "business"], asin: "0143126563"},
-            {title: "The Great Gatsby", author: "F. Scott Fitzgerald", fileName: "The Great Gatsby.jpg", tags: ["fiction", "classic"], asin: "0743273567"},
+            {title: "1984", author: "George Orwell", year: 1949, fileName: "1984.jpg", tags: ["fiction", "classic", "dystopian"], asin: "0451524934"},
+            {title: "Adventures of Huckleberry Finn", author: "Mark Twain", year: 1884, fileName: "Adventures of Huckleberry Finn.jpg", tags: ["fiction", "classic"], asin: "0486280616"},
+            {title: "The Alchemist", author: "Paulo Coelho", year: 1988, fileName: "The Alchemist.jpg", tags: ["fiction", "philosophy"], asin: "0062315005"},
+            {title: "All the Pretty Horses", author: "Cormac McCarthy", year: 1992, fileName: "All the Pretty Horses.jpg", tags: ["fiction"], asin: "0679744398"},
+            {title: "And Then There Were None", author: "Agatha Christie", year: 1939, fileName: "And Then There Were None.jpg", tags: ["fiction", "mystery"], asin: "0062073486"},
+            {title: "Angela's Ashes", author: "Frank McCourt", year: 1996, fileName: "Angela's Ashes.jpg", tags: ["nonfiction", "biography", "memoir"], asin: "068484267X"},
+            {title: "Animal Farm", author: "George Orwell", year: 1945, fileName: "Animal Farm.jpg", tags: ["fiction", "classic"], asin: "0451526341"},
+            {title: "Anna Karenina", author: "Leo Tolstoy", year: 1878, fileName: "Anna Karenina.jpg", tags: ["fiction", "classic"], asin: "0143035002"},
+            {title: "Atlas Shrugged", author: "Ayn Rand", year: 1957, fileName: "Atlas Shrugged.jpg", tags: ["fiction", "philosophy"], asin: "0451191145"},
+            {title: "The Bitcoin Standard", author: "Saifedean Ammous", year: 2018, fileName: "The Bitcoin Standard.jpg", tags: ["nonfiction", "economics", "technology"], asin: "1119473861"},
+            {title: "The Book Thief", author: "Markus Zusak", year: 2005, fileName: "The Book Thief.jpg", tags: ["fiction", "historical"], asin: "0375842209"},
+            {title: "Brave New World", author: "Aldous Huxley", year: 1932, fileName: "Brave New World.jpg", tags: ["fiction", "classic", "dystopian"], asin: "0060850523"},
+            {title: "Change By Design", author: "Tim Brown", year: 2009, fileName: "Change By Design.jpg", tags: ["nonfiction", "business", "design"], asin: "0061766089"},
+            {title: "The Charisma Myth", author: "Olivia Fox Cabane", year: 2012, fileName: "The Charisma Myth.jpg", tags: ["nonfiction", "psychology", "self-help"], asin: "1591845947"},
+            {title: "The Count of Monte Cristo", author: "Alexandre Dumas", year: 1844, fileName: "The Count of Monte Cristo.jpg", tags: ["fiction", "classic"], asin: "0140449264"},
+            {title: "Death of a Salesman", author: "Arthur Miller", year: 1949, fileName: "Death of a Salesman.jpg", tags: ["fiction", "drama", "classic"], asin: "0140481346"},
+            {title: "The Defining Decade", author: "Meg Jay", year: 2012, fileName: "The Defining Decade.jpg", tags: ["nonfiction", "psychology", "self-help"], asin: "0446561754"},
+            {title: "The Demon in the Freezer", author: "Richard Preston", year: 2002, fileName: "The Demon in the Freezer.jpg", tags: ["nonfiction", "science"], asin: "0345466632"},
+            {title: "Design is Storytelling", author: "Ellen Lupton", year: 2017, fileName: "Design is Storytelling.jpg", tags: ["nonfiction", "design"], asin: "1942303199"},
+            {title: "Ender's Game", author: "Orson Scott Card", year: 1985, fileName: "Ender's Game.jpg", tags: ["fiction", "science-fiction"], asin: "0812550706"},
+            {title: "Factfulness", author: "Hans Rosling", year: 2018, fileName: "Factfulness.jpg", tags: ["nonfiction", "economics", "statistics"], asin: "1250123828"},
+            {title: "Fathers and Sons", author: "Ivan Turgenev", year: 1862, fileName: "Fathers and Sons.jpg", tags: ["fiction", "classic"], asin: "0140441476"},
+            {title: "Fermat's Last Theorem", author: "Simon Singh", year: 1997, fileName: "Fermat's Last Theorem.jpg", tags: ["nonfiction", "mathematics"], asin: "0385493622"},
+            {title: "Flow", author: "Mihaly Csikszentmihalyi", year: 1990, fileName: "Flow.jpg", tags: ["nonfiction", "psychology"], asin: "0061339202"},
+            {title: "The Four Pillars of Geometry", author: "John Stillwell", year: 2005, fileName: "The Four Pillars of Geometry.jpg", tags: ["nonfiction", "mathematics"], asin: "0387255303"},
+            {title: "Freakonomics", author: "Steven D. Levitt", year: 2005, fileName: "Freakonomics.jpg", tags: ["nonfiction", "economics"], asin: "0060731338"},
+            {title: "A Game of Thrones", author: "George R.R. Martin", year: 1996, fileName: "A Game of Thrones.jpg", tags: ["fiction", "fantasy"], asin: "0553573403"},
+            {title: "Getting Things Done", author: "David Allen", year: 2001, fileName: "Getting Things Done.jpg", tags: ["nonfiction", "productivity", "business"], asin: "0143126563"},
+            {title: "The Great Gatsby", author: "F. Scott Fitzgerald", year: 1925, fileName: "The Great Gatsby.jpg", tags: ["fiction", "classic"], asin: "0743273567"},
             {title: "The Holy Bible", author: "English Standard Version", imageUrl: "https://covers.openlibrary.org/b/id/10197661-L.jpg", tags: ["nonfiction", "religion", "classic"], asin: "0007466021"},
-            {title: "How to Read Literature Like a Professor", author: "Thomas C. Foster", fileName: "How to Read Literature Like a Professor.jpg", tags: ["nonfiction", "literature"], asin: "006296359X"},
-            {title: "How Will You Measure Your Life?", author: "Clayton M. Christensen", fileName: "How Will You Measure Your Life.jpg", tags: ["nonfiction", "business", "self-help"], asin: "0062102419"},
-            {title: "The Importance of Being Earnest", author: "Oscar Wilde", fileName: "The Importance of Being Earnest.jpg", tags: ["fiction", "drama", "classic"], asin: "0486264785"},
-            {title: "Invisible Man", author: "Ralph Ellison", fileName: "Invisible Man.jpg", tags: ["fiction", "classic"], asin: "0679732764"},
-            {title: "Into the Wild", author: "Jon Krakauer", fileName: "Into the Wild.jpg", tags: ["nonfiction", "biography", "adventure"], asin: "0385486804"},
-            {title: "Into Thin Air", author: "Jon Krakauer", fileName: "Into Thin Air.jpg", tags: ["nonfiction", "biography", "adventure"], asin: "0385494785"},
-            {title: "King Lear", author: "William Shakespeare", fileName: "King Lear.jpg", tags: ["fiction", "drama", "classic"], asin: "0743482778"},
-            {title: "Leonardo Da Vinci", author: "Walter Isaacson", fileName: "Leonardo Da Vinci.jpg", tags: ["nonfiction", "biography"], asin: "1501139150"},
-            {title: "Lord of the Flies", author: "William Golding", fileName: "Lord of the Flies.jpg", tags: ["fiction", "classic"], asin: "0399501487"},
-            {title: "The Lords of Strategy", author: "Walter Kiechel", fileName: "The Lords of Strategy.jpg", tags: ["nonfiction", "business"], asin: "1591397820"},
-            {title: "The Minto Pyramid Principle", author: "Barbara Minto", imageUrl: "https://images-na.ssl-images-amazon.com/images/I/81M4t6tb31L.jpg", tags: ["nonfiction", "business", "writing"], asin: "0960191046"},
-            {title: "Murder on the Orient Express", author: "Agatha Christie", fileName: "Murder on the Orient Express.jpg", tags: ["fiction", "mystery"], asin: "0062073508"},
-            {title: "No Country for Old Men", author: "Cormac McCarthy", fileName: "No Country for Old Men.jpg", tags: ["fiction"], asin: "0375706674"},
-            {title: "The Omnivore's Dilemma", author: "Michael Pollan", fileName: "The Omnivore's Dilemma.jpg", tags: ["nonfiction", "food", "environment"], asin: "0143038583"},
-            {title: "On the Road", author: "Jack Kerouac", fileName: "On the Road.jpg", tags: ["fiction", "classic"], asin: "0140283293"},
-            {title: "One Second After", author: "William R. Forstchen", fileName: "One Second After.jpg", tags: ["fiction", "thriller"], asin: "0765356864"},
-            {title: "One Year After", author: "William R. Forstchen", fileName: "One Year After.jpg", tags: ["fiction", "thriller"], asin: "0765376717"},
-            {title: "Outcasts United", author: "Warren St. John", fileName: "Outcasts United.jpg", tags: ["nonfiction", "biography", "sports"], asin: "0385522045"},
-            {title: "Outliers", author: "Malcolm Gladwell", fileName: "Outliers.jpg", tags: ["nonfiction", "psychology", "business"], asin: "0316017930"},
-            {title: "Poor Charlie's Almanac", author: "Charles Munger", fileName: "Poor Charlie's Almanac.jpg", tags: ["nonfiction", "business", "investing"], asin: "1578645018"},
-            {title: "Pride and Prejudice", author: "Jane Austen", fileName: "Pride and Prejudice.jpg", tags: ["fiction", "classic", "romance"], asin: "0141439513"},
-            {title: "The Psychology of Money", author: "Morgan Housel", imageUrl: "https://covers.openlibrary.org/b/isbn/9780857197689-L.jpg", tags: ["nonfiction", "economics", "psychology", "investing"], asin: "0857197681"},
-            {title: "Revolutionary Characters", author: "Gordon S. Wood", fileName: "Revolutionary Characters.jpg", tags: ["nonfiction", "history", "biography"], asin: "0143112082"},
-            {title: "The Shape of Space", author: "Jeffrey R. Weeks", fileName: "The Shape of Space.jpg", tags: ["nonfiction", "mathematics"], asin: "0824707095"},
-            {title: "Shape Up", author: "Ryan Singer", fileName: "Shape Up.jpg", tags: ["nonfiction", "business", "productivity"], asin: "B08XLGPP1K"},
-            {title: "The Road", author: "Cormac McCarthy", fileName: "The Road.jpg", tags: ["fiction"], asin: "0307387895"},
-            {title: "Romeo and Juliet", author: "William Shakespeare", fileName: "Romeo and Juliet.jpg", tags: ["fiction", "drama", "classic"], asin: "0743477111"},
-            {title: "The Things They Carried", author: "Tim O'Brien", fileName: "The Things They Carried.jpg", tags: ["fiction", "war"], asin: "0618706410"},
-            {title: "Think and Grow Rich", author: "Napoleon Hill", fileName: "Think and Grow Rich.jpg", tags: ["nonfiction", "business", "self-help"], asin: "0449214923"},
-            {title: "A Time to Kill", author: "John Grisham", fileName: "A Time to Kill.jpg", tags: ["fiction", "thriller"], asin: "0385338600"},
-            {title: "'Tis", author: "Frank McCourt", fileName: "'Tis.jpg", tags: ["nonfiction", "biography", "memoir"], asin: "0684865742"},
-            {title: "Unreasonable Hospitality", author: "Will Guidara", imageUrl: "https://covers.openlibrary.org/b/isbn/9780593418574-L.jpg", tags: ["nonfiction", "business"], asin: "0593418573"},
-            {title: "The Watsons Go to Birmingham", author: "Christopher Paul Curtis", fileName: "The Watsons Go to Birmingham.jpg", tags: ["fiction", "historical"], asin: "0440414121"},
-            {title: "Why We Sleep", author: "Matthew Walker", fileName: "Why We Sleep.jpg", tags: ["nonfiction", "science", "health"], asin: "1501144316"},
-            {title: "Writing Science in Plain English", author: "Anne E. Greene", fileName: "Writing Science in Plain English.jpg", tags: ["nonfiction", "writing", "science"], asin: "0226026361"},
+            {title: "How to Read Literature Like a Professor", author: "Thomas C. Foster", year: 2003, fileName: "How to Read Literature Like a Professor.jpg", tags: ["nonfiction", "literature"], asin: "006296359X"},
+            {title: "How Will You Measure Your Life?", author: "Clayton M. Christensen", year: 2012, fileName: "How Will You Measure Your Life.jpg", tags: ["nonfiction", "business", "self-help"], asin: "0062102419"},
+            {title: "The Importance of Being Earnest", author: "Oscar Wilde", year: 1899, fileName: "The Importance of Being Earnest.jpg", tags: ["fiction", "drama", "classic"], asin: "0486264785"},
+            {title: "Invisible Man", author: "Ralph Ellison", year: 1952, fileName: "Invisible Man.jpg", tags: ["fiction", "classic"], asin: "0679732764"},
+            {title: "Into the Wild", author: "Jon Krakauer", year: 1996, fileName: "Into the Wild.jpg", tags: ["nonfiction", "biography", "adventure"], asin: "0385486804"},
+            {title: "Into Thin Air", author: "Jon Krakauer", year: 1997, fileName: "Into Thin Air.jpg", tags: ["nonfiction", "biography", "adventure"], asin: "0385494785"},
+            {title: "King Lear", author: "William Shakespeare", year: 1608, fileName: "King Lear.jpg", tags: ["fiction", "drama", "classic"], asin: "0743482778"},
+            {title: "Leonardo Da Vinci", author: "Walter Isaacson", year: 2017, fileName: "Leonardo Da Vinci.jpg", tags: ["nonfiction", "biography"], asin: "1501139150"},
+            {title: "Lord of the Flies", author: "William Golding", year: 1954, fileName: "Lord of the Flies.jpg", tags: ["fiction", "classic"], asin: "0399501487"},
+            {title: "The Lords of Strategy", author: "Walter Kiechel", year: 2010, fileName: "The Lords of Strategy.jpg", tags: ["nonfiction", "business"], asin: "1591397820"},
+            {title: "The Minto Pyramid Principle", author: "Barbara Minto", year: 1978, imageUrl: "https://images-na.ssl-images-amazon.com/images/I/81M4t6tb31L.jpg", tags: ["nonfiction", "business", "writing"], asin: "0960191046"},
+            {title: "Murder on the Orient Express", author: "Agatha Christie", year: 1934, fileName: "Murder on the Orient Express.jpg", tags: ["fiction", "mystery"], asin: "0062073508"},
+            {title: "No Country for Old Men", author: "Cormac McCarthy", year: 2005, fileName: "No Country for Old Men.jpg", tags: ["fiction"], asin: "0375706674"},
+            {title: "The Omnivore's Dilemma", author: "Michael Pollan", year: 2006, fileName: "The Omnivore's Dilemma.jpg", tags: ["nonfiction", "food", "environment"], asin: "0143038583"},
+            {title: "On the Road", author: "Jack Kerouac", year: 1957, fileName: "On the Road.jpg", tags: ["fiction", "classic"], asin: "0140283293"},
+            {title: "One Second After", author: "William R. Forstchen", year: 2009, fileName: "One Second After.jpg", tags: ["fiction", "thriller"], asin: "0765356864"},
+            {title: "One Year After", author: "William R. Forstchen", year: 2015, fileName: "One Year After.jpg", tags: ["fiction", "thriller"], asin: "0765376717"},
+            {title: "Outcasts United", author: "Warren St. John", year: 2009, fileName: "Outcasts United.jpg", tags: ["nonfiction", "biography", "sports"], asin: "0385522045"},
+            {title: "Outliers", author: "Malcolm Gladwell", year: 2008, fileName: "Outliers.jpg", tags: ["nonfiction", "psychology", "business"], asin: "0316017930"},
+            {title: "Poor Charlie's Almanac", author: "Charles Munger", year: 2005, fileName: "Poor Charlie's Almanac.jpg", tags: ["nonfiction", "business", "investing"], asin: "1578645018"},
+            {title: "Pride and Prejudice", author: "Jane Austen", year: 1813, fileName: "Pride and Prejudice.jpg", tags: ["fiction", "classic", "romance"], asin: "0141439513"},
+            {title: "The Psychology of Money", author: "Morgan Housel", year: 2020, imageUrl: "https://covers.openlibrary.org/b/isbn/9780857197689-L.jpg", tags: ["nonfiction", "economics", "psychology", "investing"], asin: "0857197681"},
+            {title: "Revolutionary Characters", author: "Gordon S. Wood", year: 2006, fileName: "Revolutionary Characters.jpg", tags: ["nonfiction", "history", "biography"], asin: "0143112082"},
+            {title: "Rich Dad Poor Dad", author: "Robert T. Kiyosaki", year: 1997, imageUrl: "https://covers.openlibrary.org/b/isbn/9781612680194-L.jpg", tags: ["nonfiction", "business", "investing"], asin: "1612680194"},
+            {title: "The Shape of Space", author: "Jeffrey R. Weeks", year: 1985, fileName: "The Shape of Space.jpg", tags: ["nonfiction", "mathematics"], asin: "0824707095"},
+            {title: "Shape Up", author: "Ryan Singer", year: 2019, fileName: "Shape Up.jpg", tags: ["nonfiction", "business", "productivity"], asin: "B08XLGPP1K"},
+            {title: "The Road", author: "Cormac McCarthy", year: 2006, fileName: "The Road.jpg", tags: ["fiction"], asin: "0307387895"},
+            {title: "Romeo and Juliet", author: "William Shakespeare", year: 1597, fileName: "Romeo and Juliet.jpg", tags: ["fiction", "drama", "classic"], asin: "0743477111"},
+            {title: "The Things They Carried", author: "Tim O'Brien", year: 1990, fileName: "The Things They Carried.jpg", tags: ["fiction", "war"], asin: "0618706410"},
+            {title: "Think and Grow Rich", author: "Napoleon Hill", year: 1937, fileName: "Think and Grow Rich.jpg", tags: ["nonfiction", "business", "self-help"], asin: "0449214923"},
+            {title: "A Time to Kill", author: "John Grisham", year: 1989, fileName: "A Time to Kill.jpg", tags: ["fiction", "thriller"], asin: "0385338600"},
+            {title: "'Tis", author: "Frank McCourt", year: 1999, fileName: "'Tis.jpg", tags: ["nonfiction", "biography", "memoir"], asin: "0684865742"},
+            {title: "Unreasonable Hospitality", author: "Will Guidara", year: 2022, imageUrl: "https://covers.openlibrary.org/b/isbn/9780593418574-L.jpg", tags: ["nonfiction", "business"], asin: "0593418573"},
+            {title: "The Watsons Go to Birmingham", author: "Christopher Paul Curtis", year: 1995, fileName: "The Watsons Go to Birmingham.jpg", tags: ["fiction", "historical"], asin: "0440414121"},
+            {title: "Why We Sleep", author: "Matthew Walker", year: 2017, fileName: "Why We Sleep.jpg", tags: ["nonfiction", "science", "health"], asin: "1501144316"},
+            {title: "Writing Science in Plain English", author: "Anne E. Greene", year: 2013, fileName: "Writing Science in Plain English.jpg", tags: ["nonfiction", "writing", "science"], asin: "0226026361"},
         ];
 
         const bookGrid = document.getElementById('bookGrid');
@@ -1729,7 +1773,7 @@
             
             const titleDiv = document.createElement('div');
             titleDiv.className = 'book-title';
-            titleDiv.textContent = book.title;
+            titleDiv.textContent = book.year ? `${book.title} (${book.year})` : book.title;
             
             const authorDiv = document.createElement('div');
             authorDiv.className = 'book-author';
@@ -2141,13 +2185,75 @@
         const bookModalTitle = bookModal.querySelector('.book-modal-title');
         const bookModalAuthor = bookModal.querySelector('.book-modal-author');
         const bookModalBuyBtn = bookModal.querySelector('.book-modal-buy-btn');
+        const bookModalDescription = bookModal.querySelector('.book-modal-description');
+        const defaultBookDescription = bookModalDescription.innerHTML;
+
+        // Personal descriptions, keyed by book title. Books not listed here show the default description.
+        const bookDescriptions = {
+            "1984": `
+                <p>If you’ve ever heard the term “Big Brother” in reference to a dystopian all-seeing authority, this novel is where that comes from.</p>
+                <p>1984 was written in 1949 by English author Eric Arthur Blair, who used the pen name George Orwell. Orwell paints a grim picture of what it would look like for a brutal, totalitarian government (called The Party) to have complete control over its citizens, including their thoughts and emotions.</p>
+                <p>In the book, the government is composed of four ministries, each with their own core functions:</p>
+                <ol>
+                    <li>Ministry of Truth
+                        <ul>
+                            <li>Rewrites history so that The Party is never viewed as having been wrong</li>
+                            <li>Destroys original documents that conflict with The Party’s policy</li>
+                            <li>Controls media and culture, including news and low-quality entertainment</li>
+                            <li>Promoting “Newspeak”, a simpler version of English with less vocabulary that excludes concepts of individuality and freedom</li>
+                        </ul>
+                    </li>
+                    <li>Ministry of Peace
+                        <ul>
+                            <li>Conducts continual war with other nations</li>
+                            <li>Keeps citizens in a state of scarcity by using surplus resources for war</li>
+                            <li>Promotes the slogan “War is Peace”, referring to the structure maintained domestically when the country is in a state of war</li>
+                        </ul>
+                    </li>
+                    <li>Ministry of Love
+                        <ul>
+                            <li>Uses secret police, called “Thought Police,” to arrest, torture, and interrogate people suspected of having thoughts or emotions independent of The Party</li>
+                            <li>Breaks the will of dissidents, so that they love Big Brother above all else, before executing them</li>
+                        </ul>
+                    </li>
+                    <li>Ministry of Plenty
+                        <ul>
+                            <li>Maintains a state of scarcity, distributing food, clothing, and daily necessities to citizens</li>
+                            <li>Runs lotteries for the working-class majority where the payout isn’t actually rewarded to anyone</li>
+                            <li>Organizes the production of weaponry and supplies for war</li>
+                        </ul>
+                    </li>
+                </ol>`,
+            "Adventures of Huckleberry Finn": `
+                <p>Published in 1884, this is Mark Twain’s most famous novel. It follows a young boy, Huck, as he escapes his abusive father and floats down the Mississippi river on a raft with a runaway slave, Jim.</p>
+                <p>I read this book during my first extended backpacking adventure, and I remember being struck by Huck’s innocent wisdom framed as naivety. He observes the absurd world around him, including the adults of his day and their rules, and takes it at face value. When his good nature conflicts with that external environment, he interprets this as a flaw of his own.</p>
+                <p>Also, some guys from my college built a raft and floated it down the Mississippi River and I think that’s really cool. They made a video about it <a href="https://youtu.be/hOPnWYWxaoE?si=J-PZWBX9DYPiCGsU" target="_blank" rel="noopener noreferrer">here</a>.</p>`,
+            "The Alchemist": `
+                <p>The Alchemist is a novel written by Brazilian author Paulo Coelho, published in 1988. It follows a shepherd boy named Santiago on an adventure through the desert in pursuit of hidden treasure near the Pyramids of Egypt.</p>
+                <p>I read this book during my first extended backpacking adventure, which included a journey around the desert and pyramids in Egypt. The line from the book that has stuck with me the most is “All things are one,” a spiritual idea that everything in the universe shares one soul and comes from the same origin. This is related to lessons Santiago learns about recognizing omens and following his intuition.</p>
+                <p>In his journey, Santiago is given two polished stones, one black and one white, to help him make decisions when his own intuition fails. I was reminded of these stones in the Black and White Deserts in Egypt when I came across black and white objects myself: black rocks created from volcanic eruptions into the sea that covered the ground at the time, and white shells left behind by critters that lived underwater.</p>
+                <div class="book-modal-photos">
+                    <figure>
+                        <a href="images/book photos/alchemist-black-stones.jpg" target="_blank" rel="noopener noreferrer"><img src="images/book photos/alchemist-black-stones.jpg" alt="Black volcanic stones held in a hand in Egypt's White Desert" loading="lazy"></a>
+                    </figure>
+                    <figure>
+                        <a href="images/book photos/alchemist-white-shells.jpg" target="_blank" rel="noopener noreferrer"><img src="images/book photos/alchemist-white-shells.jpg" alt="White fossil shells held in a hand in Egypt's White Desert" loading="lazy"></a>
+                    </figure>
+                </div>`,
+            "All the Pretty Horses": `
+                <p>All the Pretty Horses serves as a slap to the face for anyone who romanticizes the life of a traveling cowboy. It follows 16-year-old John Grady Cole as he ventures from Texas into Mexico and learns that the world is much more cold, violent, and unforgiving than what he envisions for himself.</p>
+                <p>I read this book about seven years before writing this description of it, but I vividly remember scenes where they eat beans and tortillas together around a campfire. I was reminded of this in college when I went camping on the Appalachian Trail in Virginia with some friends and used the fire to cook bean, cheese, and tuna quesadillas for dinner one night.</p>`
+        };
 
         function openBookModal(bookIndex) {
             const book = books[bookIndex];
             bookModalImage.src = book.imageUrl || `images/book covers/${book.fileName}`;
             bookModalImage.alt = book.title;
-            bookModalTitle.textContent = book.title;
+            bookModalTitle.textContent = book.year ? `${book.title} (${book.year})` : book.title;
             bookModalAuthor.textContent = `by ${book.author}`;
+            bookModalDescription.innerHTML = bookDescriptions[book.title] || defaultBookDescription;
+            bookModalDescription.scrollTop = 0;
+            bookModal.querySelector('.book-modal-content').scrollTop = 0;
 
             // Generate Amazon affiliate link
             if (book.asin) {
